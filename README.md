@@ -1,7 +1,8 @@
 
 <h1 align="center">
   <br>
-  LOGO
+  <!-- # Add Logo -->
+
   <br>
   CASA
   <br>
@@ -22,8 +23,9 @@
   <a href="#related">Related</a> •
   <a href="#license">License</a>
 </p>
+<!-- # Add Screenshot -->
 
-![screenshot](Screenshot)
+![screenshot] 
 
 ## Key Features
 
