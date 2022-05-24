@@ -66,7 +66,7 @@ $ npm start
 
 ## Download
 
-You can [download](https://github.com/obeezy2/Casa/archive/refs/heads/main.zip) the latest installable version of Markdownify for Windows, macOS and Linux.
+You can [download](https://github.com/obeezy2/Casa/archive/refs/heads/main.zip) the latest installable version of Casa for Windows, macOS and Linux.
 
 
 
