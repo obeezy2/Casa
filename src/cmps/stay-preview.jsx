@@ -8,7 +8,6 @@ export function StayPreview({ stay, remove }) {
         <h2 className='stay-name'>{stay.name}</h2>
         <p className="stay-price">${stay}</p>
         <div className="preview-buttons">
-            <div onClick={() => remove(stay.id)} className='remove-stay-btn'></div>
             <Link to={`/stay/edit/${stay.id}`}>
                 <div className='edit-stay-btn'></div>
             </Link>
