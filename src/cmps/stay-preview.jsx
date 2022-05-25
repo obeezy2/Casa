@@ -1,20 +1,17 @@
-
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 export function StayPreview({ stay }) {
-    return <div className="stay-preview">
-        <div className="stay-img-container">
-        </div>
-        <h2 className='stay-name'>{stay.name}</h2>
-        <p className="stay-price">${stay}</p>
-        <div className="preview-buttons">
-            <Link to={`/stay/edit/${stay.id}`}>
+  return (
+    <Link to={`/stay/details/${stay._id}`} className="stay-preview-container">
+      <div className="stay-img-container">
+        <img src={stay.imgUrls[0]} alt="" />
+      </div>
+      <span className="stay-address">{stay.address.street}</span>
+      <span className="stay-summary">{stay.summary}</span>
+      <p className="stay-price">${stay.price}$/night</p>
+      {/* <Link to={`/stay/edit/${stay.id}`}>
                 <div className='edit-stay-btn'></div>
-            </Link>
-            <Link to={`/stay/details/${stay.id}`}>
-                <div className='details-stay-btn'></div>
-            </Link>
-        </div>
-    </div>
+            </Link> */}
+    </Link>
+  );
 }
-
