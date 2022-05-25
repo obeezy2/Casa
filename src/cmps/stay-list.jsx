@@ -2,10 +2,10 @@ import { StayPreview } from './stay-preview.jsx'
 
 
 
-export function StayList({ onRemove, toys }) {
+export function StayList({ onRemove, stays }) {
 
     return <div className="stay-list">
-        {toys.map(toy => <StayPreview key={stay.id} stay={stay} />)}
+        {stays.map(stay => <StayPreview key={stay.id} stay={stay} />)}
     </div>
 
 }
