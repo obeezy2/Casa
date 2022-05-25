@@ -2,15 +2,14 @@ import { Link, Routes, Route } from "react-router-dom";
 
 import "../src/assets/scss/main.scss";
 import routes from "./routes";
+import { AppHeader } from './cmps/app-header'
+import { AppFooter } from './cmps/app-footer.jsx'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Link to="/">
-          <h1>Aircasa</h1>
-        </Link>
-
+        <AppHeader />
       </header>
       <main>
         <Routes>
@@ -27,9 +26,7 @@ function App() {
         </Routes>
       </main>
 
-      <footer>
-        <h4>footer</h4>
-      </footer>
+      {/* <AppFooter /> */}
     </div>
   );
 }
