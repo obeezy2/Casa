@@ -15,8 +15,8 @@ export function AppHeader() {
         <Link className='user' to="/">User</Link>
         <div className="logo">
             <img className="img-logo" src={`${logoImg}`}></img>
-            <h1 className="text">casa
-            </h1>
+            <Link to='/'> <h1 className="text">casa    </h1></Link>
+
         </div>
     </header >)
 
