@@ -17,7 +17,7 @@ return<section className="app-filter-container">
           <span  >Add guests </span>
         </div> 
         <div className=" search">
-              <sapn className="search-icon">s</sapn>
+              <sapn className="search-icon"></sapn>
         </div>    
     </div>
 </section>
