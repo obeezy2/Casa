@@ -13,6 +13,7 @@
 @import './cmp/app-header';
 @import './cmp/_root-cmp';
 @import './cmp/_user-msg';
+@import './cmp/app-footer.scss';
 
 /* PAGES */
 
@@ -20,6 +21,7 @@
 @import './page/dashboard';
 @import './page/_home-page';
 @import './page/_login';
+@import './page/hero';
 
 
 
