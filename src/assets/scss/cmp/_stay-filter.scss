@@ -1,51 +1,70 @@
 .app-filter-container{
-    
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
     display: flex;
-    justify-content: center;
+    justify-content: stretch;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 35px;
 
+    &:hover{
+
+        box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+        transition: ease-in-out;
+        transition-duration: 0.2s;
+    }
     .app-filter{
         display: flex;
-        border: 1px solid $iw-ihca;
-        border-radius: 35px;
-        padding: 0.3%;
-        width: 30%;
-        :hover:not(:last-child){
-            background-color: $d-nc-lt-s;
-            border-radius: 35px;
-        }
+        // border: 1px solid $iw-ihca;
+     
     }
 
-    .filter-btn{
+    .filter-btn-container{
+        display: flex;
         flex: 4;
         text-align: center;
+        justify-content: center;
+        width: fit-content;
+        align-items: center;
+        height: 48px;
         cursor: pointer;
         .filter-btn-sub-title{
             width: 100%;
         }
+       .filter-btn {
+         padding-inline: 16px;
+        }
 
     }
-
-    .filter-btn-location{
-        border-right: 1px solid $iw-ihca;
+    .filter-btn-guests{
+            width: 300px;
+            font-weight: 400;
+            color:rgb(34, 34, 34);
+            justify-self: center;
     }
-
-    .filter-btn-dates{
-        border-right: 1px solid $iw-ihca;
+    .filter-span{
+        align-self: center;
+        background-color:rgb(221, 221, 221);
+           width: 0.8px;
+           height: 24px;
     }
-    
+   
     .search{
-        flex: 1;
         display: flex;
         justify-content: center;
         align-items: center;
         .search-icon{
-            background-color:$main-red-pink;
-            border-radius: 50%;
-            padding: 17px;
-            height: 80%;
             display: flex;
             align-items: center;
+             justify-content: center;
+            text-align: center;
+            background-color:$main-red-pink;
+            border-bottom-left-radius:50%;
+            border-bottom-right-radius:50%;
+            border-top-left-radius:50%;
+            border-top-right-radius:50%;   
             color: $white;
+            width: 24px;
         }
     }
 }
