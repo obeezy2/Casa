@@ -1,0 +1,11 @@
+.App-header{
+    display: flex;
+    justify-content: space-between;
+    .nav{
+        display: flex;
+        justify-content: space-between;
+        p{
+            margin-left: 0.5rem
+        }
+    }
+}
