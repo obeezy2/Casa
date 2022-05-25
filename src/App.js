@@ -5,13 +5,14 @@ import routes from "./routes";
 import { AppHeader } from './cmps/app-header'
 import { AppFooter } from './cmps/app-footer.jsx'
 
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <AppHeader />
       </header>
       <main>
+                 
         <Routes>
           {routes.map((route) => {
             return (
