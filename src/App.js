@@ -16,6 +16,9 @@ function App() {
       </div>  
       </header>
       <Homepage /> 
+      <footer>
+        <h4>footer</h4>
+      </footer>
     </div>
   );
 }
