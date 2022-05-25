@@ -7,13 +7,18 @@ _setupForLocalStorage();
 
 export const stayService = {
   query,
+  getById,
 };
 
 async function query(filterBy) {
   if (filterBy) {
   } else {
-    return storageService.query(STORAGE_KEY)
+    return storageService.query(STORAGE_KEY);
   }
+}
+
+async function getById(stayId) {
+  return storageService.get(STORAGE_KEY,stayId)
 }
 
 function _setupForLocalStorage() {
