@@ -1,0 +1,48 @@
+.app-filter-container{
+    
+    display: flex;
+    justify-content: center;
+
+    .app-filter{
+        display: flex;
+        border: 1px solid $iw-ihca;
+        border-radius: 35px;
+        padding: 0.3%;
+        width: 30%;
+        :hover:not(:last-child){
+            background-color: $d-nc-lt-s;
+            border-radius: 35px;
+        }
+    }
+
+    .filter-btn{
+        flex: 4;
+        text-align: center;
+        cursor: pointer;
+        .filter-btn-sub-title{
+            width: 100%;
+        }
+
+    }
+
+    .filter-btn-location{
+        border-right: 1px solid $iw-ihca;
+    }
+
+    .filter-btn-dates{
+        border-right: 1px solid $iw-ihca;
+    }
+    
+    .search{
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .search-icon{
+            background-color:$main-red-pink;
+            border-radius: 50%;
+            padding: 15px;
+        }
+    }
+}
+
