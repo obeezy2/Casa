@@ -1,0 +1,20 @@
+
+import { NavLink as Link } from "react-router-dom";
+
+import logoImg from '../assets/img/logo/new-logo.svg'
+
+export function AppHeader() {
+
+    return (<header className="app-header">
+        <div className="search-bar">SEARCH</div>
+        <Link className='host' to="/">Become a Host</Link>
+        <Link className='user' to="/">User</Link>
+        <div className="logo">
+            <img className="img-logo" src={`${logoImg}`}></img>
+            <h1 className="text">casa
+            </h1>
+        </div>
+    </header >)
+
+
+}
