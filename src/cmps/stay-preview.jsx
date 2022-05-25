@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom"
 
-export function StayPreview({ stay, remove }) {
+export function StayPreview({ stay }) {
     return <div className="stay-preview">
         <div className="stay-img-container">
         </div>
