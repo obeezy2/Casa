@@ -1,3 +1,3 @@
-export const HostPage =()=>{
-    
+export const HostPage = () => {
+
 }

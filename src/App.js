@@ -10,11 +10,7 @@ function App() {
         <Link to="/">
           <h1>Aircasa</h1>
         </Link>
-        <nav>
-          <Link to="/stays">Explore</Link>
-          <Link to="/host">Become a host</Link>
-          <Link to="/login">Login</Link>
-        </nav>
+
       </header>
       <main>
         <Routes>
