@@ -1,11 +1,19 @@
-import { StayPreview } from './stay-preview.jsx'
+import { StayPreview } from "./stay-preview.jsx";
 
+export function StayList({stays}) {
+  if (!stays) {
+    return (
+      <div className="stay-list-container">
+        <h1>No Stays found</h1>
+      </div>
+    );
+  }
 
-
-export function StayList({ stays }) {
-
-    return <div className="stay-list">
-        {stays.map(stay => <StayPreview key={stay.id} stay={stay} />)}
+  return (
+    <div className="stay-list-container">
+      {stays.map((stay) => (
+        <StayPreview key={stay._id} stay={stay} />
+      ))}
     </div>
-
+  );
 }

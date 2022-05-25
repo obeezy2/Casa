@@ -1,0 +1,22 @@
+.stay-preview-container {
+  height: 400px;
+  overflow: hidden;
+  white-space: nowrap;
+  .stay-img-container {
+    img {
+      aspect-ratio: 1;
+      border-radius: 20px;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  .stay-address{
+      font-weight: 600;
+      display: block;
+  }
+  .stay-summary {
+      display: block;
+    text-overflow: ellipsis;
+  }
+}

@@ -9,7 +9,7 @@ const routes = [
         component: <Homepage />
     },
     {
-        path: 'stay',
+        path: 'stays',
         component: <StayApp />
     },
     {
