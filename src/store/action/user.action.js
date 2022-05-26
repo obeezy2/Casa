@@ -1,31 +1,57 @@
-import {userService} from '../../services/user.service'
+import { userService } from '../services/user.service.js'
 
-export function onLogin(credentials) {
-    return async (dispatch) => {
-        try {
-            const user = await userService.login(credentials)
-            dispatch({
-                type: 'SET_USER',
-                user
-            })
-        } catch (err) {
-            showErrorMsg('Cannot login')
-            console.log('Cannot login', err)
-        }
+export function loadUsers() {
+  return async dispatch => {
+    try {
+      const users = await userService.getUsers()
+      dispatch({ type: 'SET_USERS', users })
+
+
+    } catch (err) {
+      console.log('ReviewActions: err in loadReviews', err)
     }
+  }
 }
 
-export function onLogout() {
-    return async (dispatch) => {
-        try {
-            await userService.logout()
-            dispatch({
-                type: 'SET_USER',
-                user: null
-            })
-        } catch (err) {
-            showErrorMsg('Cannot logout')
-            console.log('Cannot logout', err)
-        }
+export function signup(credentials) {
+  return async (dispatch) => {
+    try {
+      const user = await userService.signup(credentials)
+      dispatch({ type: 'SET_USER', user })
+    } catch (err) {
+      console.error('ERR', err)
     }
+  }
+}
+
+export function login(credentials) {
+  return async (dispatch) => {
+    try {
+      const user = await userService.login(credentials)
+      dispatch({ type: 'SET_USER', user })
+    } catch (err) {
+      console.error(err)
+    }
+  }
+}
+export function userUpdate(credentials) {
+  return async (dispatch) => {
+    try {
+      const user = await userService.update(credentials)
+      dispatch({ type: 'SET_USER', user })
+    } catch (err) {
+      console.error(err)
+    }
+  }
+}
+
+export function logout() {
+  return async (dispatch) => {
+    try {
+      await userService.logout()
+      dispatch({ type: 'SET_USER', user: null })
+    } catch (err) {
+      console.error(err)
+    }
+  }
 }

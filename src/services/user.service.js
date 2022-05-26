@@ -1,5 +1,7 @@
 import { storageService } from './async-storage.service'
 const logedInUser = 'loggedinUser'
+const STORAGE_KEY = 'USER_STORAGE_KEY'
+import { user_db } from "../data/db";
 
 export const userService = {
     login,
@@ -11,12 +13,12 @@ export const userService = {
     remove,
     update,
 }
-
+_setupForLocalStorage()
 window.userService = userService
-
+_setupForLocalStorage()
 
 function getUsers() {
-    return storageService.query('userDB')
+    return storageService.query(STORAGE_KEY)
 }
 
 async function getById(userId) {
@@ -56,3 +58,8 @@ function getLoggedinUser() {
     return JSON.parse(localStorage.getItem(logedInUser) || null)
 }
 
+function _setupForLocalStorage() {
+    if (!localStorage.getItem(STORAGE_KEY)) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(user_db));
+    }
+}
