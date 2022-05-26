@@ -1,57 +1,45 @@
-import { userService } from '../services/user.service.js'
+import { userService } from '../../services/user.service'
 
-export function loadUsers() {
-  return async dispatch => {
+export function onLogin(credentials) {
     try {
-      const users = await userService.getUsers()
-      dispatch({ type: 'SET_USERS', users })
+        return async (dispatch) => {
+            const user = await userService.login(credentials)
 
-
+            dispatch({
+                type: 'SET_USER',
+                user,
+            })
+        }
     } catch (err) {
-      console.log('ReviewActions: err in loadReviews', err)
+        console.log('Failed to login', err)
     }
-  }
 }
 
-export function signup(credentials) {
-  return async (dispatch) => {
+export function onLogout() {
     try {
-      const user = await userService.signup(credentials)
-      dispatch({ type: 'SET_USER', user })
-    } catch (err) {
-      console.error('ERR', err)
-    }
-  }
-}
+        return async (dispatch) => {
+            await userService.logout()
 
-export function login(credentials) {
-  return async (dispatch) => {
-    try {
-      const user = await userService.login(credentials)
-      dispatch({ type: 'SET_USER', user })
+            dispatch({
+                type: 'SET_USER',
+                user: null,
+            })
+        }
     } catch (err) {
-      console.error(err)
+        console.log('Failed to load logout', err)
     }
-  }
 }
-export function userUpdate(credentials) {
-  return async (dispatch) => {
+export function onSignup(newUser) {
     try {
-      const user = await userService.update(credentials)
-      dispatch({ type: 'SET_USER', user })
-    } catch (err) {
-      console.error(err)
-    }
-  }
-}
+        return async (dispatch) => {
+            const user = await userService.signup(newUser)
 
-export function logout() {
-  return async (dispatch) => {
-    try {
-      await userService.logout()
-      dispatch({ type: 'SET_USER', user: null })
+            dispatch({
+                type: 'SET_USER',
+                user: user,
+            })
+        }
     } catch (err) {
-      console.error(err)
+        console.log('Failed to signup', err)
     }
-  }
 }
