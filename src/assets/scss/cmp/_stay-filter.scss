@@ -117,3 +117,18 @@
         }
     }
 }
+
+.add-guest-container{
+    padding: 7%;
+    .add-guest-box{
+        border-bottom: 1px solid rgb(221, 221, 221);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3%;
+        .guests{
+            text-align: start;
+        }
+   
+    }
+}

@@ -11,15 +11,11 @@ import logoImg2 from '../assets/img/logo/whitelogo.png'
 
 export function AppHeader() {
 
-
-
     const [color, setColor] = useState('white')
     const [bgColor, setBgColor] = useState('black')
     const [img, setImg] = useState(logoImg2)
     const [logoColor, setLogoColor] = useState('white')
     window.addEventListener('scroll', (ev) => {
-        console.log(ev.path[1].scrollY)
-
         if (ev.path[1].scrollY === 0) {
             setColor('white')
             setBgColor('black')

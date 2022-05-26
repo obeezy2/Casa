@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { stayService } from "../services/stay.service";
 import { StayInfo } from "../cmps/stay-info";
 import { Resevre } from "../cmps/stay-reserve";
+import { StayReview } from "../cmps/stay-review";
 
 export const StayDetails = () => {
   const params = useParams();
@@ -35,6 +36,10 @@ export const StayDetails = () => {
           {stay.host.isSuperhost && <span>🌟 Superhost</span>} ·{" "}
           <span>{stay.address.street}</span>
         </div>
+        {/* <div className="quick-actions">
+            <div className="share-btn">Share</div>
+            <div className="save-btn">Save</div>
+        </div> */}
       </div>
       <div className="stay-imgs-container">
         <img className="main-img-container" src={stay.imgUrls[0]} alt="" />
@@ -51,13 +56,15 @@ export const StayDetails = () => {
         })}
       </div>
       <div className="info-reserve">
-        <StayInfo stay={stay}/>
-        <Resevre />
+        <StayInfo stay={stay} />
+        <Resevre stayId={stay._id} stayPrice={stay.price} numOfGuest={stay.capacity}/>
       </div>
-      {/* <div className="quick-actions">
-            <div className="share-btn">Share</div>
-            <div className="save-btn">Save</div>
-        </div> */}
+      <StayReview reviewScores={stay.reviewScores} reviews={stay.reviews} />
+      <div className="date-selection"></div>
+      <div className="host-info">
+        <img src={stay.host.pictureUrl} alt="" />
+        <h2>hosted by {stay.host.fullname}</h2>
+      </div>
     </section>
   );
 };
