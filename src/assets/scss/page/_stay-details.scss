@@ -1,12 +1,13 @@
 .stay-details-container{
     margin-top: 90px;
-    padding-inline: 80px;
+    padding-inline: 20%;
     h1.stay-name{
         font-weight: 600;
         font-size: 26px;
     }
 
     .stay-imgs-container{
+        max-width: 1120;
         display: grid;
         grid-template-columns: 2fr 1fr 1fr;
         grid-template-rows: 1fr 1fr;
