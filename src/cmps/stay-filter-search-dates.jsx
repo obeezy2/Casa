@@ -5,8 +5,8 @@ import 'react-dates/lib/css/_datepicker.css';
 
 export function SearchByDate(){
   const [date,setDate] = useState({startDate:null,endDate:null})
-  console.log(date)
   return <div>
+    <h3>choose dates</h3>
 <DateRangePicker
   startDate={date.startDate} // momentPropTypes.momentObj or null,
   startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,

@@ -105,9 +105,29 @@ function SearchByDestination(){
   </div>
 }
 
-
 function AddGuests(){
-  return <div>
-   <h4>Add guests</h4>
+  return <div className="add-guest-container">
+    <div className="add-guest-box">
+      <div className="guests">
+       <p>Adults</p>  
+        <p>Ages 13 or above</p>
+      </div>
+      <div className="guests-btns">
+        <button>+</button>
+        <span>0</span>
+        <button>-</button>
+      </div>
+    </div>
+    <div className="add-guest-box">
+      <div className="guests">
+       <p>Children</p>  
+        <p>Ages 2–12</p>
+      </div>
+      <div className="guests-btns">
+        <button>+</button>
+        <span>0</span>
+        <button>-</button>
+      </div>
+    </div>
   </div>
 }
