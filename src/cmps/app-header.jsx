@@ -60,7 +60,7 @@ export function AppHeader() {
             <Link className="host" to="/">
                 Become a Host
             </Link>
-            <Link className="user" to="/">
+            <Link className="user" to="/login">
                 User
             </Link>
             <div className="logo">

@@ -14,7 +14,7 @@ export function onLogin(credentials) {
         console.log('Failed to login', err)
     }
 }
-}
+
 export function onLogout() {
     try {
         return async (dispatch) => {
