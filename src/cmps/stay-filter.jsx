@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from "react";
+import {SearchByDate} from './stay-filter-search-dates'
 import worldLogo from '../assets/img/filter/world.jpg'
 
 export const StayFilter = () => {
@@ -40,7 +41,6 @@ export const StayFilter = () => {
         </div>
       </div>
       <span className="filter-span"></span>
-
       <div className='filter-btn-container filter-btn-guests' onClick={() => {
         setFilterExpand(!isFilterExpand)
         setExpand('Add guests')
@@ -57,7 +57,6 @@ export const StayFilter = () => {
           <div className="search-icon">s</div>
         </div>
       </div>
-
     </div>
    { isFilterExpand && <div className="filter-expand">
       {currExpand === 'Anywhere' && <div>
@@ -106,11 +105,6 @@ function SearchByDestination(){
   </div>
 }
 
-function SearchByDate(){
-  return <div>
-   <h4>search by date</h4>
-  </div>
-}
 
 function AddGuests(){
   return <div>
