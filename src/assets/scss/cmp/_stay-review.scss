@@ -1,4 +1,7 @@
 .reviews-container {
+  border-top: 1px solid rgb(221, 221, 221);
+  padding-top: 48px;
+  padding-bottom: 48px;
   .rating-breakdown {
     display: flex;
     justify-content: space-between;
@@ -10,8 +13,8 @@
     grid-template-columns: 1fr 1fr;
     .review-card {
       .writer-info-container {
-          display: flex;
-          justify-content: flex-start;
+        display: flex;
+        justify-content: flex-start;
         .writer-img-container {
           height: 56px;
           width: 56px;
