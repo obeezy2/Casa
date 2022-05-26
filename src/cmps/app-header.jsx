@@ -41,7 +41,7 @@ export function AppHeader() {
 
 
     return (<header className="app-header" style={{ color: `${color}`, backgroundColor: `${bgColor}` }}>
-        <div className="search-bar">  < StayFilter />
+        <div className="search-bar ">  < StayFilter />
         </div>
         <Link className='explore' to="/stays">Explore</Link>
         <Link className='host' to="/">Become a Host</Link>
