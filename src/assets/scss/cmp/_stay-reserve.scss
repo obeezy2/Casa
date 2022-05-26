@@ -1,6 +1,7 @@
 .reserve-container {
   flex-basis: 50%;
   .reserve-modal {
+    z-index: 10;
     padding: 24px;
     position: sticky;
     top: 80px;
@@ -15,7 +16,10 @@
         justify-content: space-between;
     }
     .reserve-btn{
-      text-align: center;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background-color: $main-red-pink;
       height: 48px;
       border-radius: 8px;
