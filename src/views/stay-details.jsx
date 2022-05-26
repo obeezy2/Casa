@@ -23,42 +23,41 @@ export const StayDetails = () => {
   };
 
   if (!stay) {
-    return <section className="stay-details-container">stay not found</section>;
+    return <section className="stay-details-container">Loading</section>;
   }
   return (
     <section className="stay-details-container">
       <h1 className="stay-name">{stay.name}</h1>
       <div className="short-desc">
-        <div className="info">
-          <span>⭐{(stay.reviewScores.rating / 100) * 5}</span> -
-          <span>{stay.reviews.length} reviews</span> -
-          {stay.host.isSuperhost && <span>🌟 Superhost</span>} -
+        <div className="stats">
+          <span>⭐{(stay.reviewScores.rating / 100) * 5}</span> ·{" "}
+          <span>{stay.reviews.length} reviews</span> ·{" "}
+          {stay.host.isSuperhost && <span>🌟 Superhost</span>} ·{" "}
           <span>{stay.address.street}</span>
         </div>
-        <div className="stay-imgs-container">
-          <img className="main-img-container" src={stay.imgUrls[0]} alt="" />
-          {stay.imgUrls.map((imgUrl, idx) => {
-            if (idx === 0) return;
-            return (
-              <img
-                className="secondary-img-container"
-                key={idx}
-                src={imgUrl}
-                alt=""
-              />
-            );
-          })}
-        </div>
-
-        <div className="info-reserve">
-          <StayInfo />
-          <Resevre />
-        </div>
-        {/* <div className="quick-actions">
+      </div>
+      <div className="stay-imgs-container">
+        <img className="main-img-container" src={stay.imgUrls[0]} alt="" />
+        {stay.imgUrls.map((imgUrl, idx) => {
+          if (idx === 0) return;
+          return (
+            <img
+              className="secondary-img-container"
+              key={idx}
+              src={imgUrl}
+              alt=""
+            />
+          );
+        })}
+      </div>
+      <div className="info-reserve">
+        <StayInfo stay={stay}/>
+        <Resevre />
+      </div>
+      {/* <div className="quick-actions">
             <div className="share-btn">Share</div>
             <div className="save-btn">Save</div>
         </div> */}
-      </div>
     </section>
   );
 };
