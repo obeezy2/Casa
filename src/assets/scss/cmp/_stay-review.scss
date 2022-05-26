@@ -1,0 +1,29 @@
+.reviews-container {
+  .rating-breakdown {
+    display: flex;
+    justify-content: space-between;
+  }
+  .review-cards-container {
+    height: 550px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .review-card {
+      .writer-info-container {
+          display: flex;
+          justify-content: flex-start;
+        .writer-img-container {
+          height: 56px;
+          width: 56px;
+          img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+          }
+        }
+      }
+      height: 160px;
+      overflow: hidden;
+    }
+  }
+}
