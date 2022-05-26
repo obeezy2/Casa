@@ -6,12 +6,12 @@ _setupForLocalStorage();
 
 export const orderService = {
   query,
-  getBookedDates
+  getBookedDates,
+  addOrder
 };
 
 async function query(filterBy) {
   let orders = await storageService.query(STORAGE_KEY);
-  debugger
   if (!filterBy) return orders;
   if (filterBy.stayId) {
     orders = orders.filter((order) => order.stay._id === filterBy.stayId);
@@ -23,6 +23,10 @@ async function query(filterBy) {
     orders = orders.filter((order) => order.miniUser._id === filterBy.userId);
   }
   return orders
+}
+
+async function addOrder(order){
+  
 }
 
 async function getBookedDates(stayId){
