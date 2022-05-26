@@ -1,17 +1,13 @@
-import { userService } from "../../services/user.service.js";
+import { userService } from '../../services/user.service'
 
 const initialState = {
-  loggedinUser: userService.getLoggedinUser(),
-};
-
+  user: userService.getLoggedinUser(),
+}
 export function userReducer(state = initialState, action) {
-  var newState = state;
   switch (action.type) {
-    case "SET_USER":
-      newState = { ...state, loggedinUser: action.user };
-      break;
+    case 'SET_USER':
+      return { ...state, user: action.user }
     default:
-      return newState;
+      return state
   }
-  return newState;
 }

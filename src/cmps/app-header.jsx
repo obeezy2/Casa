@@ -45,7 +45,7 @@ export function AppHeader() {
         </div>
         <Link className='explore' to="/stays">Explore</Link>
         <Link className='host' to="/">Become a Host</Link>
-        <Link className='user' to="/">User</Link>
+        <Link className='user' to="/login">User</Link>
         <div className="logo">
             <img className="img-logo" src={`${img}`}></img>
             <Link to='/'> <h1 style={{ color: `${logoColor}` }} className="text">casa    </h1></Link>
