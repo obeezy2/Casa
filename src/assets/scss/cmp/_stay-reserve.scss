@@ -1,3 +1,28 @@
-.reserve-container{
-    flex-grow: 1;
+.reserve-container {
+  flex-basis: 50%;
+  .reserve-modal {
+    z-index: 10;
+    padding: 24px;
+    position: sticky;
+    top: 80px;
+    height: 300px;
+    max-width: 365px;
+    border: 1px solid $secondary-grey;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+    .total-container{
+        display: flex;
+        justify-content: space-between;
+    }
+    .reserve-btn{
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $main-red-pink;
+      height: 48px;
+      border-radius: 8px;
+    }
+  }
 }

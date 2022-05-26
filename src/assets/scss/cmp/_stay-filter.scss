@@ -3,9 +3,11 @@
     font-size: 14px;
     font-weight: 600;
     display: flex;
+    flex-wrap: wrap;
     justify-content: stretch;
     border: 1px solid rgb(221, 221, 221);
     border-radius: 35px;
+    position: relative;
 
     &:hover{
 
@@ -33,8 +35,13 @@
         }
        .filter-btn {
          padding-inline: 16px;
+         
+            .destination-input{
+                :focus {
+                 outline: none;
+                    }
+            }
         }
-
     }
     .filter-btn-guests{
             width: 300px;
@@ -66,5 +73,62 @@
             width: 24px;
         }
     }
+    .filter-expand{
+        background-color: $white;
+        color: $main-black;
+        border-radius: 20px;
+        width: 100%;
+        height: 350px;
+        position:absolute;
+        top: 110%;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+    }
 }
 
+.destination-search-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+    .destination-search-container-header{
+        width: 100%;
+        text-align: start;
+        padding: 5px;
+        margin-bottom: 5px;
+    }
+    .regions-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        cursor: pointer;
+        .region-image-container{
+            width: 30%;
+            height: 50%;
+            .region-image{
+                width: 75%;
+                height: 75%;
+                border: 1px solid rgb(221, 221, 221);
+                border-radius: 20px;
+                &:hover{
+                    border: 1px solid $main-black;
+                }
+            }
+        }
+    }
+}
+
+.add-guest-container{
+    padding: 7%;
+    .add-guest-box{
+        border-bottom: 1px solid rgb(221, 221, 221);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3%;
+        .guests{
+            text-align: start;
+        }
+   
+    }
+}
