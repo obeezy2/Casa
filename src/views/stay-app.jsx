@@ -7,10 +7,10 @@ import { loadStays } from "../store/action/stay.action"
 
 export const StayApp = () => {
   const { stays } = useSelector((storeState) => storeState.stayModule)
-  const dispatch=useDispatch()
-  useEffect(()=>{
+  const dispatch = useDispatch()
+  useEffect(() => {
     dispatch(loadStays(null))
-  },[])
+  }, [])
 
   return (
     <section className="stay-app-container">
