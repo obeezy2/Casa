@@ -6,13 +6,13 @@ export const StayFilter = () => {
 
   const [isFilterExpand,setFilterExpand] = useState(false)
   const [currExpand,setExpand] = useState(null)
-
+  const [filterBy,setFilterBy] = useState({})
   //use event on document body to close filter expand 
   useEffect(()=>{
     window.addEventListener('click',()=>{
     })
   },[])
-
+  console.log('filterBy', filterBy)
   return <section className="app-filter-container">
     <div className="app-filter">
       <div className='filter-btn-container filter-btn-location' onClick={() =>{
@@ -41,11 +41,11 @@ export const StayFilter = () => {
         </div>
       </div>
       <span className="filter-span"></span>
-      <div className='filter-btn-container filter-btn-guests' onClick={() => {
+      <div className='filter-btn-container filter-btn-guests' >
+        <div className="filter-btn"  onClick={() => {
         setFilterExpand(!isFilterExpand)
         setExpand('Add guests')
         }}>
-        <div className="filter-btn" >
           {currExpand === 'Add guests' && isFilterExpand?
           <div>
             <p>Who</p>
@@ -60,7 +60,7 @@ export const StayFilter = () => {
     </div>
    { isFilterExpand && <div className="filter-expand">
       {currExpand === 'Anywhere' && <div>
-        <SearchByDestination />
+        <SearchByDestination setRegionFilter={setFilterBy} />
       </div>}
       {currExpand === 'Any week' &&<div>
         <SearchByDate />
@@ -73,36 +73,29 @@ export const StayFilter = () => {
 }
 
 
-function SearchByDestination(){
+function SearchByDestination(props){
+  const [region,setRegion] = useState(null)
+  useEffect(() =>{
+    props.setRegionFilter(region)
+  },[region])
   return <div className="destination-search-container">
     <h4 className="destination-search-container-header">search by region</h4>
     <div className="regions-container">
-      <div className="region-image-container">
-        <img src={worldLogo} alt="err" className="region-image"/>
-          <p>I’m flexible</p>
-      </div>
-      <div className="region-image-container">
-          <img src={worldLogo} alt="err"className="region-image" />
-          <p>I’m flexible</p>
-      </div>
-      <div className="region-image-container">
-          <img src={worldLogo} alt="err"className="region-image" />
-          <p>I’m flexible</p>
-      </div>
-            <div className="region-image-container">
-          <img src={worldLogo} alt="err"className="region-image" />
-          <p>I’m flexible</p>
-      </div>
-            <div className="region-image-container">
-          <img src={worldLogo} alt="err"className="region-image" />
-          <p>I’m flexible</p>
-      </div>
-            <div className="region-image-container">
-          <img src={worldLogo} alt="err"className="region-image" />
-          <p>I’m flexible</p>
-      </div>
+      <Destination logo={worldLogo} region={'flexible'}  setRegion={setRegion}/>
+      <Destination logo={worldLogo} region={'United States'} setRegion={setRegion} />
+      <Destination logo={worldLogo} region={'Middle East'} setRegion={setRegion}/>
+      <Destination logo={worldLogo} region={'France'} setRegion={setRegion}/>
+      <Destination logo={worldLogo} region={'South America'} setRegion={setRegion}/>
+      <Destination logo={worldLogo} region={'Italy'} setRegion={setRegion}/>
     </div>
   </div>
+}
+
+function Destination (props){
+  return <div className="region-image-container" onClick={() => props.setRegion(props.region)}>
+        <img src={props.logo} alt="err" className="region-image"/>
+          <p>{props.region}</p>
+      </div>
 }
 
 function AddGuests(){
@@ -131,3 +124,4 @@ function AddGuests(){
     </div>
   </div>
 }
+
