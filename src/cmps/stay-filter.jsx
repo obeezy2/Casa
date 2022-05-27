@@ -10,16 +10,14 @@ export const StayFilter = () => {
 
   const onChangeFilter = (ev) =>{
       ev.preventDefault()
-      //console.log(ev.target.value)
       setFilterBy({...filterBy,txt:ev.target.value})
-      //console.log('filterBy', filterBy)
     }
   //use event on document body to close filter expand 
   useEffect(()=>{
     window.addEventListener('click',()=>{
     })
   },[])
-  //console.log('filterBy', filterBy)
+  console.log('filterBy', filterBy)
   return <section className="app-filter-container">
     <div className="app-filter">
       <div className='filter-btn-container filter-btn-location' onClick={() =>{
@@ -74,10 +72,10 @@ export const StayFilter = () => {
     </div>
    { isFilterExpand && <div className="filter-expand">
       {currExpand === 'Anywhere' && <div>
-        <SearchByDestination setRegionFilter={setFilterBy} />
+        <SearchByDestination setRegionFilter={(region) =>setFilterBy({...filterBy,region})} />
       </div>}
       {currExpand === 'Any week' &&<div>
-        <SearchByDate onSetDates={(start,end) =>console.log('start from paren',start,end)}/>
+        <SearchByDate onSetDates={(start,end) => setFilterBy({...filterBy, startDate:start, endDate:end})}/>
       </div>}
       {currExpand === 'Add guests' &&<div>
         <AddGuests />
@@ -91,12 +89,11 @@ function SearchByDestination(props){
   const [region,setRegion] = useState({region:''})
   useEffect(() =>{
     props.setRegionFilter(region)
-    console.log('region',region)
   },[region])
   return <div className="destination-search-container">
     <h4 className="destination-search-container-header">search by region</h4>
     <div className="regions-container">
-      <Destination logo={worldLogo} region={'flexible'}  setRegion={ (region) => setRegion({region})}/>
+      <Destination logo={worldLogo} region={'flexible'}  setRegion={ setRegion}/>
       <Destination logo={worldLogo} region={'United States'} setRegion={setRegion} />
       <Destination logo={worldLogo} region={'Middle East'} setRegion={setRegion}/>
       <Destination logo={worldLogo} region={'France'} setRegion={setRegion}/>

@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 
@@ -8,7 +8,11 @@ export function SearchByDate (props){
 
   const [startDate,setStartDate] = useState(new Date())
   const [endDate,setEndtDate] = useState(new Date())
-  props.onSetDates(startDate,endDate)
+  
+  useEffect(() =>{
+    props.onSetDates(startDate,endDate)
+  },[startDate,endDate])
+  
   const handleSelect = (ranges) => {
     setStartDate(ranges.selection.startDate)
     setEndtDate(ranges.selection.endDate)
@@ -20,7 +24,6 @@ export function SearchByDate (props){
       key: 'selection',
   }
 
-  //console.log('start ',startDate,'end ',endDate)
   return <DateRangePicker
         ranges={[selectionRange]}
         minDate={new Date()}
