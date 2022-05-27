@@ -2,7 +2,7 @@
 
 .main-hero {
     object-fit: cover;
-    height: 80vh;
+    height: 70vh;
     width: 100%;
     color: white;
     display: flex;
@@ -11,7 +11,7 @@
     background-color: #000000;
     .img-container{
         width: 95%;
-        height: 60%;
+        height: 70%;
         background-color: white;
         .hero-img{
           
@@ -37,7 +37,7 @@
         align-items: center;
         justify-content: center;
         position: absolute;
-        top: 80%;
+        top: 72%;
         color: $d-nc-lt-s;
         ;
         h1 {
