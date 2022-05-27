@@ -7,12 +7,19 @@ export const StayFilter = () => {
   const [isFilterExpand,setFilterExpand] = useState(false)
   const [currExpand,setExpand] = useState(null)
   const [filterBy,setFilterBy] = useState({})
+
+  const onChangeFilter = (ev) =>{
+      ev.preventDefault()
+      //console.log(ev.target.value)
+      setFilterBy({...filterBy,txt:ev.target.value})
+      //console.log('filterBy', filterBy)
+    }
   //use event on document body to close filter expand 
   useEffect(()=>{
     window.addEventListener('click',()=>{
     })
   },[])
-  console.log('filterBy', filterBy)
+  //console.log('filterBy', filterBy)
   return <section className="app-filter-container">
     <div className="app-filter">
       <div className='filter-btn-container filter-btn-location' onClick={() =>{
@@ -21,7 +28,14 @@ export const StayFilter = () => {
       }}>
         <div className="filter-btn" >
           {currExpand === 'Anywhere' && isFilterExpand?
-          <div>where <input className="destination-input" onClick={e => e.stopPropagation()} placeholder='search destination'/>
+          <div>
+            where
+          <form> 
+          <input className="destination-input" type="text" 
+          onClick={(e) => e.stopPropagation() } 
+          onChange={(event) => {onChangeFilter(event)}} 
+          placeholder='search destination'/>
+          </form> 
           </div>
           :'Anywhere'}
         </div>
@@ -63,7 +77,7 @@ export const StayFilter = () => {
         <SearchByDestination setRegionFilter={setFilterBy} />
       </div>}
       {currExpand === 'Any week' &&<div>
-        <SearchByDate />
+        <SearchByDate onSetDates={(start,end) =>console.log('start from paren',start,end)}/>
       </div>}
       {currExpand === 'Add guests' &&<div>
         <AddGuests />
@@ -74,14 +88,15 @@ export const StayFilter = () => {
 
 
 function SearchByDestination(props){
-  const [region,setRegion] = useState(null)
+  const [region,setRegion] = useState({region:''})
   useEffect(() =>{
     props.setRegionFilter(region)
+    console.log('region',region)
   },[region])
   return <div className="destination-search-container">
     <h4 className="destination-search-container-header">search by region</h4>
     <div className="regions-container">
-      <Destination logo={worldLogo} region={'flexible'}  setRegion={setRegion}/>
+      <Destination logo={worldLogo} region={'flexible'}  setRegion={ (region) => setRegion({region})}/>
       <Destination logo={worldLogo} region={'United States'} setRegion={setRegion} />
       <Destination logo={worldLogo} region={'Middle East'} setRegion={setRegion}/>
       <Destination logo={worldLogo} region={'France'} setRegion={setRegion}/>
