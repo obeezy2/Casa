@@ -122,6 +122,28 @@ function AddGuests(){
         <button>-</button>
       </div>
     </div>
+        <div className="add-guest-box">
+      <div className="guests">
+       <p>Infants</p>  
+        <p>Under 2</p>
+      </div>
+      <div className="guests-btns">
+        <button>+</button>
+        <span>0</span>
+        <button>-</button>
+      </div>
+    </div>
+            <div className="add-guest-box">
+      <div className="guests">
+       <p>Pets</p>  
+        <p>Bringing a service animal?</p>
+      </div>
+      <div className="guests-btns">
+        <button>+</button>
+        <span>0</span>
+        <button>-</button>
+      </div>
+    </div>
   </div>
 }
 
