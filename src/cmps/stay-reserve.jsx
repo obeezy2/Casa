@@ -1,33 +1,83 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import { connect } from "react-redux";
 import { orderService } from "../services/order.service";
+import { SearchByDate as DatePicker } from "./stay-filter-search-dates";
 
-export const Resevre = ({ stayId,stayPrice, numOfGuest }) => {
-  const [numOfDays, setNumOfDays] = useState(1);
-  const[bookedDates,setBookedDates]=useState(null)
-  useEffect(()=>{
-      loadBookDates()
-  },[])
+export class _Reserve extends React.Component {
+  state = {
+    dates: null,
+  };
 
-  const loadBookDates= async ()=>{
-    try {
-        const dates=await orderService.getBookedDates(stayId)
-        setBookedDates(dates) 
-    } catch (err) {
-        console.error(err);
+  onSetDate = ({ startDate, endDate }) => {
+    const startDateStamp = new Date(startDate._d).getTime();
+    const endDateStamp = new Date(endDate._d).getTime();
+    // setNumOfDays((endDateStamp - startDateStamp) / 86400000);
+    this.setState({ dates: { endDateStamp, startDateStamp } });
+  };
+
+  onReserve = async () => {
+    const { user,stayId} = this.props;
+    const { dates } = this.state;
+    debugger
+    if (!user) {
+      // navigate to login
+      return;
     }
-  }
+    if (!dates.endDateStamp || !dates.startDateStamp) {
+      return;
+      // focus on the date picker
+    }
+    try {
+      const order = await orderService.addOrder({
+        user,
+        stayId,
+        startDate: dates.startDateStamp,
+        endDate: dates.endDateStamp,
+      });
 
-  return (
-    <section className="reserve-container">
-      <div className="reserve-modal">
-        <h1>{stayPrice}$ night</h1>
-        <div className="order-datepicker-guest">date-guest grid</div>
-        <h3 className="reserve-btn">Reserve</h3>
-        <div className="total-container">
-          <h3>Total</h3>
-          <h3>{numOfDays * stayPrice}$</h3>
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  render() {
+    const { stayPrice } = this.props;
+    const { dates } = this.state;
+    return (
+      <section className="reserve-container">
+        <div className="reserve-modal">
+          <h1>{stayPrice}$ night</h1>
+          <div className="order-datepicker-guest">
+            <DatePicker onSetDate={this.onSetDate} />
+          </div>
+          <h3 className="reserve-btn" onClick={this.onReserve}>
+            Reserve
+          </h3>
+          <div className="total-container">
+            <h3>Total</h3>
+            <h3>
+              {dates !== null
+                ? ((dates.endDateStamp - dates.startDateStamp) / 86400000) *
+                    stayPrice +
+                  ""
+                : "0"}
+              $
+            </h3>
+          </div>
         </div>
-      </div>
-    </section>
-  );
+      </section>
+    );
+  }
+}
+
+const mapStateToProps = (storeState) => {
+  return {
+    user: storeState.userModule.user,
+  };
 };
+
+const mapDispatchToProps = {};
+
+export const Reserve = connect(mapStateToProps, mapDispatchToProps)(_Reserve);
+
+
