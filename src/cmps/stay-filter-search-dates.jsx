@@ -13,8 +13,7 @@ export class SearchByDate extends React.Component {
     const {endDate}=this.state
     const {startDate}=this.state
     const {onSetDate}=this.props
-    if (endDate!==null && startDate!==null && onSetDate!==null) {
-      debugger
+    if (endDate!==null && startDate!==null && onSetDate!==undefined) {
       if(prevState.endDate!==endDate||prevState.startDate!==startDate)
       this.props.onSetDate(this.state);
     }

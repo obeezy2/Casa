@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 import { stayService } from "../services/stay.service";
 import { StayInfo } from "../cmps/stay-info";
-import { Resevre } from "../cmps/stay-reserve";
+import { Reserve } from "../cmps/stay-reserve";
 import { StayReview } from "../cmps/stay-review";
 
 export const StayDetails = () => {
@@ -57,7 +57,7 @@ export const StayDetails = () => {
       </div>
       <div className="info-reserve">
         <StayInfo stay={stay} />
-        <Resevre stayId={stay._id} stayPrice={stay.price} numOfGuest={stay.capacity}/>
+        <Reserve stayId={stay._id} stayPrice={stay.price} numOfGuest={stay.capacity}/>
       </div>
       <StayReview reviewScores={stay.reviewScores} reviews={stay.reviews} />
       <div className="date-selection"></div>

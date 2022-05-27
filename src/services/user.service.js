@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const STORAGE_KEY_LOGGEDIN = 'loggedinUser'
+const STORAGE_KEY_LOGGEDIN = 'loggedInUser'
 
 export const userService = {
     login,
