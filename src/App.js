@@ -27,7 +27,7 @@ function App() {
         </Routes>
       </main>
 
-      {/* <AppFooter /> */}
+      <AppFooter />
     </div>
   );
 }
