@@ -2,7 +2,6 @@ import React,{useState,useEffect} from "react";
 import {SearchByDate} from './stay-filter-search-dates'
 import {AddGuestsFilter} from './stay-filter-addGuest-filter'
 import worldLogo from '../assets/img/filter/world.jpg'
-import SearchIcon from '@mui/icons-material/Search';
 
 export const StayFilter = () => {
 
@@ -19,7 +18,7 @@ export const StayFilter = () => {
     window.addEventListener('click',()=>{
     })
   },[])
-  console.log('filterBy', filterBy)
+
   return <section className="app-filter-container">
     <div className="app-filter">
       <div className='filter-btn-container filter-btn-location' onClick={() =>{
@@ -68,7 +67,7 @@ export const StayFilter = () => {
           :'Add guests'}
         </div>
         <div className="search">
-          <div className="search-icon" >{SearchIcon}</div>
+          <div className="search-icon" onClick={() => console.log(filterBy)}>S</div>
         </div>
       </div>
     </div>
@@ -90,6 +89,7 @@ export const StayFilter = () => {
 function SearchByDestination(props){
   const [region,setRegion] = useState('')
   useEffect(() =>{
+    if(region === '') return 
     props.setRegionFilter(region)
   },[region])
   return <div className="destination-search-container">
