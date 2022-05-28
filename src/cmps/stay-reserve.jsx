@@ -16,7 +16,7 @@ export class _Reserve extends React.Component {
   };
 
   onReserve = async () => {
-    const { user,stayId} = this.props;
+    const { user, stayId } = this.props;
     const { dates } = this.state;
     debugger
     if (!user) {
@@ -46,7 +46,7 @@ export class _Reserve extends React.Component {
     return (
       <section className="reserve-container">
         <div className="reserve-modal">
-          <h1>{stayPrice}$ night</h1>
+          <h1>${stayPrice} <span className="night-container">night</span></h1>
           <div className="order-datepicker-guest">
             <DatePicker onSetDate={this.onSetDate} />
           </div>
@@ -58,8 +58,8 @@ export class _Reserve extends React.Component {
             <h3>
               {dates !== null
                 ? ((dates.endDateStamp - dates.startDateStamp) / 86400000) *
-                    stayPrice +
-                  ""
+                stayPrice +
+                ""
                 : "0"}
               $
             </h3>

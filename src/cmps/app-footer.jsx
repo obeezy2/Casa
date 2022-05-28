@@ -7,7 +7,7 @@ export function AppFooter() {
             <section className="footer-nav-container">
                 <div className="first-block" >
                     <span>© 2022 Casa,</span>Inc.
-                    <Link to="/" className="privacy">Privacy</Link>
+                    <Link to="/privacy" className="privacy">Privacy</Link>
                     <span>·</span>
                     <Link to="/">Terms</Link>
                     <span>·</span>

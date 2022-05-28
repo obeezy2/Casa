@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <AppHeader />
-      <main>
+      <main className="main-content">
 
         <Routes>
           {routes.map((route) => {

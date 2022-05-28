@@ -17,15 +17,15 @@ export const StayReview = ({ reviewScores, reviews }) => {
         </div>
       </div>
       <div className="review-cards-container">
-        {reviews.map(review=>{
-          return <div  key={review.by._id} className="review-card">
+        {reviews.map(review => {
+          return <div key={review.by._id} className="review-card">
             <div className="writer-info-container">
               <div className="writer-img-container">
                 <img src={review.by.imgUrl} alt="" />
               </div>
               <h3>{review.by.fullname}</h3>
             </div>
-            <h4>{review.txt}</h4>
+            <p>{review.txt}</p>
           </div>
         })}
       </div>

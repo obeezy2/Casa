@@ -1,4 +1,5 @@
 .reviews-container {
+  color: $main-black;
   border-top: 1px solid rgb(221, 221, 221);
   padding-top: 48px;
   padding-bottom: 48px;
@@ -7,10 +8,12 @@
     justify-content: space-between;
   }
   .review-cards-container {
+    margin-top: 30px;
     height: 550px;
     overflow: hidden;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr  1fr;
+    gap: 50px;
     .review-card {
       .writer-info-container {
         display: flex;
