@@ -1,5 +1,5 @@
 import { stayService } from "../services/stay.service";
-
+import React from "react";
 export const StayInfo = ({ stay }) => {
   if (!stay) return <section className="stay-main-info-container"></section>;
   const amenities = stayService.amenities;

@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-
+import React from 'react'
 // import { StayFilter } from "../cmps/stay-filter"
 import { StayList } from "../cmps/stay-list"
 import { loadStays } from "../store/action/stay.action"

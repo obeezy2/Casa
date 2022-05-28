@@ -1,5 +1,5 @@
 import privacyImg from '../assets/img/hero/airbnb-privacy.jpeg'
-
+import React from "react";
 export function Privacy() {
 
 

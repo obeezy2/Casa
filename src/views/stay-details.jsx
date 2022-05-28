@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import React from 'react'
 import { stayService } from "../services/stay.service";
 import { StayInfo } from "../cmps/stay-info";
 import { Reserve } from "../cmps/stay-reserve";

@@ -1,5 +1,5 @@
 import { Link, Routes, Route } from "react-router-dom";
-
+import React from 'react'
 import "../src/assets/scss/main.scss";
 import routes from "./routes";
 import { AppHeader } from './cmps/app-header'

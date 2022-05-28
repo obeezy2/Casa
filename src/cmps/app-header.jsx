@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { isElement } from "react-dom/test-utils";
 import { NavLink as Link, useLocation } from "react-router-dom";
-
+import React from "react";
 import { StayFilter } from "./stay-filter.jsx";
 
 import logoImg from "../assets/img/logo/new-logo.svg";

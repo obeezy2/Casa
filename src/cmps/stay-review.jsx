@@ -1,3 +1,4 @@
+import React from "react";
 export const StayReview = ({ reviewScores, reviews }) => {
   return (
     <div className="reviews-container">

@@ -1,3 +1,4 @@
+import React from 'react'
 import { Homepage } from './views/Homepage'
 import { StayApp } from "./views/stay-app"
 import { HostPage } from "./views/host-page";
