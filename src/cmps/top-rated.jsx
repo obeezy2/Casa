@@ -1,3 +1,4 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 import tokyo from '../assets/img/logo/tokyo.jpg'
 import capetown from '../assets/img/logo/capetown.jpg'

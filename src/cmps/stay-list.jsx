@@ -1,5 +1,5 @@
 import { StayPreview } from "./stay-preview.jsx";
-
+import React from "react";
 export function StayList({stays}) {
   if (!stays) {
     return (

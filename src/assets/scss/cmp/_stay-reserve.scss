@@ -1,12 +1,15 @@
 .reserve-container {
   flex-basis: 50%;
   .reserve-modal {
+    font-size: 15px;
+    color: $main-black;
     z-index: 10;
     padding: 24px;
     position: sticky;
     top: 80px;
     height: 300px;
     max-width: 365px;
+    margin-left: 40px;
     border: 1px solid $secondary-grey;
     border-radius: 12px;
     padding: 24px;
@@ -25,4 +28,10 @@
       border-radius: 8px;
     }
   }
+}
+
+
+.night-container{
+  font-size: 14px;
+  font-weight: 100;
 }

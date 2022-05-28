@@ -1,5 +1,5 @@
 import { Link, Routes, Route } from "react-router-dom";
-
+import React from 'react'
 import "../src/assets/scss/main.scss";
 import routes from "./routes";
 import { AppHeader } from './cmps/app-header'
@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <AppHeader />
-      <main>
+      <main className="main-content">
 
         <Routes>
           {routes.map((route) => {
@@ -27,7 +27,7 @@ function App() {
         </Routes>
       </main>
 
-      {/* <AppFooter /> */}
+      <AppFooter />
     </div>
   );
 }

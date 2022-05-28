@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import React from "react";
 export function StayPreview({ stay }) {
     return (
         <Link to={`/stay/details/${stay._id}`} className="stay-preview-container">

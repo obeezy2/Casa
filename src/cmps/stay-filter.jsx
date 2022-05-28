@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from "react";
 import {SearchByDate} from './stay-filter-search-dates'
+import {AddGuestsFilter} from './stay-filter-addGuest-filter'
 import worldLogo from '../assets/img/filter/world.jpg'
 
 export const StayFilter = () => {
@@ -7,12 +8,17 @@ export const StayFilter = () => {
   const [isFilterExpand,setFilterExpand] = useState(false)
   const [currExpand,setExpand] = useState(null)
   const [filterBy,setFilterBy] = useState({})
+
+  const onChangeFilter = (ev) =>{
+      ev.preventDefault()
+      setFilterBy({...filterBy,txt:ev.target.value})
+    }
   //use event on document body to close filter expand 
   useEffect(()=>{
     window.addEventListener('click',()=>{
     })
   },[])
-  console.log('filterBy', filterBy)
+
   return <section className="app-filter-container">
     <div className="app-filter">
       <div className='filter-btn-container filter-btn-location' onClick={() =>{
@@ -21,7 +27,14 @@ export const StayFilter = () => {
       }}>
         <div className="filter-btn" >
           {currExpand === 'Anywhere' && isFilterExpand?
-          <div>where <input className="destination-input" onClick={e => e.stopPropagation()} placeholder='search destination'/>
+          <div>
+            where
+          <form> 
+          <input className="destination-input" type="text" 
+          onClick={(e) => e.stopPropagation() } 
+          onChange={(event) => {onChangeFilter(event)}} 
+          placeholder='search destination'/>
+          </form> 
           </div>
           :'Anywhere'}
         </div>
@@ -54,19 +67,19 @@ export const StayFilter = () => {
           :'Add guests'}
         </div>
         <div className="search">
-          <div className="search-icon">s</div>
+          <div className="search-icon" onClick={() => console.log(filterBy)}>S</div>
         </div>
       </div>
     </div>
    { isFilterExpand && <div className="filter-expand">
       {currExpand === 'Anywhere' && <div>
-        <SearchByDestination setRegionFilter={setFilterBy} />
+        <SearchByDestination setRegionFilter={(region) =>setFilterBy({...filterBy,region})} />
       </div>}
       {currExpand === 'Any week' &&<div>
-        <SearchByDate />
+        <SearchByDate onSetDates={(start,end) => setFilterBy({...filterBy, startDate:start, endDate:end})}/>
       </div>}
       {currExpand === 'Add guests' &&<div>
-        <AddGuests />
+        <AddGuestsFilter setGuests={(guests) => setFilterBy({...filterBy, guestsNumber:guests})} />
       </div>}
     </div>}
   </section>
@@ -74,14 +87,15 @@ export const StayFilter = () => {
 
 
 function SearchByDestination(props){
-  const [region,setRegion] = useState(null)
+  const [region,setRegion] = useState('')
   useEffect(() =>{
+    if(region === '') return 
     props.setRegionFilter(region)
   },[region])
   return <div className="destination-search-container">
     <h4 className="destination-search-container-header">search by region</h4>
     <div className="regions-container">
-      <Destination logo={worldLogo} region={'flexible'}  setRegion={setRegion}/>
+      <Destination logo={worldLogo} region={'flexible'}  setRegion={ setRegion}/>
       <Destination logo={worldLogo} region={'United States'} setRegion={setRegion} />
       <Destination logo={worldLogo} region={'Middle East'} setRegion={setRegion}/>
       <Destination logo={worldLogo} region={'France'} setRegion={setRegion}/>
@@ -98,52 +112,4 @@ function Destination (props){
       </div>
 }
 
-function AddGuests(){
-  return <div className="add-guest-container">
-    <div className="add-guest-box">
-      <div className="guests">
-       <p>Adults</p>  
-        <p>Ages 13 or above</p>
-      </div>
-      <div className="guests-btns">
-        <button>+</button>
-        <span>0</span>
-        <button>-</button>
-      </div>
-    </div>
-    <div className="add-guest-box">
-      <div className="guests">
-       <p>Children</p>  
-        <p>Ages 2–12</p>
-      </div>
-      <div className="guests-btns">
-        <button>+</button>
-        <span>0</span>
-        <button>-</button>
-      </div>
-    </div>
-        <div className="add-guest-box">
-      <div className="guests">
-       <p>Infants</p>  
-        <p>Under 2</p>
-      </div>
-      <div className="guests-btns">
-        <button>+</button>
-        <span>0</span>
-        <button>-</button>
-      </div>
-    </div>
-            <div className="add-guest-box">
-      <div className="guests">
-       <p>Pets</p>  
-        <p>Bringing a service animal?</p>
-      </div>
-      <div className="guests-btns">
-        <button>+</button>
-        <span>0</span>
-        <button>-</button>
-      </div>
-    </div>
-  </div>
-}
 
