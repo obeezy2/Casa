@@ -1,5 +1,6 @@
 import { storageService } from "./async.storage.service";
 import { order_db } from "../data/db";
+import { stayService } from "./stay.service";
 
 const STORAGE_KEY = "ORDERS_STORAGE_KEY";
 _setupForLocalStorage();
@@ -33,6 +34,10 @@ async function addOrder(order) {
       order.endDate,
       bookedDates
     );
+    const stay=await stayService.getById(order.stayId)
+    delete order.stayId
+    order.stay=stay
+    await storageService.post(STORAGE_KEY,order) 
   } catch (err) {
     console.error(err);
   }

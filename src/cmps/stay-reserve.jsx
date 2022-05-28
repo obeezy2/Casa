@@ -16,9 +16,9 @@ export class _Reserve extends React.Component {
   };
 
   onReserve = async () => {
-    const { user,stayId} = this.props;
+    const { user, stayId } = this.props;
     const { dates } = this.state;
-    debugger
+    debugger;
     if (!user) {
       // navigate to login
       return;
@@ -28,13 +28,13 @@ export class _Reserve extends React.Component {
       // focus on the date picker
     }
     try {
-      const order = await orderService.addOrder({
+      await orderService.addOrder({
         user,
         stayId,
         startDate: dates.startDateStamp,
         endDate: dates.endDateStamp,
       });
-
+      //navigate to user trips
     } catch (err) {
       console.error(err);
     }
@@ -79,5 +79,3 @@ const mapStateToProps = (storeState) => {
 const mapDispatchToProps = {};
 
 export const Reserve = connect(mapStateToProps, mapDispatchToProps)(_Reserve);
-
-
