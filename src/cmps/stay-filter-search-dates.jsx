@@ -1,7 +1,6 @@
 import React,{useState,useEffect} from 'react';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
-
 import { DateRangePicker } from 'react-date-range';
 
 export function SearchByDate (props){

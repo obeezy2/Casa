@@ -2,7 +2,7 @@
 
 .main-hero {
     object-fit: cover;
-    height: 80vh;
+    height: 68vh;
     width: 100%;
     color: white;
     display: flex;
@@ -10,12 +10,13 @@
     align-items: center;
     background-color: #000000;
     .img-container{
+        margin-bottom: 50px;
         width: 95%;
-        height: 60%;
+        height: 70%;
         background-color: white;
         .hero-img{
-          
-         
+            margin-bottom: 50px;
+
             background-image: url("../../img/hero/166791ff-bc82-4b88-ba3d-49be1d462dce\ \(1\).jpg");
             background-repeat: no-repeat;
             background-size: cover;
@@ -30,18 +31,20 @@
 }
      
     .hero-action {
-        font-size: 25px;
-        font-weight: 200;
+        font-size: 22px;
+        font-weight: -lighter;
+         letter-spacing: 1px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         position: absolute;
-        top: 80%;
+        top: 68%;
         color: $d-nc-lt-s;
         ;
         h1 {
             padding-inline: 15px;
+            color: rgb(229,229,229);
         }
     }
 

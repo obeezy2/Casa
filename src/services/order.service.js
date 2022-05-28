@@ -6,12 +6,12 @@ _setupForLocalStorage();
 
 export const orderService = {
   query,
-  getBookedDates
+  getBookedDates,
+  addOrder,
 };
 
 async function query(filterBy) {
   let orders = await storageService.query(STORAGE_KEY);
-  debugger
   if (!filterBy) return orders;
   if (filterBy.stayId) {
     orders = orders.filter((order) => order.stay._id === filterBy.stayId);
@@ -22,13 +22,46 @@ async function query(filterBy) {
   if (filterBy.userId) {
     orders = orders.filter((order) => order.miniUser._id === filterBy.userId);
   }
-  return orders
+  return orders;
 }
 
-async function getBookedDates(stayId){
-    const orders=await query({stayId})
-    const bookedDates=orders.map(order=>({startDate:order.startDate,endDate:order.endDate}))
-    return bookedDates
+async function addOrder(order) {
+  try {
+    const bookedDates = await getBookedDates(order.stayId);
+    const isAvailable = await _checkAvailability(
+      order.startDate,
+      order.endDate,
+      bookedDates
+    );
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+async function _checkAvailability(startDate, endDate, bookedDates) {
+  debugger
+  const problemDates = bookedDates.filter((date) => {
+    if (endDate >= date.startDate && endDate <= date.endDate) {
+      return true;
+    } else if (
+      endDate > date.endDate &&
+      startDate >= date.startDate &&
+      startDate <= date.endDate
+    ) {
+      return true;
+    }
+    return false;
+  });
+  return (problemDates.length>0)?Promise.reject('not availble'):Promise.resolve(true)
+}
+
+async function getBookedDates(stayId) {
+  const orders = await query({ stayId });
+  const bookedDates = orders.map((order) => ({
+    startDate: order.startDate,
+    endDate: order.endDate,
+  }));
+  return bookedDates;
 }
 
 function _setupForLocalStorage() {

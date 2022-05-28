@@ -2,8 +2,9 @@
   margin-top: 90px;
   padding-inline: 20%;
   h1.stay-name {
-    font-weight: 600;
+    font-weight: 800;
     font-size: 26px;
+    color: $main-black;
   }
 
   .stay-imgs-container {
@@ -30,6 +31,7 @@
     padding-top: 50px;
     display: flex;
     justify-content: stretch;
+    
   }
 
   .host-info {
@@ -38,3 +40,5 @@
     padding-bottom: 48px;
   }
 }
+
+

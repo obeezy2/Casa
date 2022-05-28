@@ -1,56 +1,71 @@
-import axios from 'axios'
+import { storageService } from './async.storage.service'
+import { user_db } from "../data/db";
 
-const STORAGE_KEY_LOGGEDIN = 'loggedinUser'
+const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 
+const STORAGE_KEY = 'USER_STORAGE_KEY'
+_setupForLocalStorage()
 export const userService = {
     login,
-    getLoggedinUser,
     logout,
     signup,
-
+    getLoggedinUser,
+    getUsers,
+    getById,
+    remove,
+    update,
 }
 
-const BASE_URL = `http://localhost:3030/api/auth/`
+// To help debugging from console
+window.userService = userService
 
-
-async function login(credentials) {
-    try {
-        // const user = await httpService.post('auth/login', credentials)
-        const res = await axios.post(`${BASE_URL}login`, credentials)
-        const user = res.data
-        sessionStorage.setItem(STORAGE_KEY_LOGGEDIN, JSON.stringify(user))
-        return user
-    } catch (err) {
-        console.log('Failed to login', err);
+function _setupForLocalStorage() {
+    if (!localStorage.getItem(STORAGE_KEY)) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(user_db));
     }
-
-}
-async function signup(userInfo) {
-
-    try {
-        // const user = await httpService.post('auth/signup', userInfo)
-        const res = await axios.post(`${BASE_URL}signup`, userInfo)
-        const user = res.data
-        sessionStorage.setItem(STORAGE_KEY_LOGGEDIN, JSON.stringify(user))
-        return user
-    } catch (err) {
-        console.log('Failed to signup', err);
-    }
-
 }
 
+
+function getUsers() {
+    return storageService.query(STORAGE_KEY)
+}
+
+async function getById(userId) {
+    const user = await storageService.get('user', userId)
+    return user;
+}
+function remove(userId) {
+    return storageService.remove('user', userId)
+}
+
+async function update(userCred) {
+    const user = await storageService.put('userDB', userCred)
+    if (getLoggedinUser()._id === user._id) _saveLocalUser(user)
+    return user;
+}
+
+async function login(userCred) {
+    const users = await storageService.query(STORAGE_KEY)
+    const user = users.find(user => user.username === userCred.username && user.password === userCred.password)
+    return _saveLocalUser(user)
+
+}
+async function signup(userCred) {
+    const user = await storageService.post(STORAGE_KEY, userCred)
+    return _saveLocalUser(user)
+}
 async function logout() {
-    try {
-        // await httpService.post('auth/logout')
-        await axios.post(`${BASE_URL}logout`)
-        sessionStorage.setItem(STORAGE_KEY_LOGGEDIN, null)
-        return Promise.resolve()
-    } catch (err) {
-        console.log('Failed to logout', err);
-    }
+    localStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
+}
+
+
+function _saveLocalUser(user) {
+    localStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+    return user
 }
 
 function getLoggedinUser() {
-    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN))
+    return JSON.parse(localStorage.getItem(STORAGE_KEY_LOGGEDIN_USER) || null)
 }
+
 

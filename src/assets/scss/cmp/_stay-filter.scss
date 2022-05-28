@@ -23,18 +23,17 @@
 
     .filter-btn-container{
         display: flex;
-        flex: 4;
+        flex: 3;
         text-align: center;
         justify-content: center;
-        width: fit-content;
         align-items: center;
-        height: 48px;
+        height: 45px;
         cursor: pointer;
         .filter-btn-sub-title{
             width: 100%;
         }
        .filter-btn {
-         padding-inline: 16px;
+         padding-inline: 5px;
          
             .destination-input{
                 :focus {
@@ -44,7 +43,7 @@
         }
     }
     .filter-btn-guests{
-            width: 300px;
+            width: 230px;
             font-weight: 400;
             justify-self: center;
     }
