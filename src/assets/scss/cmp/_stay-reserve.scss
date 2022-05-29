@@ -4,12 +4,11 @@
     font-size: 15px;
     color: $main-black;
     z-index: 10;
-    padding: 24px;
     position: sticky;
     top: 80px;
     height: 300px;
     max-width: 365px;
-    margin-left: 40px;
+    margin-left: 36%;
     border: 1px solid $secondary-grey;
     border-radius: 12px;
     padding: 24px;
@@ -26,6 +25,9 @@
       background-color: $main-red-pink;
       height: 48px;
       border-radius: 8px;
+    }
+    >*{
+      margin-top: 10px;
     }
   }
 }

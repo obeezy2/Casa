@@ -57,10 +57,11 @@ export function AppHeader() {
                 {" "}
                 <StayFilter />
             </div>
+            
             <Link className="explore" to="/stays">
                 Explore
             </Link>
-            <Link className="host" to="/">
+            <Link className="host" to="/host">
                 Become a Host
             </Link>
             <Link className="user" to="/login">
