@@ -13,7 +13,7 @@ export const userService = {
     getUsers,
     getById,
     remove,
-    update,
+    // update,
 }
 
 // To help debugging from console
@@ -38,34 +38,45 @@ function remove(userId) {
     return storageService.remove('user', userId)
 }
 
-async function update(userCred) {
-    const user = await storageService.put('userDB', userCred)
-    if (getLoggedinUser()._id === user._id) _saveLocalUser(user)
-    return user;
-}
+// async function update(userCred) {
+//     const user = await storageService.put(STORAGE_KEY, userCred)
+//     if (getLoggedinUser()._id === user._id) _saveLocalUser(user)
+//     return user;
+// }
 
 async function login(userCred) {
-    const users = await storageService.query(STORAGE_KEY)
-    const user = users.find(user => user.username === userCred.username && user.password === userCred.password)
-    return _saveLocalUser(user)
+    try {
+        const users = await storageService.query(STORAGE_KEY)
+        const user = users.find(user => user.username === userCred.username && user.password === userCred.password)
+        sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+        return user
+    } catch (err) {
+        console.log('Failed to login', err);
+    }
 
 }
 async function signup(userCred) {
-    const user = await storageService.post(STORAGE_KEY, userCred)
-    return _saveLocalUser(user)
+    try {
+        const user = await storageService.post(STORAGE_KEY, userCred)
+        sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+        return user
+    } catch (err) {
+        console.log('Failed to signup', err);
+    }
+
 }
 async function logout() {
     sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
 }
 
 
-function _saveLocalUser(user) {
-    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
-    return user
-}
+// function _saveLocalUser(user) {
+//     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+//     return user
+// }
 
 function getLoggedinUser() {
-    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))|| null
+    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER)) || null
 }
 
 

@@ -12,11 +12,15 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { connect } from "react-redux";
+import { useNavigate } from 'react-router-dom';
 import { onSignup } from '../store/action/user.action.js';
+import { CleaningServices } from '@mui/icons-material';
 const theme = createTheme();
 
 export function _Signup() {
-    const handleSubmit = async (event) => {
+    let navigate = useNavigate()
+
+    const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         const fName = data.get('firstName')
@@ -26,9 +30,9 @@ export function _Signup() {
             fullname: (fName + ' ' + lName),
             password: data.get('password'),
         }
-        await onSignup(user)
-
-
+        console.log(user)
+        onSignup(user)
+        navigate(-1);
     };
 
     return (
