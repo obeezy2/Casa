@@ -1,7 +1,7 @@
 import { storageService } from './async.storage.service'
 import { user_db } from "../data/db";
 
-const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
+const STORAGE_KEY_LOGGEDIN_USER = 'loggedInUser'
 
 const STORAGE_KEY = 'USER_STORAGE_KEY'
 _setupForLocalStorage()
@@ -65,7 +65,7 @@ function _saveLocalUser(user) {
 }
 
 function getLoggedinUser() {
-    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER) || null)
+    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER))|| null
 }
 
 

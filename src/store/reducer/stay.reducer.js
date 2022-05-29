@@ -1,7 +1,6 @@
 
 const initialState = {
     stays:null,
-    // currStay:null
     filterBy:null 
 }
 
