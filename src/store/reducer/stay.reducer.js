@@ -12,10 +12,11 @@ export function stayReducer(state = initialState, action) {
             newState={stays:action.stays}
             break;
         case 'SET_FILTER_BY':
-            return {
-                ...newState,
+            newState = {
+                ...state,
                 filterBy: action.filterBy
-            }         
+            } 
+            break;        
          default:
     }
     return newState;

@@ -3,7 +3,7 @@ import {SearchByDate} from './stay-filter-search-dates'
 import {AddGuestsFilter} from './stay-filter-addGuest-filter'
 import worldLogo from '../assets/img/filter/world.jpg'
 import { useDispatch} from 'react-redux'
-import {setFilterBy} from '../store/action/stay.action.js'
+import {setFilterByAction} from '../store/action/stay.action.js'
 
 export const StayFilter = () => {
 
@@ -12,19 +12,15 @@ export const StayFilter = () => {
   const [filterBy,setFilterBy] = useState({})
   const dispatch = useDispatch()
 
-  const onSetFilter = () => {
-    dispatch( setFilterBy(filterBy))  
-  }
-
   const onChangeFilter = (ev) =>{
       ev.preventDefault()
       setFilterBy({...filterBy,txt:ev.target.value})
     }
   //use event on document body to close filter expand 
-  useEffect(()=>{
-    window.addEventListener('click',()=>{
-    })
-  },[])
+  // useEffect(()=>{
+  //   window.addEventListener('click',()=>{
+  //   })
+  // },[])
 
   return <section className="app-filter-container">
     <div className="app-filter">
@@ -74,7 +70,7 @@ export const StayFilter = () => {
           :'Add guests'}
         </div>
         <div className="search">
-          <div className="search-icon" onClick={() => onSetFilter()}>S</div>
+          <div className="search-icon" onClick={() => dispatch(setFilterByAction(filterBy))}>S</div>
         </div>
       </div>
     </div>

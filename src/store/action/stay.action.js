@@ -15,10 +15,8 @@ export function loadStays(filterBy = null) {
   };
 }
 
-export function setFilterBy(filterBy){
-  console.log('test action')
-    // return (dispatch) => {
-    //   console.log('filterby from action ',filterBy)
-    //    // dispatch({ type: 'SET_FILTER_BY', filterBy })
-    // } 
+export function setFilterByAction(filterBy){
+    return (dispatch) => {
+      dispatch({ type: 'SET_FILTER_BY', filterBy })
+    } 
 }

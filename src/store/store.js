@@ -1,8 +1,8 @@
 import {userReducer} from './reducer/user.reducer.js'
 import {stayReducer} from './reducer/stay.reducer.js'
-
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import thunk from 'redux-thunk'
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
+
 
 
 const rootReducer = combineReducers({
