@@ -57,7 +57,7 @@ export const StayDetails = () => {
       </div>
       <div className="info-reserve">
         <StayInfo stay={stay} />
-        {/* <Reserve stayId={stay._id} stayPrice={stay.price} numOfGuest={stay.capacity}/> */}
+        <Reserve stayId={stay._id} stayPrice={stay.price} numOfGuest={stay.capacity}/>
       </div>
       <StayReview reviewScores={stay.reviewScores} reviews={stay.reviews} />
       <div className="date-selection"></div>
