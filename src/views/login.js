@@ -11,10 +11,12 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import { onLogin } from '../store/action/user.action.js';
+import { useDispatch } from 'react-redux';
 
 const theme = createTheme()
 export function Login() {
     let navigate = useNavigate()
+    const dispatch=useDispatch()
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -24,7 +26,7 @@ export function Login() {
             password: data.get('password'),
         }
         console.log(credentials);
-        onLogin(credentials)
+        dispatch(onLogin(credentials))
         navigate('/');
 
     };
