@@ -1,14 +1,23 @@
-.stay-main-info-container{
-    flex-basis: 50%;
-    flex-grow: 1;
-    align-self: flex-end;
-    .amenities{
-        // height: 260px;
-        // overflow: hidden;
+.stay-main-info-container {
+  flex-basis: 50%;
+  flex-grow: 1;
+  align-self: flex-end;
+  .amenities-container {
+    .amenities {
+      height: 215px;
+      overflow: hidden;
     }
-    &>*:not(:first-child){
-        border-top: 1px solid rgb(221, 221, 221);
-        padding-top: 48px;
-        padding-bottom: 48px;
+    .amenities-btn {
+      border: 1px solid $black;
+      border-radius: 8px;
+      width: fit-content;
+      padding: 13px 23px;
     }
+  }
+
+  & > *:not(:first-child) {
+    border-top: 1px solid rgb(221, 221, 221);
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
 }

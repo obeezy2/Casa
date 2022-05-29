@@ -1,5 +1,6 @@
-import React from "react";
+import {useState} from "react";
 export const StayReview = ({ reviewScores, reviews }) => {
+  const [isReviewsExpanded,setIsReviewsExpanded]=useState(false)
   return (
     <div className="reviews-container">
       <h1>
@@ -17,7 +18,9 @@ export const StayReview = ({ reviewScores, reviews }) => {
           <h4>Value - {reviewScores.value / 2}</h4>
         </div>
       </div>
-      <div className="review-cards-container">
+      <div className="review-cards-container" style={
+            isReviewsExpanded ? { height: "fit-content"} : null
+          }>
         {reviews.map(review => {
           return <div key={review.by._id} className="review-card">
             <div className="writer-info-container">
@@ -30,6 +33,13 @@ export const StayReview = ({ reviewScores, reviews }) => {
           </div>
         })}
       </div>
+      <div className="reviews-btn"
+          onClick={() => {
+            setIsReviewsExpanded(!isReviewsExpanded);
+          }}
+        >
+          <h3>{isReviewsExpanded?'Show less':'Show more'}</h3>
+        </div>
     </div>
   );
 };
