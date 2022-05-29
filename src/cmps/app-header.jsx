@@ -57,7 +57,7 @@ export function AppHeader() {
                 {" "}
                 <StayFilter />
             </div>
-            
+
             <Link className="explore" to="/stays">
                 Explore
             </Link>
