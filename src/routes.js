@@ -3,8 +3,8 @@ import { Homepage } from './views/Homepage'
 import { StayApp } from "./views/stay-app"
 import { HostPage } from "./views/host-page";
 import { StayDetails } from "./views/stay-details";
-import { Login } from './views/login.js'
-import { Signup } from './views/signup.js'
+import { Login } from './views/login.jsx'
+import { Signup } from './views/signup.jsx'
 import { Privacy } from './cmps/privacy';
 
 // Routes accesible from the main navigation (in AppHeader)

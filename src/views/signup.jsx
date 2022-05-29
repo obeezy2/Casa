@@ -10,6 +10,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useDispatch } from 'react-redux';
 
 import { connect } from "react-redux";
 import { useNavigate } from 'react-router-dom';
@@ -19,6 +20,7 @@ const theme = createTheme();
 
 export function _Signup() {
     let navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -31,7 +33,7 @@ export function _Signup() {
             password: data.get('password'),
         }
         console.log(user)
-        onSignup(user)
+        dispatch(onSignup(user))
         navigate(-1);
     };
 

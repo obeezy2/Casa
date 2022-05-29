@@ -16,7 +16,7 @@ import { useDispatch } from 'react-redux';
 const theme = createTheme()
 export function Login() {
     let navigate = useNavigate()
-    const dispatch=useDispatch()
+    const dispatch = useDispatch()
 
     const handleSubmit = (event) => {
         event.preventDefault();
