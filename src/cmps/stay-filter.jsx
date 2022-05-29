@@ -4,6 +4,7 @@ import {AddGuestsFilter} from './stay-filter-addGuest-filter'
 import worldLogo from '../assets/img/filter/world.jpg'
 import { useDispatch} from 'react-redux'
 import {setFilterByAction} from '../store/action/stay.action.js'
+import { useNavigate } from "react-router-dom";
 
 export const StayFilter = () => {
 
@@ -11,11 +12,17 @@ export const StayFilter = () => {
   const [currExpand,setExpand] = useState(null)
   const [filterBy,setFilterBy] = useState({})
   const dispatch = useDispatch()
+  let navigate = useNavigate()  
 
   const onChangeFilter = (ev) =>{
       ev.preventDefault()
       setFilterBy({...filterBy,txt:ev.target.value})
     }
+
+  const onSetFilter = ()=>{
+    dispatch(setFilterByAction(filterBy))
+    navigate('/stays')
+  }  
   //use event on document body to close filter expand 
   // useEffect(()=>{
   //   window.addEventListener('click',()=>{
@@ -70,7 +77,7 @@ export const StayFilter = () => {
           :'Add guests'}
         </div>
         <div className="search">
-          <div className="search-icon" onClick={() => dispatch(setFilterByAction(filterBy))}>S</div>
+          <div className="search-icon" onClick={() => onSetFilter() }>S</div>
         </div>
       </div>
     </div>
