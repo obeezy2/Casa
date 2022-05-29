@@ -2,12 +2,14 @@ import React,{useState,useEffect} from "react";
 import {SearchByDate} from './stay-filter-search-dates'
 import {AddGuestsFilter} from './stay-filter-addGuest-filter'
 import worldLogo from '../assets/img/filter/world.jpg'
+import { useDispatch} from 'react-redux'
 
 export const StayFilter = () => {
 
   const [isFilterExpand,setFilterExpand] = useState(false)
   const [currExpand,setExpand] = useState(null)
   const [filterBy,setFilterBy] = useState({})
+  const dispatch = useDispatch()
 
   const onChangeFilter = (ev) =>{
       ev.preventDefault()
