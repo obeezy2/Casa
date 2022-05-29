@@ -1,4 +1,11 @@
-import React from "react";
-export const HostPage = () => {
+import { Link } from "react-router-dom";
 
-}
+export const HostPage = () => {
+  return (
+    <section className="host-page-container">
+      <Link to="/stay/edit">
+        <h1>Try hosting</h1>
+      </Link>
+    </section>
+  );
+};
