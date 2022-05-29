@@ -6,11 +6,16 @@ import { SearchByDate as DatePicker } from "./stay-filter-search-dates";
 export class _Reserve extends React.Component {
   state = {
     dates: null,
+    isModalOpen: false,
   };
 
-  onSetDate = ({ startDate, endDate }) => {
-    const startDateStamp = new Date(startDate._d).getTime();
-    const endDateStamp = new Date(endDate._d).getTime();
+  onSetDates = (startDateStr, endDateStr) => {
+    const startDate=new Date (startDateStr)
+    const endDate=new Date (endDateStr)
+    if(startDate.getDate()===endDate.getDate()) return
+    console.log(startDate, " ", endDate);
+    const startDateStamp = new Date(startDate).getTime();
+    const endDateStamp = new Date(endDate).getTime();
     // setNumOfDays((endDateStamp - startDateStamp) / 86400000);
     this.setState({ dates: { endDateStamp, startDateStamp } });
   };
@@ -42,13 +47,25 @@ export class _Reserve extends React.Component {
 
   render() {
     const { stayPrice } = this.props;
-    const { dates } = this.state;
+    const { dates, isModalOpen } = this.state;
     return (
       <section className="reserve-container">
         <div className="reserve-modal">
-          <h1>${stayPrice} <span className="night-container">night</span></h1>
+          <h1>
+            ${stayPrice} <span className="night-container">night</span>
+          </h1>
           <div className="order-datepicker-guest">
-            <DatePicker onSetDate={this.onSetDate} />
+            <div
+              className="date-picker-modal"
+              onClick={() =>
+                this.setState({ ...this.state, isModalOpen: !isModalOpen })
+              }
+            >
+              <h2>Choose dates</h2>
+              <div className="modal-container" onClick={ev=>ev.stopPropagation()}>
+                {isModalOpen && <DatePicker onSetDates={this.onSetDates} />}
+              </div>
+            </div>
           </div>
           <h3 className="reserve-btn" onClick={this.onReserve}>
             Reserve
@@ -58,8 +75,8 @@ export class _Reserve extends React.Component {
             <h3>
               {dates !== null
                 ? ((dates.endDateStamp - dates.startDateStamp) / 86400000) *
-                stayPrice +
-                ""
+                    stayPrice +
+                  ""
                 : "0"}
               $
             </h3>
