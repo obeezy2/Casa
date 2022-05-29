@@ -4,7 +4,7 @@ import {AddGuestsFilter} from './stay-filter-addGuest-filter'
 import worldLogo from '../assets/img/filter/world.jpg'
 import { useDispatch} from 'react-redux'
 import {setFilterByAction} from '../store/action/stay.action.js'
-import { useNavigate } from "react-router-dom";
+import {useLocation,useNavigate} from "react-router-dom";
 
 export const StayFilter = () => {
 
@@ -13,6 +13,7 @@ export const StayFilter = () => {
   const [filterBy,setFilterBy] = useState({})
   const dispatch = useDispatch()
   let navigate = useNavigate()  
+  let location = useLocation();
 
   const onChangeFilter = (ev) =>{
       ev.preventDefault()
@@ -23,11 +24,18 @@ export const StayFilter = () => {
     dispatch(setFilterByAction(filterBy))
     navigate('/stays')
   }  
-  //use event on document body to close filter expand 
-  // useEffect(()=>{
-  //   window.addEventListener('click',()=>{
-  //   })
-  // },[])
+  
+  useEffect(()=>{
+    //close filter expand when moveing to another page 
+     if(location.pathname !== '/'){
+        setFilterExpand(false)
+      }
+    //use event on document body to close filter expand 
+    document.querySelector('.main-content').addEventListener('click',()=>{
+        setFilterExpand(false)
+    })
+
+  },[location])
 
   return <section className="app-filter-container">
     <div className="app-filter">
@@ -94,7 +102,6 @@ export const StayFilter = () => {
     </div>}
   </section>
 }
-
 
 function SearchByDestination(props){
   const [region,setRegion] = useState('')
