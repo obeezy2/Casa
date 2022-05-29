@@ -3,8 +3,9 @@ import { Homepage } from './views/Homepage'
 import { StayApp } from "./views/stay-app"
 import { HostPage } from "./views/host-page";
 import { StayDetails } from "./views/stay-details";
-import { Login } from './views/login.jsx'
-import { Signup } from './views/signup.jsx'
+import { StayEdit } from "./views/stay-edit";
+import { Login } from './views/login'
+import { Signup } from './views/signup'
 import { Privacy } from './cmps/privacy';
 
 // Routes accesible from the main navigation (in AppHeader)
@@ -24,6 +25,10 @@ const routes = [
     {
         path: 'stay/details/:stayId',
         component: <StayDetails />
+    },
+    {
+        path: 'stay/edit',
+        component: <StayEdit />
     },
     {
         path: '/login',
