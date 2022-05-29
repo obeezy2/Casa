@@ -55,17 +55,17 @@ async function signup(userCred) {
     return _saveLocalUser(user)
 }
 async function logout() {
-    localStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
+    sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN_USER)
 }
 
 
 function _saveLocalUser(user) {
-    localStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
 
 function getLoggedinUser() {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY_LOGGEDIN_USER) || null)
+    return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER) || null)
 }
 
 

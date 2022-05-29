@@ -10,14 +10,15 @@ export class _Reserve extends React.Component {
   };
 
   onSetDates = (startDateStr, endDateStr) => {
-    const startDate=new Date (startDateStr)
-    const endDate=new Date (endDateStr)
-    if(startDate.getDate()===endDate.getDate()) return
-    console.log(startDate, " ", endDate);
-    const startDateStamp = new Date(startDate).getTime();
-    const endDateStamp = new Date(endDate).getTime();
-    // setNumOfDays((endDateStamp - startDateStamp) / 86400000);
-    this.setState({ dates: { endDateStamp, startDateStamp } });
+    const startDate = new Date(startDateStr);
+    const endDate = new Date(endDateStr);
+    if (startDate.getDate() === endDate.getDate()) return;
+    const startDateStamp = startDate.getTime();
+    const endDateStamp = endDate.getTime();
+    this.setState({
+      dates: { endDateStamp, startDateStamp },
+      isModalOpen: !this.state.isModalOpen,
+    });
   };
 
   onReserve = async () => {
@@ -62,7 +63,10 @@ export class _Reserve extends React.Component {
               }
             >
               <h2>Choose dates</h2>
-              <div className="modal-container" onClick={ev=>ev.stopPropagation()}>
+              <div
+                className="modal-container"
+                onClick={(ev) => ev.stopPropagation()}
+              >
                 {isModalOpen && <DatePicker onSetDates={this.onSetDates} />}
               </div>
             </div>
