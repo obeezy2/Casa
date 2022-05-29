@@ -17,7 +17,7 @@
     grid-template-areas:
       ". logo . search . explore host user .";
     background-color: white;
-    box-shadow: 0 5px 7px 0 rgb(0 0 0 / 5%);
+    border-bottom: 1px solid $light-grey;
 
 & a:hover:not(:last-child) {
     background-color: #EBEBEB;

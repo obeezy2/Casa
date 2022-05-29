@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import React from 'react'
+import React from "react";
 import { stayService } from "../services/stay.service";
 import { StayInfo } from "../cmps/stay-info";
 import { Reserve } from "../cmps/stay-reserve";
 import { StayReview } from "../cmps/stay-review";
+import { borderRadius } from "@mui/system";
 
 export const StayDetails = () => {
   const params = useParams();
@@ -28,36 +29,55 @@ export const StayDetails = () => {
   }
   return (
     <section className="stay-details-container">
-      <h1 className="stay-name">{stay.name}</h1>
-      <div className="short-desc">
-        <div className="stats">
-          <span>⭐{(stay.reviewScores.rating / 100) * 5}</span> ·{" "}
-          <span>{stay.reviews.length} reviews</span> ·{" "}
-          {stay.host.isSuperhost && <span>🌟 Superhost</span>} ·{" "}
-          <span>{stay.address.street}</span>
+      <div className="stay-title-info-container">
+        <h1 className="stay-name">{stay.name}</h1>
+        <div className="short-desc">
+          <div className="stats">
+            <span>★{(stay.reviewScores.rating / 100) * 5} ·</span>
+            <span className="reviews"> {stay.reviews.length} reviews</span>
+            <span className="seperate-dott">·</span>
+            {stay.host.isSuperhost && <span className="super-host"> Superhost</span>}
+            <span className="seperate-dott">·</span>
+            <span>{stay.address.street}</span>
+          </div>
+          <div className="quick-actions">
+            <div className="share-btn">
+            <img src={require('../assets/img/Icons/upload.png')} alt="" />
+              Share</div>
+            <div className="save-btn">
+            <img src={require('../assets/img/Icons/save.png')} alt="" />
+              Save</div>
         </div>
-        {/* <div className="quick-actions">
-            <div className="share-btn">Share</div>
-            <div className="save-btn">Save</div>
-        </div> */}
+        </div>
       </div>
-      <div className="stay-imgs-container">
-        <img className="main-img-container" src={stay.imgUrls[0]} alt="" />
-        {stay.imgUrls.map((imgUrl, idx) => {
-          if (idx === 0) return;
-          return (
-            <img
-              className="secondary-img-container"
-              key={idx}
-              src={imgUrl}
-              alt=""
-            />
-          );
-        })}
+      <div className="img-layout">
+        <div className="stay-imgs-container">
+          <img className="main-img-container" src={stay.imgUrls[0]} alt="" />
+          {stay.imgUrls.map((imgUrl, idx) => {
+            if (idx === 0) return;
+            let style=null
+            if(idx===2)style={borderTopRightRadius:'12px'}
+            if(idx===4)style={borderBottomRightRadius:'12px'}
+            return (
+              <img
+              style={style}
+                className="secondary-img-container"
+                key={idx}
+                src={imgUrl}
+                alt=""
+              />
+            );
+          })}
+        </div>
       </div>
+
       <div className="info-reserve">
         <StayInfo stay={stay} />
-        <Reserve stayId={stay._id} stayPrice={stay.price} numOfGuest={stay.capacity} />
+        <Reserve
+          stayId={stay._id}
+          stayPrice={stay.price}
+          numOfGuest={stay.capacity}
+        />
       </div>
       <StayReview reviewScores={stay.reviewScores} reviews={stay.reviews} />
       <div className="date-selection"></div>
