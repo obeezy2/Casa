@@ -7,11 +7,11 @@ import { loadStays } from "../store/action/stay.action.js";
 import { PopDestination } from '../cmps/pop-destination.jsx'
 import { TopRated } from '../cmps/top-rated.jsx'
 export const Homepage = () => {
-    const { stays } = useSelector((storeState) => storeState.stayModule)
-    const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(loadStays(null))
-    }, [])
+    // const { stays } = useSelector((storeState) => storeState.stayModule)
+    // const dispatch = useDispatch()
+    // useEffect(() => {
+    //     dispatch(loadStays(null))
+    // }, [])
 
 
     return <section className="main-container">
