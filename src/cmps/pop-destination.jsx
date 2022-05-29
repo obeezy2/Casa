@@ -4,8 +4,15 @@ import tokyo from '../assets/img/logo/tokyo.jpg'
 import capetown from '../assets/img/logo/capetown.jpg'
 import telaviv from '../assets/img/logo/telaviv.jpg'
 import london from '../assets/img/logo/london.webp'
-
+import { useNavigate } from 'react-router-dom'
 export function PopDestination() {
+    let navigate = useNavigate()
+
+    function onSetFilter() {
+        navigate('/stays')
+    }
+
+
 
     return (
         <main className="pop-cities-gallery">
@@ -13,7 +20,7 @@ export function PopDestination() {
             <h1 className='header-popular'>Popular Destinations</h1>
 
             <section className='pop-cities'>
-                <div className='card'>
+                <div className='card' onClick={() => onSetFilter()}>
                     <img src={`${tokyo}`} />
 
                     <div className="city-details">
@@ -21,7 +28,7 @@ export function PopDestination() {
                         <h4><span>Japan</span></h4>
                     </div>
                 </div>
-                <div className='card'>
+                <div className='card' onClick={() => onSetFilter()}>
 
                     <img src={`${capetown}`} />
 
@@ -30,7 +37,7 @@ export function PopDestination() {
                         <h4><span>South Africa</span></h4>
                     </div>
                 </div>
-                <div className='card'>
+                <div className='card' onClick={() => onSetFilter()}>
 
                     <img src={`${telaviv}`} />
 
@@ -39,7 +46,7 @@ export function PopDestination() {
                         <h4><span>Israel</span></h4>
                     </div>
                 </div>
-                <div className='card'>
+                <div className='card ' onClick={() => onSetFilter()}>
 
                     <img src={`${london}`} />
 

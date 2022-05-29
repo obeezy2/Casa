@@ -1,9 +1,9 @@
 .main-container {  
     display: grid;
-    grid-template-columns: 80px 2.4fr 80px;
+    grid-template-columns: 80px 1fr 80px; 
     grid-template-rows: 70px 1.5fr 1.5fr 1.5fr;
-    gap: 8px 5px;
     grid-auto-flow: row;
+    gap: 8px 5px;
     justify-content: space-between;
     align-content: space-between;
     justify-items: stretch;
@@ -21,6 +21,7 @@
   .app-header
 {
     grid-area: header;
+
 }
 
 .main-hero{

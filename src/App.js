@@ -10,8 +10,8 @@ import { StayFilter } from './cmps/stay-filter.jsx'
 function App() {
   return (
     <div className="App">
-      <AppHeader />
       <main className="main-content">
+        <AppHeader />
 
         <Routes>
           {routes.map((route) => {
@@ -25,9 +25,10 @@ function App() {
             );
           })}
         </Routes>
+        <AppFooter />
+
       </main>
 
-      <AppFooter />
     </div>
   );
 }

@@ -1,7 +1,9 @@
 .stay-app-container {
     display: grid; 
+    grid-auto-flow: row;
+
     grid-auto-columns: 1fr; 
-    grid-template-columns: 80px 1fr 80px; 
+    grid-template-columns: 80px 1.5fr 80px; 
     grid-template-rows: 80px 120px 1fr; 
     gap: 8px 5px; 
     grid-template-areas: 
