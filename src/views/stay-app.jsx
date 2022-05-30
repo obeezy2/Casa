@@ -13,10 +13,10 @@ export const StayApp = () => {
   }, [])
 
   return (
-    <section className="stay-app-container">
+    <section className="stay-app-container explore-layout">
       {/* <StayFilter /> */}
-      <StayList stays={stays} />
       <FilterIcons />
+      <StayList stays={stays} />
     </section>
   );
 };

@@ -54,7 +54,7 @@ export const StayEdit = () => {
     console.log(user);
   };
   return (
-    <section className="edit-stay-container">
+    <section className="edit-stay-container become-host-layout">
       <ThemeProvider theme={theme}>
         <Container component="main" maxWidth="xs">
           <Box

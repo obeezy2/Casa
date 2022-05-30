@@ -29,7 +29,7 @@ export const StayDetails = () => {
   
   }
   return (
-    <section className="stay-details-container">
+    <section className="stay-details-container details-page-layout">
       <div className="stay-title-info-container">
         <h1 className="stay-name">{stay.name}</h1>
         <div className="short-desc">
