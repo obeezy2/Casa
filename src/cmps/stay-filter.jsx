@@ -30,18 +30,12 @@ export const StayFilter = () => {
   useEffect(()=>{
     //close filter expand when moveing to another page
     setFilterExpand(false)
-  },[location])
-
-  useEffect(() => {
-    //use event on document body to close filter expand 
     if(location.pathname === '/' ){    
       document.querySelector('.main-container').addEventListener('click', () => {
       setFilterExpand(false)
     })}
-
-
-  }, [])
-
+  },[location])
+  console.log(filterBy)
   return (<section className="app-filter-container">
     <div className="app-filter">
       <div className='filter-btn-container filter-btn-location' onClick={() => {
@@ -59,7 +53,7 @@ export const StayFilter = () => {
                   placeholder='search destination' />
               </form>
             </div>
-            : 'Anywhere'}
+            : filterBy.region ||'Anywhere'}
         </div>
       </div>
       <span className="filter-span"></span>
@@ -87,10 +81,10 @@ export const StayFilter = () => {
               <p>Who</p>
               <p>Add guests</p>
             </div>
-            : 'Add guests'}
+            : <p className="add-guests-paragraph">Add guests</p>}
         </div>
         <div className="search">
-          <div className="search-icon" onClick={() => onSetFilter()}><SearchIcon fontSize="medium" /></div>
+          <div className="search-icon" onClick={() => onSetFilter()}><SearchIcon className="search-icon-svg"  /></div>
         </div>
       </div>
     </div>
