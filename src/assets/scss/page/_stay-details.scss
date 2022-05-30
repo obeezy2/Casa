@@ -22,18 +22,20 @@
         line-height: 18px;
         text-align: center;
         text-decoration: underline;
-        img{
+        img {
           margin-right: 8px;
+          object-fit: cover;
+          height: 69%;
         }
-        >*:hover{
+        > *:hover {
           background-color: rgba(211, 211, 211, 0.164);
           border-radius: 8px;
         }
-        .share-btn{
+        .share-btn {
           display: flex;
           margin-right: 18px;
         }
-        .save-btn{
+        .save-btn {
           display: flex;
         }
       }
@@ -49,7 +51,7 @@
         .super-host {
           font-weight: 400;
         }
-        .address{
+        .address {
           text-decoration: underline;
         }
       }
@@ -58,13 +60,17 @@
   .img-layout {
     height: 520px;
     padding-top: 26px;
-    max-width: 1320px;
     margin-bottom: 20px;
     .stay-imgs-container {
       display: grid;
       grid-template-columns: 2.5fr 1fr 1fr;
       grid-template-rows: 222px 198px;
       grid-gap: 8px;
+      @media (min-width: $padded-break-normal) {
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-rows: 248px 240px;
+        border-radius: 12px;
+      }
       border-radius: 12px;
       img {
         aspect-ratio: 1;
@@ -91,4 +97,3 @@
     padding-bottom: 48px;
   }
 }
-
