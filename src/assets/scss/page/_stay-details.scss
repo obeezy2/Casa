@@ -62,7 +62,9 @@
     padding-top: 22px;
     max-width: 1120px;
     .stay-imgs-container {
-      display: grid;
+      display:grid;
+
+      grid-auto-flow: row;
       grid-template-columns: 2fr 1fr 1fr;
       grid-template-rows: 230px 230px;
       grid-gap: 8px;
