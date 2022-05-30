@@ -53,7 +53,7 @@ export const StayFilter = () => {
                   placeholder='search destination' />
               </form>
             </div>
-            : filterBy.region ||'Anywhere'}
+            : filterBy.txt || filterBy.region ||'Anywhere'}
         </div>
       </div>
       <span className="filter-span"></span>
