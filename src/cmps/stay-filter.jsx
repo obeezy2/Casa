@@ -34,9 +34,11 @@ export const StayFilter = () => {
 
   useEffect(() => {
     //use event on document body to close filter expand 
-    document.querySelector('.main-container').addEventListener('click', () => {
+    if(location.pathname === '/' ){    
+      document.querySelector('.main-container').addEventListener('click', () => {
       setFilterExpand(false)
-    })
+    })}
+
 
   }, [])
 

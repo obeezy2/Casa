@@ -11,7 +11,7 @@ export function FilterIcons() {
     return (
         <div className="icon-filters">
             {arr.map((a) => {
-                return <div><img src={require(`../assets/img/filters/${a}.jpg`)}></img></div>
+                return <div><img key={a} src={require(`../assets/img/filters/${a}.jpg`)}></img></div>
             })}
 
         </div>
