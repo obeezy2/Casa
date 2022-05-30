@@ -7,7 +7,7 @@ import { Carousel } from 'react-responsive-carousel';
 // import pictures from '../assets/img/houses'
 export function StayPreview({ stay }) {
     // console.log(pictures)
-
+    
     return (
 
         <Link to={`/stay/details/${stay._id}`} className="stay-preview-container">

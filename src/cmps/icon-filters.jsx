@@ -1,12 +1,6 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
-
-import { Splide, SplideSlide } from '@splidejs/react-splide';
-
-
-
-
 export function FilterIcons() {
 
 
