@@ -42,33 +42,28 @@ export const StayDetails = () => {
           </div>
           <div className="quick-actions">
             <div className="share-btn">
-            <img src={require('../assets/img/Icons/upload.png')} alt="" />
+              <img src={require('../assets/img/Icons/upload.png')} alt="" />
               Share</div>
             <div className="save-btn">
-            <img src={require('../assets/img/Icons/save.png')} alt="" />
+              <img src={require('../assets/img/Icons/save.png')} alt="" />
               Save</div>
-        </div>
+          </div>
         </div>
       </div>
-      <div className="img-layout">
-        <div className="stay-imgs-container">
-          <img className="main-img-container" src={stay.imgUrls[0]} alt="" />
-          {stay.imgUrls.map((imgUrl, idx) => {
-            if (idx === 0) return;
-            let style=null
-            if(idx===2)style={borderTopRightRadius:'12px'}
-            if(idx===4)style={borderBottomRightRadius:'12px'}
-            return (
-              <img
-              style={style}
-                className="secondary-img-container"
-                key={idx}
-                src={imgUrl}
-                alt=""
-              />
-            );
-          })}
-        </div>
+      
+      <div className="stay-imgs-container">
+        <img className="main-img-container" src={require(`../assets/img/houses/${stay.imgUrls[0]}`)} alt="" />
+        {stay.imgUrls.map((imgUrl, idx) => {
+          if (idx === 0) return;
+          return (
+            <img
+              className="secondary-img-container"
+              key={idx}
+              src={require(`../assets/img/houses/${stay.imgUrls[idx]}`)}
+              alt=""
+            />
+          );
+        })}
       </div>
 
       <div className="info-reserve">

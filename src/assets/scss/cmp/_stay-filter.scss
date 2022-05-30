@@ -38,9 +38,13 @@
          padding-inline: 5px;
          
             .destination-input{
-                :focus {
+                border: none;
+                border-radius: 35px;
+                text-align:left;
+                padding-left: 15px;
+                &:focus {
                  outline: none;
-                    }
+                }
             }
         }
     }
