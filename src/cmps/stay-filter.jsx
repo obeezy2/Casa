@@ -81,10 +81,10 @@ export const StayFilter = () => {
               <p>Who</p>
               <p>Add guests</p>
             </div>
-            : 'Add guests'}
+            : <p className="add-guests-paragraph">Add guests</p>}
         </div>
         <div className="search">
-          <div className="search-icon" onClick={() => onSetFilter()}><SearchIcon fontSize="medium" /></div>
+          <div className="search-icon" onClick={() => onSetFilter()}><SearchIcon className="search-icon-svg"  /></div>
         </div>
       </div>
     </div>

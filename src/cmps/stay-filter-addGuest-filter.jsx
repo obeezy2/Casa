@@ -42,9 +42,9 @@ export function AddGuestsFilter(props){
         <p>Ages 13 or above</p>
       </div>
       <div className="guests-btns">
-        <button onClick={() => updateAdults(1)}>+</button>
-        <span>{adults}</span>
-        <button onClick={() => updateAdults(-1)}>-</button>
+        <button onClick={() => updateAdults(1)} className='add-btn'>+</button>
+        <span className="guests-number-display">{adults}</span>
+        <button onClick={() => updateAdults(-1)} className='add-btn'>-</button>
       </div>
     </div>
     <div className="add-guest-box">
@@ -53,9 +53,9 @@ export function AddGuestsFilter(props){
         <p>Ages 2–12</p>
       </div>
       <div className="guests-btns">
-        <button onClick={() =>updateChildren(1)}>+</button>
-        <span>{children}</span>
-        <button onClick={() =>updateChildren(-1)}>-</button>
+        <button onClick={() =>updateChildren(1)} className='add-btn'>+</button>
+        <span className="guests-number-display">{children}</span>
+        <button onClick={() =>updateChildren(-1)} className='add-btn'>-</button>
       </div>
     </div> 
          <div className="add-guest-box">
@@ -64,9 +64,9 @@ export function AddGuestsFilter(props){
         <p>Under 2</p>
       </div>
       <div className="guests-btns">
-        <button onClick={() =>updateInfants(1)}>+</button>
-        <span>{infants}</span>
-        <button onClick={() =>updateInfants(-1)}>-</button>
+        <button onClick={() =>updateInfants(1)} className='add-btn'>+</button>
+        <span className="guests-number-display">{infants}</span>
+        <button onClick={() =>updateInfants(-1)} className='add-btn'>-</button>
       </div>
     </div>
     <div className="add-guest-box">
@@ -75,9 +75,9 @@ export function AddGuestsFilter(props){
         <p>Bringing a service animal?</p>
       </div>
       <div className="guests-btns">
-        <button onClick={() =>updatePets(1)}>+</button>
-        <span>{pets}</span>
-        <button onClick={() =>updatePets(-1)}>-</button>
+        <button onClick={() =>updatePets(1)} className='add-btn'>+</button>
+        <span className="guests-number-display">{pets}</span>
+        <button onClick={() =>updatePets(-1)} className='add-btn'>-</button>
       </div>
     </div> 
     <p>total guests:{calcTotalGuests()}</p>
