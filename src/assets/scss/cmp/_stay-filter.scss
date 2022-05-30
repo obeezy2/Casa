@@ -22,7 +22,13 @@
         // border: 1px solid $iw-ihca;
      
     }
-
+    .check-in-container{
+        display: flex;
+        .check{
+        margin: 7px;
+        font-size: 13px;
+        }
+    }
     .filter-btn-container{
         display: flex;
         flex: 3;

@@ -69,7 +69,7 @@ export const StayFilter = () => {
               <p>When</p>
               <p>Any week</p>
             </div>
-            : filterBy.startDate&&filterBy.endDate && <div>{filterBy.startDate} - {filterBy.endDate}</div> || 'Any week' }
+            : filterBy.startDate&&filterBy.endDate && <div className="check-in-container"><div className=" check"> <p>Check in</p> {filterBy.startDate}</div><div className=" check"><p>Check out</p>{filterBy.endDate} </div> </div> || 'Any week' }
         </div>
       </div>
       <span className="filter-span"></span>
