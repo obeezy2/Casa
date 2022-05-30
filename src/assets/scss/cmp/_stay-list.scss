@@ -1,6 +1,6 @@
 .stay-list-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit,22%);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 350px));
   justify-content: space-between;
   row-gap: 38px;
   padding-top: 26px;}
