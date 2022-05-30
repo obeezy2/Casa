@@ -24,8 +24,8 @@ export function PopDestination() {
                     <img src={`${tokyo}`} />
 
                     <div className="city-details">
-                        <h3 className='color-city'>Tokyo</h3>
-                        <h4><span>Japan</span></h4>
+                        <h3 className='color-city'>Tokyo  <span>Japan</span></h3>
+
                     </div>
                 </div>
                 <div className='card' onClick={() => onSetFilter()}>
@@ -33,8 +33,7 @@ export function PopDestination() {
                     <img src={`${capetown}`} />
 
                     <div className="city-details">
-                        <h3 className='color-city'>Cape Town</h3>
-                        <h4><span>South Africa</span></h4>
+                        <h3 className='color-city'>Cape Town <span>South Africa</span></h3>
                     </div>
                 </div>
                 <div className='card' onClick={() => onSetFilter()}>
@@ -42,8 +41,7 @@ export function PopDestination() {
                     <img src={`${telaviv}`} />
 
                     <div className="city-details">
-                        <h3 className='color-city'>Tel Aviv</h3>
-                        <h4><span>Israel</span></h4>
+                        <h3 className='color-city'>Tel Aviv <span>Israel</span></h3>
                     </div>
                 </div>
                 <div className='card ' onClick={() => onSetFilter()}>
@@ -51,8 +49,8 @@ export function PopDestination() {
                     <img src={`${london}`} />
 
                     <div className="city-details">
-                        <h3 className='color-city'>London</h3>
-                        <h4><span>UK</span></h4>
+                        <h3 className='color-city'>London <span>UK</span></h3>
+
                     </div>
                 </div>
             </section>
