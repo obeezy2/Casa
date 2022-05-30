@@ -6,12 +6,11 @@
   height: 80px;
   width: 100%;
   display: grid;
-  grid-template-columns: 128px 0.5fr 1.9fr 2.1fr 1.1fr 0.3fr 0.7fr 0.2fr 167px;
+  grid-template-columns: 2.6fr 1fr 1.9fr 0.5fr 1.1fr 1.5fr 0.8fr;
   grid-template-rows: 80px;
   gap: 8px 5px;
-  justify-items: center;
   align-items: center;
-  grid-template-areas: ". logo . search . explore host user .";
+  grid-template-areas: "logo . search . explore host user";
 
   & a:hover:not(:last-child) {
     background-color: #ebebeb;
@@ -20,6 +19,7 @@
   font-weight: 570;
 
   .logo {
+    justify-self: start;
     grid-area: logo;
     display: flex;
     justify-content: center;
@@ -28,6 +28,7 @@
     font-weight: 100;
   }
   .search-bar {
+    justify-self: center;
     grid-area: search;
     .css-i4bv87-MuiSvgIcon-root {
       -webkit-user-select: none;
@@ -50,8 +51,10 @@
   .host {
     grid-area: host;
     padding: 5px;
+    justify-self: center;
   }
   .user {
+    justify-self: end;
     grid-area: user;
     padding: 5px;
     .css-i4bv87-MuiSvgIcon-root {
@@ -81,6 +84,7 @@
   .explore {
     grid-area: explore;
     padding: 5px;
+    justify-self: center;
   }
 
   color: black;
@@ -89,23 +93,14 @@
   .logo {
     color: $main-red-pink;
   }
-  
-  
-  &.stay-details-page{
-    grid-template-columns: 2.6fr 0.5fr 1.9fr 2.1fr 1.1fr 0.3fr 0.8fr 0.2fr 2.6fr;
-    grid-template-rows: 80px;
-    gap: 8px 5px;
-  }
-
-  
 
   &.home-page {
     color: white;
     background-color: black;
     border: none;
-    grid-template-columns: 0.35fr 0.5fr 1.9fr 2.1fr 1.1fr 0.3fr 0.7fr 0.2fr 0.35fr;
-    grid-template-rows: 80px;
-    gap: 8px 5px;
+    // grid-template-columns: 0.35fr 0.5fr 1.9fr 2.1fr 1.1fr 0.3fr 0.7fr 0.2fr 0.35fr;
+    // grid-template-rows: 80px;
+    // gap: 8px 5px;
     .logo {
       color: white;
     }
