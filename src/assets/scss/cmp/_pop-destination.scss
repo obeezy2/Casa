@@ -2,7 +2,7 @@
 .pop-cities{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: left;
     align-items: left;
       height: 280px;
   gap: 80px;
@@ -17,7 +17,11 @@
 
       }
       .city-details{
-          text-align: center;
+          text-align: left;
+          padding-left: 5px;
+          h4{
+              padding-left: 4px;
+          }
 }
     
 }

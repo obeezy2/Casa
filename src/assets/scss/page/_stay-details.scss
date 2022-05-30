@@ -58,12 +58,12 @@
   .img-layout {
     height: 520px;
     padding-top: 26px;
-    max-width: 1120px;
+    max-width: 1320px;
     margin-bottom: 20px;
     .stay-imgs-container {
-      display:grid;
-      grid-template-columns: 2.05fr 1fr 1fr;
-      grid-template-rows: 248px 245px;
+      display: grid;
+      grid-template-columns: 2.5fr 1fr 1fr;
+      grid-template-rows: 222px 198px;
       grid-gap: 8px;
       border-radius: 12px;
       img {
@@ -91,3 +91,4 @@
     padding-bottom: 48px;
   }
 }
+

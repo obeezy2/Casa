@@ -9,7 +9,7 @@ import { StayReview } from "../cmps/stay-review";
 
 export const StayDetails = () => {
   const params = useParams();
-	const [stay, setStay] = useState(null);
+  const [stay, setStay] = useState(null);
 
   useEffect(() => {
     loadStay();
@@ -26,7 +26,7 @@ export const StayDetails = () => {
 
   if (!stay) {
     return <section className="stay-details-container">Loading</section>;
-  
+
   }
   return (
     <section className="stay-details-container details-page-layout">
@@ -43,12 +43,12 @@ export const StayDetails = () => {
           </div>
           <div className="quick-actions">
             <div className="share-btn">
-            <img src={require('../assets/img/Icons/upload.png')} alt="" />
+              <img src={require('../assets/img/Icons/upload.png')} alt="" />
               Share</div>
             <div className="save-btn">
-            <img src={require('../assets/img/Icons/save.png')} alt="" />
+              <img src={require('../assets/img/Icons/save.png')} alt="" />
               Save</div>
-        </div>
+          </div>
         </div>
       </div>
       <div className="img-layout">
@@ -56,12 +56,12 @@ export const StayDetails = () => {
           <img className="main-img-container" src={require(`../assets/img/houses/${stay.imgUrls[0]}`)} alt="" />
           {stay.imgUrls.map((imgUrl, idx) => {
             if (idx === 0) return;
-            let style=null
-            if(idx===2)style={borderTopRightRadius:'12px'}
-            if(idx===4)style={borderBottomRightRadius:'12px'}
+            let style = null
+            if (idx === 2) style = { borderTopRightRadius: '12px' }
+            if (idx === 4) style = { borderBottomRightRadius: '12px' }
             return (
               <img
-              style={style}
+                style={style}
                 className="secondary-img-container"
                 key={idx}
                 src={require(`../assets/img/houses/${stay.imgUrls[idx]}`)}
