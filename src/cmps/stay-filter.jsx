@@ -44,6 +44,7 @@ export const StayFilter = () => {
       }}>
         <div className="filter-btn" >
           {currExpand === 'Anywhere' && isFilterExpand ?
+         
             <div>
               Where
               <form>
@@ -53,7 +54,8 @@ export const StayFilter = () => {
                   placeholder='search destination' />
               </form>
             </div>
-            : filterBy.region ||'Anywhere'}
+            : filterBy.txt || filterBy.region && <div> Where <p>{filterBy.txt||filterBy.region  }</p> </div> ||'Anywhere'
+            }
         </div>
       </div>
       <span className="filter-span"></span>
@@ -67,7 +69,7 @@ export const StayFilter = () => {
               <p>When</p>
               <p>Any week</p>
             </div>
-            : 'Any week'}
+            : filterBy.startDate&&filterBy.endDate && <div className="check-in-container"><div className=" check"> <p>Check in</p> {filterBy.startDate}</div><div className=" check"><p>Check out</p>{filterBy.endDate} </div> </div> || 'Any week' }
         </div>
       </div>
       <span className="filter-span"></span>
@@ -81,7 +83,7 @@ export const StayFilter = () => {
               <p>Who</p>
               <p>Add guests</p>
             </div>
-            : <p className="add-guests-paragraph">Add guests</p>}
+            :filterBy.guestsNumber && <p>{filterBy.guestsNumber} guests</p> || <p className="add-guests-paragraph">Add guests</p>}
         </div>
         <div className="search">
           <div className="search-icon" onClick={() => onSetFilter()}><SearchIcon className="search-icon-svg"  /></div>
@@ -93,7 +95,7 @@ export const StayFilter = () => {
         <SearchByDestination setRegionFilter={(region) => setFilterBy({ ...filterBy, region })} />
       </div>}
       {currExpand === 'Any week' && <div>
-        <SearchByDate onSetDates={(start, end) => setFilterBy({ ...filterBy, startDate: start, endDate: end })} />
+        <SearchByDate onSetDates={(start, end) => setFilterBy({ ...filterBy, startDate: `${start.getDate()}/${start.getMonth() + 1}`, endDate: `${end.getDate()}/${end.getMonth() + 1}` })} />
       </div>}
       {currExpand === 'Add guests' && <div>
         <AddGuestsFilter setGuests={(guests) => setFilterBy({ ...filterBy, guestsNumber: guests })} />
