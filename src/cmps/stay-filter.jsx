@@ -44,6 +44,7 @@ export const StayFilter = () => {
       }}>
         <div className="filter-btn" >
           {currExpand === 'Anywhere' && isFilterExpand ?
+         
             <div>
               Where
               <form>
@@ -53,7 +54,8 @@ export const StayFilter = () => {
                   placeholder='search destination' />
               </form>
             </div>
-            : filterBy.txt || filterBy.region ||'Anywhere'}
+            : filterBy.txt || filterBy.region && <div> Where <p>{filterBy.txt||filterBy.region  }</p> </div> ||'Anywhere'
+            }
         </div>
       </div>
       <span className="filter-span"></span>
