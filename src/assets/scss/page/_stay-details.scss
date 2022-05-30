@@ -1,29 +1,83 @@
 .stay-details-container {
-  margin-top: 90px;
-  padding-inline: 20%;
-  h1.stay-name {
-    font-weight: 800;
-    font-size: 26px;
-    color: $main-black;
-  }
+  margin-top: 80px;
+  margin-inline: 16.5%;
+  padding-inline: 80px;
 
-  .stay-imgs-container {
-    max-width: 1120;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-gap: 8px;
-    border-radius: 12px;
-    img {
-      aspect-ratio: 1;
-      object-fit: cover;
-      height: 100%;
-      width: 100%;
+  .stay-title-info-container {
+    height: 86px;
+    .stay-name {
+      line-height: 30px;
+      color: $main-black;
+      font-size: 26px;
+      padding-top: 24px;
+      font-weight: 600;
+      margin-bottom: 8px;
     }
-    .main-img-container {
-      grid-column: 1/2;
-      grid-row: 1/-1;
-      border-radius: 12px 0px 0px 12px;
+    .short-desc {
+      margin-top: 8px;
+      display: flex;
+      font-size: 15px;
+      justify-content: space-between;
+      .quick-actions {
+        display: flex;
+        font-weight: 600;
+        line-height: 18px;
+        text-align: center;
+        text-decoration: underline;
+        img{
+          margin-right: 8px;
+        }
+        >*{
+          padding: 4px 8px;
+        }
+        >*:hover{
+          background-color: rgba(211, 211, 211, 0.164);
+          border-radius: 8px;
+        }
+        .share-btn{
+          display: flex;
+          margin-right: 20px;
+        }
+        .save-btn{
+          display: flex;
+        }
+      }
+      .stats {
+        color: $main-black;
+        font-weight: 600;
+        .reviews {
+          text-decoration: underline;
+        }
+        .seperate-dott {
+          margin-inline: 8px;
+        }
+        .super-host {
+          font-weight: 400;
+        }
+      }
+    }
+  }
+  .img-layout {
+    height: 480px;
+    padding-top: 22px;
+    max-width: 1120px;
+    .stay-imgs-container {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 230px 230px;
+      grid-gap: 8px;
+      border-radius: 12px;
+      img {
+        aspect-ratio: 1;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+      .main-img-container {
+        grid-column: 1/2;
+        grid-row: 1/-1;
+        border-radius: 12px 0px 0px 12px;
+      }
     }
   }
 
@@ -31,7 +85,6 @@
     padding-top: 50px;
     display: flex;
     justify-content: stretch;
-    
   }
 
   .host-info {

@@ -26,24 +26,19 @@ export const StayFilter = () => {
     dispatch(setFilterByAction(filterBy))
     navigate('/stays')
   }
-  //use event on document body to close filter expand 
-  // useEffect(()=>{
-  //   window.addEventListener('click',()=>{
-  //   })
-  // },[])
-
+  
+  useEffect(()=>{
+    //close filter expand when moveing to another page
+    setFilterExpand(false)
+  },[location])
 
   useEffect(() => {
-    //close filter expand when moveing to another page 
-    if (location.pathname !== '/') {
-      setFilterExpand(false)
-    }
     //use event on document body to close filter expand 
-    document.querySelector('.main-content').addEventListener('click', () => {
+    document.querySelector('.main-container').addEventListener('click', () => {
       setFilterExpand(false)
     })
 
-  }, [location])
+  }, [])
 
   return (<section className="app-filter-container">
     <div className="app-filter">
