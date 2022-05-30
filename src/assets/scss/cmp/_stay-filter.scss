@@ -67,7 +67,7 @@
         .search-icon{
             display: flex;
             align-items: center;
-             justify-content: center;
+            justify-content: center;
             text-align: center;
             background-color:$main-red-pink;
             border-bottom-left-radius:50%;
@@ -75,9 +75,13 @@
             border-top-left-radius:50%;
             border-top-right-radius:50%;   
             color: $white;
-            width: 24px;
+            width: 30px;
+            height: 30px;
             &:hover{
-                transform: scale(1.3);
+                transform: scale(1.1);
+            }
+            .search-icon-svg{
+                font-size: 26px;
             }
         }
     }
@@ -133,10 +137,51 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 3%;
+        padding: 5%;
         .guests{
             text-align: start;
         }
-   
+
+        .add-guests-paragraph{
+            color: $main-grey;
+        }
+        .add-btn{
+        color: rgb(235, 235, 235);
+        border-color: rgb(235, 235, 235);
+        background: rgb(255, 255, 255) ;
+        -webkit-box-pack: center ;
+        -webkit-box-align: center ;
+        -webkit-box-flex: 0;
+        width: 32px;
+        height: 32px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        cursor: pointer;
+        display: inline-flex;
+        margin: 0px;
+        padding: 0px;
+        text-align: center;
+        text-decoration: none;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgb(176, 176, 176);
+        color: rgb(113, 113, 113);
+        font-family: inherit;
+        outline: none;
+        touch-action: manipulation;
+        align-items: center;
+        justify-content: center;
+        background: rgb(255, 255, 255);
+        border-radius: 50%;
+        &:hover{
+            border: 1px solid $main-black;
+        }
+     }
+     .guests-number-display{
+         font-weight: 400;
+         margin-left: 10px;
+         margin-right: 10px;
+     }
+
     }
 }
