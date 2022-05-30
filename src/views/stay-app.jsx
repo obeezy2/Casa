@@ -4,7 +4,7 @@ import React from 'react'
 // import { StayFilter } from "../cmps/stay-filter"
 import { StayList } from "../cmps/stay-list"
 import { loadStays } from "../store/action/stay.action"
-
+import { FilterIcons } from '../cmps/icon-filters.jsx'
 export const StayApp = () => {
   const { stays } = useSelector((storeState) => storeState.stayModule)
   const dispatch = useDispatch()
@@ -16,6 +16,7 @@ export const StayApp = () => {
     <section className="stay-app-container">
       {/* <StayFilter /> */}
       <StayList stays={stays} />
+      <FilterIcons />
     </section>
   );
 };

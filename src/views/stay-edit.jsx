@@ -59,7 +59,7 @@ export const StayEdit = () => {
         <Container component="main" maxWidth="xs">
           <Box
             sx={{
-              marginTop: 20,
+              marginTop: 0,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -172,7 +172,7 @@ export const StayEdit = () => {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 1 }}
               >
                 Post your property !
               </Button>

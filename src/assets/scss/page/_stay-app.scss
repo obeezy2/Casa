@@ -32,3 +32,14 @@
 }
 
 
+.icon-filters{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content:center;
+  grid-area: filter;
+  img{
+    height: 25px;
+  }
+}

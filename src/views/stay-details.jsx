@@ -42,14 +42,14 @@ export const StayDetails = () => {
         </div> */}
       </div>
       <div className="stay-imgs-container">
-        <img className="main-img-container" src={stay.imgUrls[0]} alt="" />
+        <img className="main-img-container" src={require(`../assets/img/houses/${stay.imgUrls[0]}`)} alt="" />
         {stay.imgUrls.map((imgUrl, idx) => {
           if (idx === 0) return;
           return (
             <img
               className="secondary-img-container"
               key={idx}
-              src={imgUrl}
+              src={require(`../assets/img/houses/${stay.imgUrls[idx]}`)}
               alt=""
             />
           );

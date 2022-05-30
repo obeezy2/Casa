@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import React from "react";
+// import pictures from '../assets/img/houses'
 export function StayPreview({ stay }) {
+    // console.log(pictures)
     return (
         <Link to={`/stay/details/${stay._id}`} className="stay-preview-container">
             <div className="stay-img-container">
-                <img src={stay.imgUrls[0]} alt="" />
+                <img src={require(`../assets/img/houses/${stay.imgUrls[0]}`)} alt="" />
             </div>
             <span className="stay-address">{stay.address.street}</span>
             <span className="stay-summary">{stay.summary}</span>
