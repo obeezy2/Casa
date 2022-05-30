@@ -11,7 +11,9 @@ export function Hero() {
                 </div>
             </div>
             <div className="hero-action">
-                <h1>Made possible by Hosts</h1>
+                <h1>Not sure where to go? Perfect.
+
+                </h1>
             </div>
         </div>
 
