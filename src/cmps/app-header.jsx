@@ -18,11 +18,11 @@ export function AppHeader() {
     const changeColors = (ev) => {
 
         if (ev.path[1].scrollY === 0) {
-            setHeaderClass('home-page')
+            setHeaderClass('home-page home-page-layout')
             setImg(logoImg2);
         }
         if (ev.path[1].scrollY > 1) {
-            setHeaderClass('')
+            setHeaderClass('home-page-layout')
             setImg(logoImg);
         }
     };
