@@ -13,10 +13,33 @@
   }
   .stay-address{
       font-weight: 600;
-      display: block;
+      color: #222222;
+
   }
   .stay-summary {
       display: block;
-    text-overflow: ellipsis;
+    text-overflow: hidden;
+    color: #717171;
   }
+  .stay-price{
+    
+    color: #222222;
+    font-weight: 1000;
+  }
+  .stay-pricenight{
+    display: block;
+    padding-top: 5px;
+  }
+  .top-summary{
+    display: grid;
+     grid-template-columns: 1fr 0.5fr;
+     justify-content: center;
+     align-content: center;
+  }
+.stay-address{
+  grid-column: 1/2
+}
+.star-rating{
+  grid-column: 3/4;
+}
 }

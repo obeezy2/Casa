@@ -8,9 +8,14 @@ export function StayPreview({ stay }) {
             <div className="stay-img-container">
                 <img src={require(`../assets/img/houses/${stay.imgUrls[0]}`)} alt="" />
             </div>
-            <span className="stay-address">{stay.address.street}</span>
-            <span className="stay-summary">{stay.summary}</span>
-            <p className="stay-price">${stay.price}$/night</p>
+            <div className="staypreview">
+                <span className='top-summary'>
+                    <span className="stay-address">{stay.address.street} </span>
+                    <span className="star-rating">{(stay.reviewScores.rating / 100) * 5}★</span>
+                </span>
+                <span className="stay-summary">{stay.roomType}</span>
+                <p className="stay-pricenight"><span className="stay-price">${stay.price}</span> <span className="stay-night">night</span></p>
+            </div>
             {/* <Link to={`/stay/edit/${stay.id}`}>
                 <div className='edit-stay-btn'></div>
             </Link> */}
