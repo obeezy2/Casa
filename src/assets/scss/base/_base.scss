@@ -30,7 +30,6 @@ a {
   text-decoration: none;
 }
 
-@media (min-width: $padded-break-normal) {
   .details-page-layout {
     padding-inline: 12.8%;
   }
@@ -47,23 +46,7 @@ a {
   .explore-layout {
     padding-inline: 4.9%;
   }
-}
 
-@media (min-width: $padded-break-wide) {
-  .details-page-layout {
-    padding-inline: 20.5%;
-  }
 
-  .home-page-layout {
-    padding-inline: 4%;
-  }
 
-  .general-layout {
-    padding-inline: 7.5%;
-  }
 
-  .become-host-layout,
-  .explore-layout {
-    padding-inline: 7.5%;
-  }
-}
