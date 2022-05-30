@@ -30,17 +30,11 @@ export const StayFilter = () => {
   useEffect(()=>{
     //close filter expand when moveing to another page
     setFilterExpand(false)
-  },[location])
-
-  useEffect(() => {
-    //use event on document body to close filter expand 
     if(location.pathname === '/' ){    
       document.querySelector('.main-container').addEventListener('click', () => {
       setFilterExpand(false)
     })}
-
-
-  }, [])
+  },[location])
 
   return (<section className="app-filter-container">
     <div className="app-filter">
