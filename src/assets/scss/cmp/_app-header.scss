@@ -6,10 +6,9 @@
   height: 80px;
   width: 100%;
   display: grid;
-  grid-template-columns: 80px 0.5fr 1.9fr 2.1fr 1.1fr 0.3fr 0.6fr 0.2fr 80px;
+  grid-template-columns: 128px 0.5fr 1.9fr 2.1fr 1.1fr 0.3fr 0.6fr 0.2fr 167px;
   grid-template-rows: 80px;
   gap: 8px 5px;
-  grid-auto-flow: row;
   justify-items: center;
   align-items: center;
   grid-template-areas: ". logo . search . explore host user .";
@@ -86,6 +85,7 @@
 
   color: black;
   background-color: white;
+  border-bottom: 1px solid #ebebeb;
   .logo {
     color: $main-red-pink;
   }
@@ -93,10 +93,12 @@
   &.home-page {
     color: white;
     background-color: black;
+    border: none;
+    grid-template-columns: 80px 0.5fr 1.9fr 2.1fr 1.1fr 0.3fr 0.6fr 0.2fr 80px;
+    grid-template-rows: 80px;
+    gap: 8px 5px;
     .logo {
       color: white;
     }
   }
 }
-
-
