@@ -8,14 +8,16 @@ export const StayInfo = ({ stay }) => {
   return (
     <section className="stay-main-info-container">
       <div className="short-info-container">
-        <h2>
-          {stay.roomType} hosted by {stay.host.fullname}
-        </h2>
-        <h4 style={{ fontWeight: 400 }}>
-          {" "}
-          {stay.capacity} guests · {stay.bedrooms} bedrooms · {stay.beds} beds ·{" "}
-          {stay.bathrooms} baths
-        </h4>
+        <div className="txt-info">
+          <h2>
+            {stay.roomType} hosted by {stay.host.fullname}
+          </h2>
+          <h4>
+            {" "}
+            {stay.capacity} guests · {stay.bedrooms} bedrooms · {stay.beds} beds
+            · {stay.bathrooms} baths
+          </h4>
+        </div>
         <div className="host-img-container">
           <img src={stay.host.thumbnailUrl} alt="" />
         </div>
@@ -26,9 +28,7 @@ export const StayInfo = ({ stay }) => {
       <div className="amenities-container">
         <div
           className="amenities"
-          style={
-            isAmenitiesExpanded ? { height: "fit-content" } : null
-          }
+          style={isAmenitiesExpanded ? { height: "fit-content" } : null}
         >
           {amenities.map((amenity, idx) => {
             return (
@@ -45,12 +45,13 @@ export const StayInfo = ({ stay }) => {
             );
           })}
         </div>
-        <div className="amenities-btn"
+        <div
+          className="amenities-btn"
           onClick={() => {
             setIsAmenitiesExpanded(!isAmenitiesExpanded);
           }}
         >
-          <h3>{isAmenitiesExpanded?'Show less':'Show more'}</h3>
+          <h3>{isAmenitiesExpanded ? "Show less" : "Show more"}</h3>
         </div>
       </div>
     </section>

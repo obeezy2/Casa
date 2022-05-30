@@ -1,8 +1,31 @@
 .stay-main-info-container {
-  flex-basis: 50%;
   flex-grow: 1;
   align-self: flex-end;
+  .short-info-container {
+    display: flex;
+    justify-content: space-between;
+    .txt-info {
+      display: flex;
+      flex-direction: column;
+      h4 {
+        padding-top: 4px;
+        font-weight: 400;
+      }
+    }
+    .host-img-container{
+      flex-basis: 8%;
+      border-radius: 50%;
+      img{
+        border-radius: inherit;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
   .amenities-container {
+    padding-bottom:24px;
+    padding-top: 30px;
     .amenities {
       height: 215px;
       overflow: hidden;
@@ -15,9 +38,9 @@
     }
   }
 
-  & > *:not(:first-child) {
-    border-top: 1px solid rgb(221, 221, 221);
-    padding-top: 48px;
-    padding-bottom: 48px;
+  & > *:not(:last-child) {
+    border-bottom: 1px solid rgb(221, 221, 221);
+    padding-bottom:24px;
+    padding-top: 30px;
   }
 }

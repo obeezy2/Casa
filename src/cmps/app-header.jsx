@@ -32,6 +32,9 @@ export function AppHeader() {
             window.addEventListener("scroll", changeColors);
             setHeaderClass('home-page')
             setImg(logoImg2);
+        }else if(location.pathname.includes('/stay/details')){
+            setHeaderClass('stay-details-page')
+            setImg(logoImg);
         }
         return () => {
             window.removeEventListener("scroll", changeColors);
