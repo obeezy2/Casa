@@ -58,7 +58,7 @@
     }
   }
   .img-layout {
-    height: 520px;
+    height: 430px;
     padding-top: 26px;
     margin-bottom: 20px;
     .stay-imgs-container {
@@ -68,7 +68,7 @@
       grid-gap: 8px;
       @media (min-width: $padded-break-normal) {
         grid-template-columns: 2fr 1fr 1fr;
-        grid-template-rows: 248px 240px;
+        grid-template-rows: 180px 240px;
         border-radius: 12px;
       }
       border-radius: 12px;
