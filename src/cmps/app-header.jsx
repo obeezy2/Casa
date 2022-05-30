@@ -8,6 +8,7 @@ import logoImg from "../assets/img/logo/new-logo.svg";
 import logoImg2 from "../assets/img/logo/whitelogo.png";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 export function AppHeader() {
+    const [headerClass,setHeaderClass]=useState('')
     const [color, setColor] = useState("white");
     const [bgColor, setBgColor] = useState("black");
     const [img, setImg] = useState(logoImg2);
@@ -17,41 +18,32 @@ export function AppHeader() {
     const changeColors = (ev) => {
 
         if (ev.path[1].scrollY === 0) {
-            setColor("white");
-            setBgColor("black");
-            setLogoColor("white");
+            setHeaderClass('home-page')
             setImg(logoImg2);
         }
         if (ev.path[1].scrollY > 1) {
-            setColor("black");
-            setBgColor("white");
+            setHeaderClass('')
             setImg(logoImg);
-            setLogoColor("#FF385C");
         }
     };
 
     useEffect(() => {
         if (location.pathname === "/") {
             window.addEventListener("scroll", changeColors);
-            setColor("white");
-            setBgColor("black");
-            setLogoColor("white");
+            setHeaderClass('home-page')
             setImg(logoImg2);
         }
         return () => {
             window.removeEventListener("scroll", changeColors);
-            setColor("black");
-            setBgColor("white");
+            setHeaderClass('')
             setImg(logoImg);
-            setLogoColor("#FF385C");
         }
 
     }, [location.pathname]);
 
     return (
         <header
-            className="app-header"
-            style={{ color: `${color}`, backgroundColor: `${bgColor}` }}
+            className={`app-header ${headerClass}`}
         >
             <div className="search-bar ">
                 {" "}
@@ -71,7 +63,7 @@ export function AppHeader() {
                 <img className="img-logo" src={`${img}`}></img>
                 <Link to="/">
                     {" "}
-                    <h1 style={{ color: `${logoColor}` }} className="text">
+                    <h1  className="text">
                         casa{" "}
                     </h1>
                 </Link>
