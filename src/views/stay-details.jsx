@@ -39,7 +39,7 @@ export const StayDetails = () => {
             <span className="seperate-dott">·</span>
             {stay.host.isSuperhost && <span className="super-host"> Superhost</span>}
             <span className="seperate-dott">·</span>
-            <span>{stay.address.street}</span>
+            <span className="address">{stay.address.street}</span>
           </div>
           <div className="quick-actions">
             <div className="share-btn">

@@ -1,7 +1,7 @@
 .stay-details-container {
   margin-top: 80px;
   margin-inline: 16.5%;
-  padding-inline: 80px;
+  padding-inline: 4%;
 
   .stay-title-info-container {
     height: 86px;
@@ -14,7 +14,7 @@
       margin-bottom: 8px;
     }
     .short-desc {
-      margin-top: 8px;
+      margin-top: 12px;
       display: flex;
       font-size: 15px;
       justify-content: space-between;
@@ -27,16 +27,13 @@
         img{
           margin-right: 8px;
         }
-        >*{
-          padding: 4px 8px;
-        }
         >*:hover{
           background-color: rgba(211, 211, 211, 0.164);
           border-radius: 8px;
         }
         .share-btn{
           display: flex;
-          margin-right: 20px;
+          margin-right: 18px;
         }
         .save-btn{
           display: flex;
@@ -54,17 +51,21 @@
         .super-host {
           font-weight: 400;
         }
+        .address{
+          text-decoration: underline;
+        }
       }
     }
   }
   .img-layout {
-    height: 480px;
-    padding-top: 22px;
+    height: 520px;
+    padding-top: 26px;
     max-width: 1120px;
+    margin-bottom: 20px;
     .stay-imgs-container {
       display:grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      grid-template-rows: 230px 230px;
+      grid-template-columns: 2.05fr 1fr 1fr;
+      grid-template-rows: 248px 245px;
       grid-gap: 8px;
       border-radius: 12px;
       img {
@@ -82,7 +83,6 @@
   }
 
   .info-reserve {
-    padding-top: 50px;
     display: flex;
     justify-content: stretch;
   }
