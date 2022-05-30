@@ -35,7 +35,7 @@ export const StayFilter = () => {
       setFilterExpand(false)
     })}
   },[location])
-
+  console.log(filterBy)
   return (<section className="app-filter-container">
     <div className="app-filter">
       <div className='filter-btn-container filter-btn-location' onClick={() => {
@@ -53,7 +53,7 @@ export const StayFilter = () => {
                   placeholder='search destination' />
               </form>
             </div>
-            : 'Anywhere'}
+            : filterBy.region ||'Anywhere'}
         </div>
       </div>
       <span className="filter-span"></span>
