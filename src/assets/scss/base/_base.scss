@@ -30,20 +30,40 @@ a {
   text-decoration: none;
 }
 
-.details-page-layout {
-  padding-inline: 12.8%;
-}
+@media (min-width: $padded-break-narrow) {
+  .details-page-layout {
+    padding-inline: 12.8%;
+  }
 
-.home-page-layout {
-  padding-inline: 4.8%;
-}
+  .home-page-layout {
+    padding-inline: 4.8%;
+  }
 
-.general-layout{
+  .general-layout {
     padding-inline: 4.9%;
-}
+  }
 
-.become-host-layout,.explore-layout{
+  .become-host-layout,
+  .explore-layout {
     padding-inline: 4.9%;
+  }
 }
 
+@media (min-width: $padded-break-normal) {
+  .details-page-layout {
+    padding-inline: 20.5%;
+  }
 
+  .home-page-layout {
+    padding-inline: 4%;
+  }
+
+  .general-layout {
+    padding-inline: 7.5%;
+  }
+
+  .become-host-layout,
+  .explore-layout {
+    padding-inline: 7.5%;
+  }
+}

@@ -6,7 +6,6 @@ import { StayInfo } from "../cmps/stay-info";
 import { Reserve } from "../cmps/stay-reserve";
 import { StayReview } from "../cmps/stay-review";
 
-
 export const StayDetails = () => {
   const params = useParams();
   const [stay, setStay] = useState(null);
@@ -26,7 +25,6 @@ export const StayDetails = () => {
 
   if (!stay) {
     return <section className="stay-details-container">Loading</section>;
-
   }
   return (
     <section className="stay-details-container details-page-layout">
@@ -37,28 +35,38 @@ export const StayDetails = () => {
             <span>★{(stay.reviewScores.rating / 100) * 5} ·</span>
             <span className="reviews"> {stay.reviews.length} reviews</span>
             <span className="seperate-dott">·</span>
-            {stay.host.isSuperhost && <span className="super-host"> Superhost</span>}
-            <span className="seperate-dott">·</span>
+            {stay.host.isSuperhost && (
+              <span className="super-host">
+                Superhost
+                <span className="seperate-dott">·</span>
+              </span>
+            )}
             <span className="address">{stay.address.street}</span>
           </div>
           <div className="quick-actions">
             <div className="share-btn">
-              <img src={require('../assets/img/Icons/upload.png')} alt="" />
-              Share</div>
+              <img src={require("../assets/img/Icons/upload.png")} alt="" />
+              Share
+            </div>
             <div className="save-btn">
-              <img src={require('../assets/img/Icons/save.png')} alt="" />
-              Save</div>
+              <img src={require("../assets/img/Icons/save.png")} alt="" />
+              Save
+            </div>
           </div>
         </div>
       </div>
       <div className="img-layout">
         <div className="stay-imgs-container">
-          <img className="main-img-container" src={require(`../assets/img/houses/${stay.imgUrls[0]}`)} alt="" />
+          <img
+            className="main-img-container"
+            src={require(`../assets/img/houses/${stay.imgUrls[0]}`)}
+            alt=""
+          />
           {stay.imgUrls.map((imgUrl, idx) => {
             if (idx === 0) return;
-            let style = null
-            if (idx === 2) style = { borderTopRightRadius: '12px' }
-            if (idx === 4) style = { borderBottomRightRadius: '12px' }
+            let style = null;
+            if (idx === 2) style = { borderTopRightRadius: "12px" };
+            if (idx === 4) style = { borderBottomRightRadius: "12px" };
             return (
               <img
                 style={style}
@@ -86,7 +94,7 @@ export const StayDetails = () => {
         <img src={stay.host.pictureUrl} alt="" />
         <h2>hosted by {stay.host.fullname}</h2>
       </div>
-    </section >
+    </section>
   );
 };
 //maybe useref after new review will render
