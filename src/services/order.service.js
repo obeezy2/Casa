@@ -44,7 +44,7 @@ async function addOrder(order) {
 }
 
 async function _checkAvailability(startDate, endDate, bookedDates) {
-  debugger
+  
   const problemDates = bookedDates.filter((date) => {
     if (endDate >= date.startDate && endDate <= date.endDate) {
       return true;
