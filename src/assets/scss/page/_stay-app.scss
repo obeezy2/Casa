@@ -49,8 +49,10 @@
     opacity: 0.5;
     &:hover {
       transition: ease-in;
-      transition-duration: 0.4s;
+      transition-duration: 0.2s;
       opacity: 1;
+      cursor: pointer;
+      box-shadow: inset 0px -2px 0 -0.5px rgb(221 221 221);
     }
     .center-div {
       text-align: center;

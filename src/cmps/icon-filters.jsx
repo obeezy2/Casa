@@ -1,38 +1,21 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
+import { stayService } from "../services/stay.service";
 
-export function FilterIcons({onChangeFilter}) {
-    const dispatch=useDispatch()
-//   const imgs = [];
-  const filterNames = [
-    "Design",
-    "Beach",
-    "Amazing Pools",
-    "Islands",
-    "National Parks",
-    "Cabins",
-    // "OMG!",
-    "Camping",
-    "Tiny Homes",
-    "Lakefront",
-    "Arctic",
-    "Amazing views",
-    "Desert",
-  ];
-//   for (var i = 1; i < 13; i++) {
-//     imgs.push(i);
-//   }
+export function FilterIcons({ onChangeFilter }) {
+  const dispatch = useDispatch();
+  const filterNames = stayService.labels
 
-const handleSetFilter=(label)=>{
-    onChangeFilter({label})
-}
+  const handleSetFilter = (label) => {
+    onChangeFilter({ label });
+  };
 
   return (
     <div className={`icon-filters`}>
       {filterNames.map((filter) => {
         return (
-          <div className="filter-whole" onClick={()=>handleSetFilter(filter)}>
+          <div className="filter-whole" onClick={() => handleSetFilter(filter)}>
             <div className="center-div">
               <img
                 key={filter}
