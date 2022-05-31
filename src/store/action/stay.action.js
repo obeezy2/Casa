@@ -1,8 +1,9 @@
 import { stayService } from "../../services/stay.service";
 
-export function loadStays(filterBy = null) {
-  return async (dispatch) => {
+export function loadStays() {
+  return async (dispatch,getState) => {
     try {
+      const { filterBy } = getState().stayModule
       const stays = await stayService.query(filterBy);
       const action = {
         type: "SET_STAYS",
@@ -15,7 +16,7 @@ export function loadStays(filterBy = null) {
   };
 }
 
-export function setFilterByAction(filterBy){
+export function setFilterBy(filterBy){
     return (dispatch) => {
       dispatch({ type: 'SET_FILTER_BY', filterBy })
     } 

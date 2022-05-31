@@ -5,7 +5,7 @@ const STORAGE_KEY = "STAY_STORAGE_KEY";
 
 _setupForLocalStorage();
 
-const amenities=[
+const amenities = [
   "TV",
   "Cable TV",
   "Internet",
@@ -62,23 +62,41 @@ const amenities=[
   "Wide entryway",
   "Waterfront",
   "Beachfront",
-]
+];
 
 export const stayService = {
   query,
   getById,
-  amenities
+  amenities,
 };
 
 async function query(filterBy) {
+  let stays = await storageService.query(STORAGE_KEY);
   if (filterBy) {
-  } else {
-    return storageService.query(STORAGE_KEY);
+    const label = filterBy.label||null;
+    if (label) {
+      stays = stays.filter((stay) => {
+        if (
+          stay.name.toLowerCase().includes(label.toLowerCase()) ||
+          stay.summary.toLowerCase().includes(label.toLowerCase()) ||
+          stay.amenities.includes(label)
+        ) {
+          return true;
+        }
+        stay.reviews.forEach((review) => {
+          if (review.txt.toLowerCase().includes(label.toLowerCase()))
+            return true;
+        });
+        return false;
+      });
+    }
   }
+
+  return stays;
 }
 
 async function getById(stayId) {
-  return storageService.get(STORAGE_KEY,stayId)
+  return storageService.get(STORAGE_KEY, stayId);
 }
 
 function _setupForLocalStorage() {
@@ -86,4 +104,3 @@ function _setupForLocalStorage() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(stay_db));
   }
 }
-

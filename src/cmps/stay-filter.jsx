@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { SearchByDate } from './stay-filter-search-dates'
 import { AddGuestsFilter } from './stay-filter-addGuest-filter'
 import worldLogo from '../assets/img/filter/world.jpg'
-import { setFilterByAction } from '../store/action/stay.action.js'
+import { setFilterBy } from '../store/action/stay.action.js'
 import { useNavigate } from "react-router-dom";
 import SearchIcon from '@mui/icons-material/Search';
 import { useDispatch } from 'react-redux'
@@ -23,7 +23,7 @@ export const StayFilter = () => {
   }
 
   const onSetFilter = () => {
-    dispatch(setFilterByAction(filterBy))
+    dispatch(setFilterBy(filterBy))
     navigate('/stays')
   }
   

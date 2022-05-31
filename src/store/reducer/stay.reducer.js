@@ -8,7 +8,7 @@ export function stayReducer(state = initialState, action) {
     var newState = state;
     switch (action.type) {
         case "SET_STAYS":
-            newState={stays:action.stays}
+            newState={...state,stays:action.stays}
             break;
         case 'SET_FILTER_BY':
             newState = {
