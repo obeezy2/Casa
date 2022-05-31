@@ -5,6 +5,27 @@ const STORAGE_KEY = "STAY_STORAGE_KEY";
 
 _setupForLocalStorage();
 
+const labels = [
+  "Design",
+  "Beach",
+  "Amazing Pools",
+  "Islands",
+  "National Parks",
+  "Cabins",
+  // "OMG!",
+  "Camping",
+  "Tiny Homes",
+  "Lakefront",
+  "Arctic",
+  "Amazing views",
+  "Desert",
+  "Surfing",
+  "Mansions",
+  "Skiing",
+  "Historical homes",
+  "Campers"
+];
+
 const amenities = [
   "TV",
   "Cable TV",
@@ -68,6 +89,7 @@ export const stayService = {
   query,
   getById,
   amenities,
+  labels
 };
 
 async function query(filterBy) {

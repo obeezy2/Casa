@@ -7,13 +7,9 @@ import { loadStays } from "../store/action/stay.action.js";
 import { PopDestination } from '../cmps/pop-destination.jsx'
 import { TopRated } from '../cmps/top-rated.jsx'
 export const Homepage = () => {
-    // const { stays } = useSelector((storeState) => storeState.stayModule)
-    // const dispatch = useDispatch()
-    // useEffect(() => {
-    //     dispatch(loadStays(null))
-    // }, [])
-
-
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    },[])
     return <section className="main-container">
         <Hero />
         < PopDestination />

@@ -12,8 +12,8 @@
   align-items: center;
   grid-template-areas: "logo . search . explore host user";
 
-  & a:hover:not(:last-child) {
-    background-color: #ebebeb;
+  a:hover:not(:last-child) {
+    background-color: #F7F7F7;
     border-radius: 40px;
   }
   font-weight: 570;
@@ -50,7 +50,7 @@
   }
   .host {
     grid-area: host;
-    padding: 5px;
+    padding: 12px;
     justify-self: center;
   }
   .user {
@@ -83,7 +83,7 @@
 
   .explore {
     grid-area: explore;
-    padding: 5px;
+    padding: 12px;
     justify-self: center;
   }
 
@@ -98,9 +98,9 @@
     color: white;
     background-color: black;
     border: none;
-    // grid-template-columns: 0.35fr 0.5fr 1.9fr 2.1fr 1.1fr 0.3fr 0.7fr 0.2fr 0.35fr;
-    // grid-template-rows: 80px;
-    // gap: 8px 5px;
+    a:hover {
+      background-color: transparent;
+    }
     .logo {
       color: white;
     }

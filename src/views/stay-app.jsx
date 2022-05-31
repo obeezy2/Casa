@@ -7,22 +7,22 @@ import { loadStays,setFilterBy } from "../store/action/stay.action"
 import { FilterIcons } from '../cmps/icon-filters.jsx'
 export const StayApp = () => {
   const { stays } = useSelector((storeState) => storeState.stayModule)
+  const { filterBy } = useSelector((storeState) => storeState.stayModule)
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(setFilterBy(null))
+    window.scrollTo(0,0)
     dispatch(loadStays())
-  }, [])
+  }, [filterBy])
 
   const onChangeFilter = useCallback(async (filterBy) => {
     dispatch(setFilterBy(filterBy))
-    dispatch(loadStays())
 }, [])
 
   return (
     <section className="stay-app-container explore-layout">
       {/* <StayFilter /> */}
       <FilterIcons onChangeFilter={onChangeFilter}/>
-      <StayList stays={stays} />
+      {stays&&<StayList stays={stays} />}
     </section>
   );
 };

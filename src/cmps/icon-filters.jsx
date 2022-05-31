@@ -7,6 +7,7 @@ export function FilterIcons({ onChangeFilter }) {
   const dispatch = useDispatch()
   const [modalClass, setModalClass] = useState('filter-modal-container hidden')
 
+  import { stayService } from "../services/stay.service";
 
   //   const imgs = [];
   const filterNames = [
@@ -39,35 +40,42 @@ export function FilterIcons({ onChangeFilter }) {
     setModalClass('filter-modal-container hidden')
   }
 
+  export function FilterIcons({ onChangeFilter }) {
+    const dispatch = useDispatch();
+    const filterNames = stayService.labels
 
-  return (
-    <div className={`icon-filters`}>
-      {filterNames.map((filter) => {
-        return (
-          <div className="filter-whole" onClick={() => handleSetFilter(filter)}>
-            <div className="center-div">
-              <img
-                key={filter}
-                src={require(`../assets/img/filters/${filter}.jpg`)}
-                alt=""
-              ></img>
+    const handleSetFilter = (label) => {
+      onChangeFilter({ label });
+    };
+
+    return (
+      <div className={`icon-filters`}>
+        {filterNames.map((filter) => {
+          return (
+            <div className="filter-whole" onClick={() => handleSetFilter(filter)}>
+              <div className="center-div">
+                <img
+                  key={filter}
+                  src={require(`../assets/img/filters/${filter}.jpg`)}
+                  alt=""
+                ></img>
+              </div>
+              <p className="detail-filter">{filter}</p>
             </div>
-            <p className="detail-filter">{filter}</p>
-          </div>
 
-        );
-      })}
-      <div onClick={() => openModal()} className="filter-icon"><img className="filter-img" src={filterSvg}></img>Filters</div>
+          );
+        })}
+        <div onClick={() => openModal()} className="filter-icon"><img className="filter-img" src={filterSvg}></img>Filters</div>
 
-      <div className={modalClass}>
+        <div className={modalClass}>
 
-        <div className="section-filter"> <img className="x-svg" onClick={() => closeModal()} src={xIcon}></img> <span>Filters</span></div>
+          <div className="section-filter"> <img className="x-svg" onClick={() => closeModal()} src={xIcon}></img> <span>Filters</span></div>
 
 
 
+
+        </div>
 
       </div>
-
-    </div>
-  );
-}
+    );
+  }

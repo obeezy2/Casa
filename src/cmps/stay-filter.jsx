@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 import { SearchByDate } from './stay-filter-search-dates'
 import { AddGuestsFilter } from './stay-filter-addGuest-filter'
-import worldLogo from '../assets/img/filter/world.jpg'
 import { setFilterBy } from '../store/action/stay.action.js'
-import { useNavigate } from "react-router-dom";
+
 import SearchIcon from '@mui/icons-material/Search';
 import { useDispatch } from 'react-redux'
 import { useLocation } from "react-router-dom";
@@ -34,7 +35,11 @@ export const StayFilter = () => {
       document.querySelector('.main-container').addEventListener('click', () => {
       setFilterExpand(false)
     })}
+    return ()=>{
+      document.removeEventListener('click',setFilterExpand)
+    }
   },[location])
+  
   console.log(filterBy)
   return (<section className="app-filter-container">
     <div className="app-filter">
@@ -115,18 +120,18 @@ function SearchByDestination(props) {
   return <div className="destination-search-container">
     <h4 className="destination-search-container-header">search by region</h4>
     <div className="regions-container">
-      <Destination logo={worldLogo} region={'flexible'} setRegion={setRegion} />
-      <Destination logo={worldLogo} region={'United States'} setRegion={setRegion} />
-      <Destination logo={worldLogo} region={'Middle East'} setRegion={setRegion} />
-      <Destination logo={worldLogo} region={'France'} setRegion={setRegion} />
-      <Destination logo={worldLogo} region={'South America'} setRegion={setRegion} />
-      <Destination logo={worldLogo} region={'Italy'} setRegion={setRegion} />
+      <Destination  region={'Spain'} setRegion={setRegion} />
+      <Destination  region={'United States'} setRegion={setRegion} />
+      <Destination  region={'Canada'} setRegion={setRegion} />
+      <Destination  region={'France'} setRegion={setRegion} />
+      <Destination  region={'Brazil'} setRegion={setRegion} />
+      <Destination  region={'Italy'} setRegion={setRegion} />
     </div>
   </div>
 }
 function Destination(props) {
   return <div className="region-image-container" onClick={() => props.setRegion(props.region)}>
-    <img src={props.logo} alt="err" className="region-image" />
+    <img src={require('../assets/img/filter/world.jpg')} alt="" className="region-image" />
     <p>{props.region}</p>
   </div>
 }
