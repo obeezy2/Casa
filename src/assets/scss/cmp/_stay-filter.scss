@@ -92,6 +92,7 @@
         }
     }
     .filter-expand{
+        z-index: 50;
         background-color: $white;
         color: $main-black;
         border-radius: 20px;
@@ -104,6 +105,8 @@
 }
 
 .destination-search-container{
+    z-index: 30;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

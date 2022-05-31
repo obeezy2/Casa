@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import 'react-slideshow-image/dist/styles.css'
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "react-responsive-carousel/lib/styles/carousel.css";
 import { Carousel } from 'react-responsive-carousel';
 
 // import pictures from '../assets/img/houses'
 export function StayPreview({ stay }) {
     // console.log(pictures)
-    
+
     return (
 
         <Link to={`/stay/details/${stay._id}`} className="stay-preview-container">
