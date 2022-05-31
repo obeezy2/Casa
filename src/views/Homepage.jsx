@@ -8,9 +8,8 @@ import { PopDestination } from '../cmps/pop-destination.jsx'
 import { TopRated } from '../cmps/top-rated.jsx'
 export const Homepage = () => {
     useEffect(()=>{
-        
+        window.scrollTo(0,0)
     },[])
-
     return <section className="main-container">
         <Hero />
         < PopDestination />

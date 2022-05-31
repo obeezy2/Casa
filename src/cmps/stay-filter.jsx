@@ -35,7 +35,11 @@ export const StayFilter = () => {
       document.querySelector('.main-container').addEventListener('click', () => {
       setFilterExpand(false)
     })}
+    return ()=>{
+      document.removeEventListener('click',setFilterExpand)
+    }
   },[location])
+  
   console.log(filterBy)
   return (<section className="app-filter-container">
     <div className="app-filter">

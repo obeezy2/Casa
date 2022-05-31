@@ -10,7 +10,7 @@ export const StayApp = () => {
   const { filterBy } = useSelector((storeState) => storeState.stayModule)
   const dispatch = useDispatch()
   useEffect(() => {
-    console.log('from did mount');
+    window.scrollTo(0,0)
     dispatch(loadStays())
   }, [filterBy])
 
@@ -22,7 +22,7 @@ export const StayApp = () => {
     <section className="stay-app-container explore-layout">
       {/* <StayFilter /> */}
       <FilterIcons onChangeFilter={onChangeFilter}/>
-      <StayList stays={stays} />
+      {stays&&<StayList stays={stays} />}
     </section>
   );
 };

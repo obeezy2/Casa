@@ -19,14 +19,6 @@ export function StayList({stays}) {
     ev.preventDefault()
   }
 
-  if (!stays) {
-    return (
-      <div className="stay-list-container">
-        <h1>Loading...</h1>
-      </div>
-    );
-  }
-
   return (
     <div className="stay-list-container">
       {stays.map((stay) => (
