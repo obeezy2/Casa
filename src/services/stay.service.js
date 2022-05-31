@@ -1,9 +1,9 @@
-import { storageService } from "./async.storage.service";
-import { stay_db } from "../data/db";
+import { storageService } from "./async.storage.service"
+import { stay_db } from "../data/db"
 
-const STORAGE_KEY = "STAY_STORAGE_KEY";
+const STORAGE_KEY = "STAY_STORAGE_KEY"
 
-_setupForLocalStorage();
+_setupForLocalStorage()
 
 const labels = [
   "Design",
@@ -23,8 +23,8 @@ const labels = [
   "Mansions",
   "Skiing",
   "Historical homes",
-  "Campers"
-];
+  "Campers",
+]
 
 const amenities = [
   "TV",
@@ -83,46 +83,52 @@ const amenities = [
   "Wide entryway",
   "Waterfront",
   "Beachfront",
-];
+]
 
 export const stayService = {
   query,
   getById,
-  amenities,
-  labels
-};
+  getAmenities,
+  getLabels
+}
 
 async function query(filterBy) {
-  let stays = await storageService.query(STORAGE_KEY);
+  let stays = await storageService.query(STORAGE_KEY)
   if (filterBy) {
-    const label = filterBy.label||null;
+    const label = filterBy.label || null
     if (label) {
+      const regex = new RegExp(label, 'i')
       stays = stays.filter((stay) => {
         if (
-          stay.name.toLowerCase().includes(label.toLowerCase()) ||
-          stay.summary.toLowerCase().includes(label.toLowerCase()) ||
-          stay.amenities.includes(label)
+          regex.test(stay.name)||
+          regex.test(stay.summary)||
+          regex.test(stay.amenities)
         ) {
-          return true;
+          return true
         }
-        stay.reviews.forEach((review) => {
-          if (review.txt.toLowerCase().includes(label.toLowerCase()))
-            return true;
-        });
-        return false;
-      });
+        const isLabelsInReviews=stay.reviews.find(review=>regex.test(review.txt))
+        if(isLabelsInReviews)return true
+        return false
+      })
     }
   }
 
-  return stays;
+  return stays
+}
+
+function getAmenities(){
+  return [...amenities]
+}
+function getLabels(){
+  return [...labels]
 }
 
 async function getById(stayId) {
-  return storageService.get(STORAGE_KEY, stayId);
+  return storageService.get(STORAGE_KEY, stayId)
 }
 
 function _setupForLocalStorage() {
   if (!localStorage.getItem(STORAGE_KEY)) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(stay_db));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(stay_db))
   }
 }

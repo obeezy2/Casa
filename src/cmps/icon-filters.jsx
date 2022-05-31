@@ -5,7 +5,7 @@ import { stayService } from "../services/stay.service";
 
 export function FilterIcons({ onChangeFilter }) {
   const dispatch = useDispatch();
-  const filterNames = stayService.labels
+  const filterNames = stayService.getLabels()
 
   const handleSetFilter = (label) => {
     onChangeFilter({ label });
