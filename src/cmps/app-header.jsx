@@ -1,29 +1,28 @@
 import { useEffect, useState } from "react";
-import { isElement } from "react-dom/test-utils";
 import { NavLink as Link, useLocation } from "react-router-dom";
-import React from "react";
-import { StayFilter } from "./stay-filter.jsx";
+import { useDispatch } from "react-redux";
 
+import { StayFilter } from "./stay-filter.jsx";
+import { setFilterBy } from "../store/action/stay.action";
 import logoImg from "../assets/img/logo/new-logo.svg";
 import logoImg2 from "../assets/img/logo/whitelogo.png";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
+
 export function AppHeader() {
     const [headerClass,setHeaderClass]=useState('')
-    const [color, setColor] = useState("white");
-    const [bgColor, setBgColor] = useState("black");
-    const [img, setImg] = useState(logoImg2);
-    const [logoColor, setLogoColor] = useState("white");
-    let location = useLocation();
-
+    const [img, setImg] = useState(logoImg2)
+    let location = useLocation()
+    const dispatch=useDispatch()
     const changeColors = (ev) => {
 
         if (ev.path[1].scrollY === 0) {
             setHeaderClass('home-page home-page-layout')
-            setImg(logoImg2);
+            setImg(logoImg2)
         }
         if (ev.path[1].scrollY > 1) {
             setHeaderClass('home-page-layout')
-            setImg(logoImg);
+            setImg(logoImg)
         }
     };
 
@@ -57,7 +56,7 @@ export function AppHeader() {
                 <StayFilter />
             </div>
 
-            <Link className="explore" to="/stays">
+            <Link className="explore" to="/stays" onClick={()=>{dispatch(setFilterBy(null))}}>
                 Explore
             </Link>
             <Link className="host" to="/host">
