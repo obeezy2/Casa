@@ -89,37 +89,30 @@ export const stayService = {
   query,
   getById,
   getAmenities,
-  getLabels
+  getLabels,
 }
 
 async function query(filterBy) {
+  
   let stays = await storageService.query(STORAGE_KEY)
   if (filterBy) {
     const label = filterBy.label || null
+    const stayLocation = filterBy.stayLocation || null
     if (label) {
-      const regex = new RegExp(label, 'i')
-      stays = stays.filter((stay) => {
-        if (
-          regex.test(stay.name)||
-          regex.test(stay.summary)||
-          regex.test(stay.amenities)
-        ) {
-          return true
-        }
-        const isLabelsInReviews=stay.reviews.find(review=>regex.test(review.txt))
-        if(isLabelsInReviews)return true
-        return false
-      })
+      stays = _filterStaysByLabel(stays, label)
+    }
+    if (stayLocation) {
+      stays = _filterStaysByLocation(stays, stayLocation)
     }
   }
 
   return stays
 }
 
-function getAmenities(){
+function getAmenities() {
   return [...amenities]
 }
-function getLabels(){
+function getLabels() {
   return [...labels]
 }
 
@@ -131,4 +124,38 @@ function _setupForLocalStorage() {
   if (!localStorage.getItem(STORAGE_KEY)) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(stay_db))
   }
+}
+
+function _filterStaysByLocation(stays, location) {
+  const regex = new RegExp(location, "i")
+  stays = stays.filter((stay) => {
+    if (
+      regex.test(stay.address.street) ||
+      regex.test(stay.address.country) ||
+      regex.test(stay.address.city)
+    ) {
+      return true
+    }
+    return false
+  })
+  return stays
+}
+
+function _filterStaysByLabel(stays, label) {
+  const regex = new RegExp(label, "i")
+  stays = stays.filter((stay) => {
+    if (
+      regex.test(stay.name) ||
+      regex.test(stay.summary) ||
+      regex.test(stay.amenities)
+    ) {
+      return true
+    }
+    const isLabelsInReviews = stay.reviews.find((review) =>
+      regex.test(review.txt)
+    )
+    if (isLabelsInReviews) return true
+    return false
+  })
+  return stays
 }

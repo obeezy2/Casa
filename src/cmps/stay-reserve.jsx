@@ -24,7 +24,6 @@ export class _Reserve extends React.Component {
   onReserve = async () => {
     const { user, stayId } = this.props;
     const { dates } = this.state;
-    debugger;
     if (!user) {
       // navigate to login
       return;
