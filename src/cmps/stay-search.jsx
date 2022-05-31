@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { SearchByDate } from './stay-search-search-dates'
+import { SearchByDate } from './stay-filter-search-dates'
 import { AddGuestsFilter } from './stay-search-addGuest-filter'
 import { setFilterBy } from '../store/action/stay.action.js'
 
