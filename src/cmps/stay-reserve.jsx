@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { orderService } from "../services/order.service";
-import { SearchByDate as DatePicker } from "./stay-filter-search-dates";
+import { SearchByDate as DatePicker } from "./stay-search-search-dates";
 
 export class _Reserve extends React.Component {
   state = {

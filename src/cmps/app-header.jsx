@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { NavLink as Link, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { StayFilter } from "./stay-filter.jsx";
+import { StaySearch } from "./stay-search.jsx";
 import { setFilterBy } from "../store/action/stay.action";
 import logoImg from "../assets/img/logo/new-logo.svg";
 import logoImg2 from "../assets/img/logo/whitelogo.png";
@@ -53,7 +53,7 @@ export function AppHeader() {
         >
             <div className="search-bar ">
                 {" "}
-                <StayFilter />
+                <StaySearch />
             </div>
 
             <Link className="explore" to="/stays" onClick={()=>{dispatch(setFilterBy(null))}}>
