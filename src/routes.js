@@ -6,7 +6,8 @@ import { StayDetails } from "./views/stay-details";
 import { StayEdit } from "./views/stay-edit";
 import { Login } from './views/login'
 import { Signup } from './views/signup'
-import { Privacy } from './cmps/privacy';
+import { Privacy } from './views/privacy';
+import { DashBoard } from './views/dashboard.jsx';
 
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
@@ -41,6 +42,10 @@ const routes = [
     {
         path: '/privacy',
         component: <Privacy />,
+    },
+    {
+        path: '/dashboard',
+        component: <DashBoard />,
     },
 
 ]
