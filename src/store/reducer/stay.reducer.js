@@ -13,7 +13,7 @@ export function stayReducer(state = initialState, action) {
         case 'SET_FILTER_BY':
             newState = {
                 ...state,
-                filterBy: action.filterBy
+                filterBy: {...state.filterBy,...action.filterBy}
             } 
             break;        
          default:

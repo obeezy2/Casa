@@ -1,109 +1,115 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
+import { useDispatch } from 'react-redux'
 
 import { SearchByDate } from './stay-filter-search-dates'
 import { AddGuestsFilter } from './stay-search-addGuest-filter'
 import { setFilterBy } from '../store/action/stay.action.js'
 
 import SearchIcon from '@mui/icons-material/Search';
-import { useDispatch } from 'react-redux'
-import { useLocation } from "react-router-dom";
+
 
 export const StaySearch = () => {
 
-  const [isFilterExpand, setFilterExpand] = useState(false)
+  const [isSearchExpand, setSearchExpand] = useState(false)
   const [currExpand, setExpand] = useState(null)
-  const [filterBy, setFilterBy] = useState({})
+  const [searchBy, setSearchBy] = useState({})
   const dispatch = useDispatch()
   let navigate = useNavigate()
   let location = useLocation();
 
-  const onChangeFilter = (ev) => {
+  const onSetSearchLocation = (ev) => {
     ev.preventDefault()
-    setFilterBy({ ...filterBy, txt: ev.target.value })
+    setSearchBy({ ...searchBy, stayLocation: ev.target.value })
   }
 
-  const onSetFilter = () => {
-    dispatch(setFilterBy(filterBy))
+  const onQuickSearchByLocation=(stayLocation)=>{
+    dispatch(setFilterBy({...searchBy,stayLocation}))
+    navigate('/stays')
+  }
+
+  const onSearch = (ev=null) => {
+    if(ev)ev.preventDefault()
+    dispatch(setFilterBy(searchBy))
     navigate('/stays')
   }
   
   useEffect(()=>{
     //close filter expand when moveing to another page
-    setFilterExpand(false)
+    setSearchExpand(false)
     if(location.pathname === '/' ){    
       document.querySelector('.main-container').addEventListener('click', () => {
-      setFilterExpand(false)
+      setSearchExpand(false)
     })}
     return ()=>{
-      document.removeEventListener('click',setFilterExpand)
+      document.removeEventListener('click',setSearchExpand)
     }
   },[location])
   
-  console.log(filterBy)
+  console.log(searchBy)
   return (<section className="app-filter-container">
     <div className="app-filter">
       <div className='filter-btn-container filter-btn-location' onClick={() => {
-        setFilterExpand(!isFilterExpand)
+        setSearchExpand(!isSearchExpand)
         setExpand('Anywhere')
       }}>
         <div className="filter-btn" >
-          {currExpand === 'Anywhere' && isFilterExpand ?
+          {currExpand === 'Anywhere' && isSearchExpand ?
          
             <div>
               Where
-              <form>
+              <form onSubmit={onSearch}>
                 <input className="destination-input" type="text"
                   onClick={(e) => e.stopPropagation()}
-                  onChange={(event) => { onChangeFilter(event) }}
+                  onChange={(event) => { onSetSearchLocation(event) }}
                   placeholder='search destination' />
               </form>
             </div>
-            : filterBy.txt || filterBy.region && <div> Where <p>{filterBy.txt||filterBy.region  }</p> </div> ||'Anywhere'
+            : searchBy.stayLocation || searchBy.region && <div> Where <p>{searchBy.stayLocation||searchBy.region  }</p> </div> ||'Anywhere'
             }
         </div>
       </div>
       <span className="filter-span"></span>
       <div className='filter-btn-container filter-btn-dates' onClick={() => {
-        setFilterExpand(!isFilterExpand)
+        setSearchExpand(!isSearchExpand)
         setExpand('Any week')
       }}>
         <div className="filter-btn" >
-          {currExpand === 'Any week' && isFilterExpand ?
+          {currExpand === 'Any week' && isSearchExpand ?
             <div>
               <p>When</p>
               <p>Any week</p>
             </div>
-            : filterBy.startDate&&filterBy.endDate && <div className="check-in-container"><div className=" check"> <p>Check in</p> {filterBy.startDate}</div><div className=" check"><p>Check out</p>{filterBy.endDate} </div> </div> || 'Any week' }
+            : searchBy.startDate&&searchBy.endDate && <div className="check-in-container"><div className=" check"> <p>Check in</p> {searchBy.startDate}</div><div className=" check"><p>Check out</p>{searchBy.endDate} </div> </div> || 'Any week' }
         </div>
       </div>
       <span className="filter-span"></span>
       <div className='filter-btn-container filter-btn-guests' >
         <div className="filter-btn" onClick={() => {
-          setFilterExpand(!isFilterExpand)
+          setSearchExpand(!isSearchExpand)
           setExpand('Add guests')
         }}>
-          {currExpand === 'Add guests' && isFilterExpand ?
+          {currExpand === 'Add guests' && isSearchExpand ?
             <div>
               <p>Who</p>
               <p>Add guests</p>
             </div>
-            :filterBy.guestsNumber && <p>{filterBy.guestsNumber} guests</p> || <p className="add-guests-paragraph">Add guests</p>}
+            :searchBy.guestsNumber && <p>{searchBy.guestsNumber} guests</p> || <p className="add-guests-paragraph">Add guests</p>}
         </div>
         <div className="search">
-          <div className="search-icon" onClick={() => onSetFilter()}><SearchIcon className="search-icon-svg"  /></div>
+          <div className="search-icon" onClick={() => onSearch()}><SearchIcon className="search-icon-svg"  /></div>
         </div>
       </div>
     </div>
-    {isFilterExpand && <div className="filter-expand">
+    {isSearchExpand && <div className="filter-expand">
       {currExpand === 'Anywhere' && <div>
-        <SearchByDestination setRegionFilter={(region) => setFilterBy({ ...filterBy, region })} />
+        <SearchByDestination onQuickSearchByLocation={onQuickSearchByLocation} />
       </div>}
       {currExpand === 'Any week' && <div>
-        <SearchByDate onSetDates={(start, end) => setFilterBy({ ...filterBy, startDate: `${start.getDate()}/${start.getMonth() + 1}`, endDate: `${end.getDate()}/${end.getMonth() + 1}` })} />
+        <SearchByDate onSetDates={(start, end) => setSearchBy({ ...searchBy, startDate: `${start.getDate()}/${start.getMonth() + 1}`, endDate: `${end.getDate()}/${end.getMonth() + 1}` })} />
       </div>}
       {currExpand === 'Add guests' && <div>
-        <AddGuestsFilter setGuests={(guests) => setFilterBy({ ...filterBy, guestsNumber: guests })} />
+        <AddGuestsFilter setGuests={(guests) => setSearchBy({ ...searchBy, guestsNumber: guests })} />
       </div>}
     </div>}
   </section>
@@ -115,7 +121,7 @@ function SearchByDestination(props) {
   const [region, setRegion] = useState('')
   useEffect(() => {
     if (region === '') return
-    props.setRegionFilter(region)
+    props.onQuickSearchByLocation(region)
   }, [region])
   return <div className="destination-search-container">
     <h4 className="destination-search-container-header">search by region</h4>
@@ -123,9 +129,9 @@ function SearchByDestination(props) {
       <Destination  region={'Spain'} setRegion={setRegion} />
       <Destination  region={'United States'} setRegion={setRegion} />
       <Destination  region={'Canada'} setRegion={setRegion} />
-      <Destination  region={'France'} setRegion={setRegion} />
+      <Destination  region={'Hong Kong'} setRegion={setRegion} />
       <Destination  region={'Brazil'} setRegion={setRegion} />
-      <Destination  region={'Italy'} setRegion={setRegion} />
+      <Destination  region={'Portugal'} setRegion={setRegion} />
     </div>
   </div>
 }
