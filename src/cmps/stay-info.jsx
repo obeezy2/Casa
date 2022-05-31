@@ -4,7 +4,7 @@ export const StayInfo = ({ stay }) => {
   const [isAmenitiesExpanded, setIsAmenitiesExpanded] = useState(false);
 
   if (!stay) return <section className="stay-main-info-container"></section>;
-  const amenities = stayService.amenities;
+  const amenities = stayService.getAmenities();
   return (
     <section className="stay-main-info-container">
       <div className="short-info-container">

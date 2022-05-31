@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { SearchByDate } from './stay-filter-search-dates'
-import { AddGuestsFilter } from './stay-filter-addGuest-filter'
+import { SearchByDate } from './stay-search-search-dates'
+import { AddGuestsFilter } from './stay-search-addGuest-filter'
 import { setFilterBy } from '../store/action/stay.action.js'
 
 import SearchIcon from '@mui/icons-material/Search';
 import { useDispatch } from 'react-redux'
 import { useLocation } from "react-router-dom";
 
-export const StayFilter = () => {
+export const StaySearch = () => {
 
   const [isFilterExpand, setFilterExpand] = useState(false)
   const [currExpand, setExpand] = useState(null)
