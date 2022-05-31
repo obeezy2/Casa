@@ -1,26 +1,23 @@
-import {useState} from "react";
+import { useState } from "react";
+import starIcon from '../assets/img/svgs/star.svg'
 export const StayReview = ({ reviewScores, reviews }) => {
-  const [isReviewsExpanded,setIsReviewsExpanded]=useState(false)
+  const [isReviewsExpanded, setIsReviewsExpanded] = useState(false)
   return (
     <div className="reviews-container">
       <h1>
-        ⭐{(reviewScores.rating / 100) * 5} · {reviews.length} reviews
+        <img width='14px' src={starIcon}></img>      {(reviewScores.rating / 100) * 5} · {reviews.length} reviews
       </h1>
       <div className="rating-breakdown">
-        <div className="left-container">
-          <h4>Cleanliness - {reviewScores.cleanliness / 2}</h4>
-          <h4>Communication - {reviewScores.communication / 2}</h4>
-          <h4>Check-in - {reviewScores.checkin / 2}</h4>
-        </div>
-        <div className="right-container">
-          <h4>Accuracy - {reviewScores.accuracy / 2}</h4>
-          <h4>Location - {reviewScores.location / 2}</h4>
-          <h4>Value - {reviewScores.value / 2}</h4>
-        </div>
+        <h4 className="cleanliness">Cleanliness  </h4><span className="c-review">{reviewScores.cleanliness / 2}</span>
+        <h4 className="communication">Communication </h4> <span className="communi-review">{reviewScores.communication / 2}</span>
+        <h4 className="check-in">Check-in  </h4><span className="checkin-review">{reviewScores.checkin / 2}</span>
+        <h4 className="accuracy">Accuracy  </h4><span className="acc-review">{reviewScores.accuracy / 2}</span>
+        <h4 className="location">Location  </h4><span className="loc-review" >{reviewScores.location / 2}</span>
+        <h4 className="value">Value  </h4><span className="val-review">{reviewScores.value / 2}</span>
       </div>
       <div className="review-cards-container" style={
-            isReviewsExpanded ? { height: "fit-content"} : null
-          }>
+        isReviewsExpanded ? { height: "fit-content" } : null
+      }>
         {reviews.map(review => {
           return <div key={review.by._id} className="review-card">
             <div className="writer-info-container">
@@ -34,12 +31,12 @@ export const StayReview = ({ reviewScores, reviews }) => {
         })}
       </div>
       <div className="reviews-btn"
-          onClick={() => {
-            setIsReviewsExpanded(!isReviewsExpanded);
-          }}
-        >
-          <h3>{isReviewsExpanded?'Show less':'Show more'}</h3>
-        </div>
-    </div>
+        onClick={() => {
+          setIsReviewsExpanded(!isReviewsExpanded);
+        }}
+      >
+        <h3>{isReviewsExpanded ? 'Show less' : 'Show more'}</h3>
+      </div>
+    </div >
   );
 };

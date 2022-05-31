@@ -17,12 +17,12 @@ const labels = [
   "Tiny Homes",
   "Lakefront",
   "Arctic",
-  "Amazing views",
+  // "Amazing views",
   "Desert",
   "Surfing",
   "Mansions",
   "Skiing",
-  "Historical homes",
+  // "Historical homes",
   "Campers"
 ];
 
@@ -95,7 +95,7 @@ export const stayService = {
 async function query(filterBy) {
   let stays = await storageService.query(STORAGE_KEY);
   if (filterBy) {
-    const label = filterBy.label||null;
+    const label = filterBy.label || null;
     if (label) {
       stays = stays.filter((stay) => {
         if (

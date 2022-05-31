@@ -18,8 +18,10 @@
       img{
         border-radius: inherit;
         object-fit: cover;
-        height: 100%;
-        width: 100%;
+        vertical-align: bottom;
+        position: static;
+        height: 100% !important;
+        width: 100% !important;
       }
     }
   }

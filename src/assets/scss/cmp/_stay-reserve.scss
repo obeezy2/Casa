@@ -6,13 +6,16 @@
     z-index: 10;
     position: sticky;
     top: 80px;
-    height: 300px;
-    max-width: 365px;
-    margin-left: 36%;
+    height: 470px;
+    width: 100%;
+    max-width: 1120px;
     border: 1px solid $secondary-grey;
     border-radius: 12px;
     padding: 24px;
     box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+    justify-self: center;
+    align-self: center;
+    margin-left: 10%;
     .total-container{
         display: flex;
         justify-content: space-between;
