@@ -5,7 +5,7 @@ import rio from '../assets/img/logo/rio.jpg'
 import barcelona from '../assets/img/logo/barcelona.jpg'
 import newyork from '../assets/img/logo/newyork.webp'
 
-export function PopDestination({onSetFilter}) {
+export function PopDestination({ onSetFilter }) {
     return (
         <main className="pop-cities-gallery">
 
@@ -16,7 +16,7 @@ export function PopDestination({onSetFilter}) {
                     <img src={hongkong} />
 
                     <div className="city-details">
-                        <h3 className='color-city'>Honk Kong  <span>Honk Kong</span></h3>
+                        <h3 className='color-city'>Hong Kong  <span>Hong Kong</span></h3>
 
                     </div>
                 </div>
