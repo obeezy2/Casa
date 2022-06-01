@@ -1,15 +1,16 @@
 
 .pop-cities{
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    align-items: left;
+    display: grid;
+    grid-template-columns :repeat(auto-fit,minmax(250px,1fr));
+    gap: 30px;
+    .card{
+        aspect-ratio: 1/1;
+
+    }
       height: 280px;
-  gap: 80px;
   margin-top: 25px;
   cursor: pointer;
       img{
-          aspect-ratio: 1/1;
         border-radius: 13px;
         width: 100%;
         height: 100%;
@@ -27,7 +28,7 @@
     
 }
 
-.header-popular{
+.header-popular,.header-top-rated{
     font-weight: 1000;
     font-size:35px;
     color: $main-black;

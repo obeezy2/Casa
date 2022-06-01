@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
+
 import { orderService } from "../services/order.service";
+import { showUserMsg } from "../services/event-bus.service";
 import { SearchByDate as DatePicker } from "./stay-filter-search-dates";
 
 export class _Reserve extends React.Component {
@@ -25,10 +27,11 @@ export class _Reserve extends React.Component {
     const { user, stayId } = this.props;
     const { dates } = this.state;
     if (!user) {
-      // navigate to login
+      showUserMsg('Please login','not-logged-in')
       return;
     }
     if (!dates.endDateStamp || !dates.startDateStamp) {
+      
       return;
       // focus on the date picker
     }
@@ -73,13 +76,14 @@ export class _Reserve extends React.Component {
           <h3 className="reserve-btn" onClick={this.onReserve}>
             Reserve
           </h3>
+          <h4>You won't be charged yet.</h4>
           <div className="total-container">
             <h3>Total</h3>
             <h3>
               {dates !== null
                 ? ((dates.endDateStamp - dates.startDateStamp) / 86400000) *
-                    stayPrice +
-                  ""
+                stayPrice +
+                ""
                 : "0"}
               $
             </h3>

@@ -1,54 +1,89 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import tokyo from '../assets/img/logo/tokyo.jpg'
-import capetown from '../assets/img/logo/capetown.jpg'
-import telaviv from '../assets/img/logo/telaviv.jpg'
-import london from '../assets/img/logo/london.webp'
+import React, { useEffect } from "react"
+import { Link } from "react-router-dom"
+import hongkong from "../assets/img/logo/hongkong.jpg"
+import rio from "../assets/img/logo/rio.jpg"
+import barcelona from "../assets/img/logo/barcelona.jpg"
+import newyork from "../assets/img/logo/newyork.webp"
+import { useDispatch, useSelector } from "react-redux"
+import { useState } from "react"
+import { stayService } from '../services/stay.service'
+export function TopRated({ onSetFilter }) {
 
-export function TopRated() {
 
-    return (
-        <main className="top-rated">
+  const [stay1, setStay1] = useState('')
+  const [stay2, setStay2] = useState('')
+  const [stay3, setStay3] = useState('')
+  const [stay4, setStay4] = useState('')
 
-            <h1 className='header-popular'>Popular Destinations</h1>
+  useEffect(() => {
+    stayService.getById('622f337a75c7d36e498aab19').then(res => setStay1(res))
+    stayService.getById('622f337a75c7d36e498aab4e').then(res => setStay2(res))
+    stayService.getById('622f337a75c7d36e498aab36').then(res => setStay3(res))
+    stayService.getById('622f337b75c7d36e498aab80').then(res => setStay4(res))
 
-            <section className='pop-cities'>
-                <div className='card'>
-                    <img src={`${tokyo}`} />
 
-                    <div className="city-details">
-                        <h3 className='color-city'>Tokyo</h3>
-                        <h4><span>Japan</span></h4>
-                    </div>
-                </div>
-                <div className='card'>
+  }, [])
+  //  const  loadStay = async() =>{
 
-                    <img src={`${capetown}`} />
+  // }
+  // const stay2 = stayService.getById('622f337a75c7d36e498aab19')
+  // const stay3 = stayService.getById('622f337b75c7d36e498aab82')
 
-                    <div className="city-details">
-                        <h3 className='color-city'>Cape Town</h3>
-                        <h4><span>South Africa</span></h4>
-                    </div>
-                </div>
-                <div className='card'>
+  return (
+    <section className="top-rated">
+      <h1 className="header-top-rated">Top Rated</h1>
 
-                    <img src={`${telaviv}`} />
+      <section className="pop-cities">
+        <Link to={`/stay/details/${stay1._id}`}>
 
-                    <div className="city-details">
-                        <h3 className='color-city'>Tel Aviv</h3>
-                        <h4><span>Israel</span></h4>
-                    </div>
-                </div>
-                <div className='card'>
+          <div className="card" onClick={() => onSetFilter('Hong Kong')}>
+            {stay1 && <img src={require(`../assets/img/houses/${stay1.imgUrls[0]}`)} />}
 
-                    <img src={`${london}`} />
+            <div className="city-details">
+              <h3 className="color-city">{stay1.name}</h3>
+              <h4>
+                <span>Rio de Janeiro</span>
+              </h4>
+            </div>
+          </div>
+        </Link>
+        <Link to={`/stay/details/${stay2._id}`}>
+          <div className="card" onClick={() => onSetFilter('Rio de Janeiro')}>
+            {stay2 && <img src={require(`../assets/img/houses/${stay2.imgUrls[0]}`)} />}
 
-                    <div className="city-details">
-                        <h3 className='color-city'>London</h3>
-                        <h4><span>UK</span></h4>
-                    </div>
-                </div>
-            </section>
-        </main>
-    )
+            <div className="city-details">
+              <h3 className="color-city">Mike's House</h3>
+              <h4>
+                <span>United States</span>
+              </h4>
+            </div>
+          </div>
+        </Link>
+        <Link to={`/stay/details/${stay3._id}`}> <div className="card">
+          {stay3 && <img src={require(`../assets/img/houses/${stay3.imgUrls[0]}`)} />}
+
+          <div className="city-details">
+            <h3 className="color-city">{stay3.name}</h3>
+            <h4>
+              <span>Montreal</span>
+            </h4>
+          </div>
+        </div>
+        </Link>
+        <Link to={`/stay/details/${stay4._id}`}>
+
+          <div className="card" onClick={() => onSetFilter('New York')}>
+            {stay4 && <img src={require(`../assets/img/houses/${stay4.imgUrls[0]}`)} />}
+
+            <div className="city-details">
+              <h3 className="color-city">{stay4.name}</h3>
+              <h4>
+                <span>Portugal</span>
+              </h4>
+            </div>
+          </div>
+        </Link>
+      </section>
+    </section >
+  )
 }

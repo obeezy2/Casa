@@ -19,7 +19,7 @@ const labels = [
   "Tiny Homes",
   "Lakefront",
   "Arctic",
-  "Amazing views",
+  // "Amazing views",
   "Desert",
   "Surfing",
   "Mansions",

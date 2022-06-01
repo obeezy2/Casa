@@ -3,6 +3,7 @@ import React from "react";
 import 'react-slideshow-image/dist/styles.css'
 import "react-responsive-carousel/lib/styles/carousel.css";
 import { Carousel } from 'react-responsive-carousel';
+import starIcon from '../assets/img/svgs/star.svg'
 
 // import pictures from '../assets/img/houses'
 export function StayPreview({ stay }) {
@@ -28,7 +29,7 @@ export function StayPreview({ stay }) {
             <div className="staypreview">
                 <span className='top-summary'>
                     <span className="stay-address">{stay.address.street} </span>
-                    <span className="star-rating">{((stay.reviewScores.rating / 100).toFixed(1)) * 5}★</span>
+                    <span className="star-rating">{((stay.reviewScores.rating / 100).toFixed(1)) * 5} <img width='14px' src={starIcon}></img></span>
                 </span>
                 <span className="stay-summary">{stay.propertyType}</span>
                 <span className="stay-summary">{stay.roomType}</span>

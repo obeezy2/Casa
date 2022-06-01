@@ -34,7 +34,7 @@ export function _Signup() {
         }
         console.log(user)
         dispatch(onSignup(user))
-        navigate(-1);
+        navigate('/');
     };
 
     return (
