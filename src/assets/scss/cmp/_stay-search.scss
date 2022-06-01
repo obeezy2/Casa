@@ -92,7 +92,7 @@
         }
     }
     .filter-expand{
-        z-index: 50;
+        z-index: 2000;
         background-color: $white;
         color: $main-black;
         border-radius: 20px;
@@ -112,12 +112,12 @@
     justify-content: center;
     height: 100%;
     padding: 20px;
-    .destination-search-container-header{
-        width: 100%;
-        text-align: start;
-        padding: 5px;
-        margin-bottom: 5px;
-    }
+    // .destination-search-container-header{
+    //     width: 100%;
+    //     text-align: start;
+    //     padding: 5px;
+    //     margin-bottom: 5px;
+    // }
     .regions-container{
         display: flex;
         flex-wrap: wrap;
