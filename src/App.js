@@ -3,6 +3,7 @@ import React from 'react'
 import "../src/assets/scss/main.scss";
 import routes from "./routes";
 import { AppHeader } from './cmps/app-header'
+import { UserMsg } from "./cmps/user-msg";
 import { AppFooter } from './cmps/app-footer.jsx'
 import { StaySearch } from './cmps/stay-search.jsx'
 
@@ -25,6 +26,7 @@ function App() {
             );
           })}
         </Routes>
+        <UserMsg/>
         <AppFooter />
 
       </main>

@@ -36,11 +36,10 @@ export const StaySearch = () => {
     //close filter expand when moveing to another page
     setSearchExpand(false)
     if (location.pathname === "/") {
+      setSearchBy({})
       document
         .querySelector(".main-container")
-        .addEventListener("click", () => {
-          setSearchExpand(false)
-        })
+        .addEventListener("click",setSearchExpand(false))
     }
     return () => {
       document.removeEventListener("click", setSearchExpand)
