@@ -26,6 +26,8 @@ export const StayInfo = ({ stay }) => {
         <p>{stay.summary}</p>
       </div>
       <div className="amenities-container">
+        <h2>What this place offers
+        </h2>
         <div
           className="amenities"
           style={isAmenitiesExpanded ? { height: "fit-content" } : null}

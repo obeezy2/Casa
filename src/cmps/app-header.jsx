@@ -10,10 +10,12 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 
 export function AppHeader() {
-    const [headerClass,setHeaderClass]=useState('')
+    const [headerClass, setHeaderClass] = useState('')
     const [img, setImg] = useState(logoImg2)
+
     let location = useLocation()
-    const dispatch=useDispatch()
+    const dispatch = useDispatch()
+
     const changeColors = (ev) => {
 
         if (ev.path[1].scrollY === 0) {
@@ -24,14 +26,14 @@ export function AppHeader() {
             setHeaderClass('home-page-layout')
             setImg(logoImg)
         }
-    };
+    }
 
     useEffect(() => {
         if (location.pathname === "/") {
             window.addEventListener("scroll", changeColors);
             setHeaderClass('home-page home-page-layout')
             setImg(logoImg2);
-        }else if(location.pathname.includes('/stay/details')){
+        } else if (location.pathname.includes('/stay/details')) {
             setHeaderClass('details-page-layout')
             setImg(logoImg);
         }
@@ -45,7 +47,7 @@ export function AppHeader() {
             setImg(logoImg);
         }
 
-    }, [location.pathname]);
+    }, [location.pathname])
 
     return (
         <header
@@ -56,7 +58,7 @@ export function AppHeader() {
                 <StaySearch />
             </div>
 
-            <Link className="explore" to="/stays" onClick={()=>{dispatch(setFilterBy(null))}}>
+            <Link className="explore" to="/stays" onClick={() => { dispatch(setFilterBy(null)) }}>
                 Explore
             </Link>
             <Link className="host" to="/host">
@@ -69,7 +71,7 @@ export function AppHeader() {
                 <img className="img-logo" src={`${img}`}></img>
                 <Link to="/">
                     {" "}
-                    <h1  className="text">
+                    <h1 className="text">
                         casa{" "}
                     </h1>
                 </Link>

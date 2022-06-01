@@ -11,7 +11,7 @@ export const StayDetails = () => {
   const [stay, setStay] = useState(null);
 
   useEffect(() => {
-    window.scrollTo(0,0)
+    window.scrollTo(0, 0)
     loadStay();
   }, []);
 

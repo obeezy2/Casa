@@ -58,17 +58,17 @@
     }
   }
   .img-layout {
-    height: 520px;
-    padding-top: 26px;
+    height: 454px;
+    padding-top: 30px;
     max-width: 1320px;
     margin-bottom: 20px;
     .stay-imgs-container {
       display: grid;
-      grid-template-columns: 2.5fr 1fr 1fr;
-      grid-template-rows: 222px 198px;
+      grid-template-columns: 2.4fr 1.2fr 1.2fr;
+      grid-template-rows: 205px 214px;
       grid-gap: 8px;
-      
       border-radius: 12px;
+      
       img {
         aspect-ratio: 1;
         object-fit: cover;
@@ -80,6 +80,7 @@
         grid-row: 1/-1;
         border-radius: 12px 0px 0px 12px;
       }
+    
     }
   }
 
@@ -92,5 +93,12 @@
     border-top: 1px solid rgb(221, 221, 221);
     padding-top: 48px;
     padding-bottom: 48px;
+  }
+  .short-info-container{
+   color: $main-black;
+   font-size: 1em;
+   h4{
+font-size: 18px;
+   }
   }
 }
