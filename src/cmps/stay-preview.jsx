@@ -13,7 +13,7 @@ export function StayPreview({ stay }) {
 
         <Link to={`/stay/details/${stay._id}`} className="stay-preview-container">
             <div className="stay-img-container">
-                <Carousel showThumbs={false} showArrows={false} showStatus={false}  >
+                <Carousel showThumbs={false} showArrows={true} showStatus={false}  >
                     <div>
                         <img src={require(`../assets/img/houses/${stay.imgUrls[0]}`)} alt="" />
                     </div>

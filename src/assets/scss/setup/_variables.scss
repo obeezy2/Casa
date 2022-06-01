@@ -67,3 +67,53 @@ $padded-break-wide: $break-wide + $layoutPadding * 2;
     opacity: 1;
     filter: alpha(opacity=100);
   }
+    .carousel.carousel-slider .control-arrow:hover {
+      background: white !important;
+      color: black !important;
+    }
+  .carousel.carousel-slider .control-arrow {
+    display: none;
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    top: 50% !important;
+   color: black !important;
+}
+.carousel .control-arrow, .carousel.carousel-slider .control-arrow {
+    transition: all 0.25s ease-in;
+    opacity: 0.4;
+    // filter: alpha(opacity=40);
+    position: absolute;
+    z-index: 2;
+  background: white !important;
+    border: 0;
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.carousel .control-next.control-arrow {
+  margin-right: 10px;
+color: black !important;
+}
+
+.carousel .control-next.control-arrow:before {
+  border-left: 8px solid rgba(0, 0, 0, 0.437) !important;
+  color: black !important;
+
+}
+
+.carousel.carousel-slider .control-arrow {
+  top: 0;
+  color: #fff;
+  font-size: 26px;
+  bottom: 0;
+  margin-top: 0;
+  padding: 0 !important;
+}
+.carousel .control-prev.control-arrow {
+  margin-left: 10px;
+color: black !important;
+}
+.carousel .control-prev.control-arrow:before {
+  border-right: 8px solid rgba(0, 0, 0, 0.437) !important;
+}
