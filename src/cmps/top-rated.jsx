@@ -1,54 +1,57 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import tokyo from '../assets/img/logo/tokyo.jpg'
-import capetown from '../assets/img/logo/capetown.jpg'
-import telaviv from '../assets/img/logo/telaviv.jpg'
-import london from '../assets/img/logo/london.webp'
+import React from "react"
+import { Link } from "react-router-dom"
+import hongkong from "../assets/img/logo/hongkong.jpg"
+import rio from "../assets/img/logo/rio.jpg"
+import barcelona from "../assets/img/logo/barcelona.jpg"
+import newyork from "../assets/img/logo/newyork.webp"
 
-export function TopRated() {
+export function TopRated({onSetFilter}) {
+  return (
+    <section className="top-rated">
+      <h1 className="header-top-rated">Top Rated Destinations</h1>
 
-    return (
-        <main className="top-rated">
+      <section className="pop-cities">
+        <div className="card" onClick={()=>onSetFilter('Hong Kong')}>
+          <img src={`${hongkong}`} />
 
-            <h1 className='header-popular'>Popular Destinations</h1>
+          <div className="city-details">
+            <h3 className="color-city">Hong Kong</h3>
+            <h4>
+              <span>Hong kong</span>
+            </h4>
+          </div>
+        </div>
+        <div className="card" onClick={()=>onSetFilter('Rio de Janeiro')}>
+          <img src={`${rio}`} />
 
-            <section className='pop-cities'>
-                <div className='card'>
-                    <img src={`${tokyo}`} />
+          <div className="city-details">
+            <h3 className="color-city">Rio de Janeiro</h3>
+            <h4>
+              <span>Brazil</span>
+            </h4>
+          </div>
+        </div>
+        <div className="card" onClick={()=>onSetFilter('Barcelona')}>
+          <img src={`${barcelona}`} />
 
-                    <div className="city-details">
-                        <h3 className='color-city'>Tokyo</h3>
-                        <h4><span>Japan</span></h4>
-                    </div>
-                </div>
-                <div className='card'>
+          <div className="city-details">
+            <h3 className="color-city">Barcelona</h3>
+            <h4>
+              <span>Spain</span>
+            </h4>
+          </div>
+        </div>
+        <div className="card" onClick={()=>onSetFilter('New York')}>
+          <img src={`${newyork}`} />
 
-                    <img src={`${capetown}`} />
-
-                    <div className="city-details">
-                        <h3 className='color-city'>Cape Town</h3>
-                        <h4><span>South Africa</span></h4>
-                    </div>
-                </div>
-                <div className='card'>
-
-                    <img src={`${telaviv}`} />
-
-                    <div className="city-details">
-                        <h3 className='color-city'>Tel Aviv</h3>
-                        <h4><span>Israel</span></h4>
-                    </div>
-                </div>
-                <div className='card'>
-
-                    <img src={`${london}`} />
-
-                    <div className="city-details">
-                        <h3 className='color-city'>London</h3>
-                        <h4><span>UK</span></h4>
-                    </div>
-                </div>
-            </section>
-        </main>
-    )
+          <div className="city-details">
+            <h3 className="color-city">New York</h3>
+            <h4>
+              <span>United States</span>
+            </h4>
+          </div>
+        </div>
+      </section>
+    </section>
+  )
 }
