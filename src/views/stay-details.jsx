@@ -33,7 +33,7 @@ export const StayDetails = () => {
         <h1 className="stay-name">{stay.name}</h1>
         <div className="short-desc">
           <div className="stats">
-            <span>★{(stay.reviewScores.rating / 100) * 5} ·</span>
+            <span>★{(stay.reviewScores.rating / 100).toFixed(1)* 5} ·</span>
             <span className="reviews"> {stay.reviews.length} reviews</span>
             <span className="seperate-dott">·</span>
             {stay.host.isSuperhost && (

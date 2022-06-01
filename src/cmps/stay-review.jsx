@@ -4,7 +4,7 @@ export const StayReview = ({ reviewScores, reviews }) => {
   return (
     <div className="reviews-container">
       <h1>
-        ⭐{(reviewScores.rating / 100) * 5} · {reviews.length} reviews
+        ⭐{(reviewScores.rating / 100).toFixed(1) * 5} · {reviews.length} reviews
       </h1>
       <div className="rating-breakdown">
         <div className="left-container">

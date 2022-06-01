@@ -1,6 +1,7 @@
 import { storageService } from "./async.storage.service"
 import { stay_db } from "../data/db"
-
+import { orderService } from "./order.service"
+import { de } from "date-fns/locale"
 const STORAGE_KEY = "STAY_STORAGE_KEY"
 
 _setupForLocalStorage()
@@ -93,16 +94,20 @@ export const stayService = {
 }
 
 async function query(filterBy) {
-  
   let stays = await storageService.query(STORAGE_KEY)
   if (filterBy) {
     const label = filterBy.label || null
     const stayLocation = filterBy.stayLocation || null
+    // const dates = filterBy.dates || null
+    const guestsCount=filterBy.guestsCount||null
     if (label) {
       stays = _filterStaysByLabel(stays, label)
     }
     if (stayLocation) {
       stays = _filterStaysByLocation(stays, stayLocation)
+    }
+    if (guestsCount) {
+      stays=stays.filter(stay=>stay.capacity>=guestsCount)
     }
   }
 
