@@ -46,7 +46,7 @@ export const StaySearch = () => {
     }
   },[location])
   
-  console.log(searchBy)
+  // console.log(searchBy)
   return (<section className="app-filter-container">
     <div className="app-filter">
       <div className='filter-btn-container filter-btn-location' onClick={() => {
