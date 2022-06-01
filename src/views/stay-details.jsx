@@ -5,6 +5,7 @@ import { stayService } from "../services/stay.service";
 import { StayInfo } from "../cmps/stay-info";
 import { Reserve } from "../cmps/stay-reserve";
 import { StayReview } from "../cmps/stay-review";
+import starIcon from '../assets/img/svgs/star.svg'
 
 export const StayDetails = () => {
   const params = useParams();
@@ -33,7 +34,7 @@ export const StayDetails = () => {
         <h1 className="stay-name">{stay.name}</h1>
         <div className="short-desc">
           <div className="stats">
-            <span>★{(stay.reviewScores.rating / 100).toFixed(1)* 5} ·</span>
+            <span><img width='14px' src={starIcon}></img>     {(stay.reviewScores.rating / 100).toFixed(1) * 5} ·</span>
             <span className="reviews"> {stay.reviews.length} reviews</span>
             <span className="seperate-dott">·</span>
             {stay.host.isSuperhost && (
