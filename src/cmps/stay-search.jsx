@@ -39,10 +39,10 @@ export const StaySearch = () => {
       setSearchBy({})
       document
         .querySelector(".main-container")
-        .addEventListener("click",setSearchExpand(false))
+        .addEventListener("click", setSearchExpand(false))
     }
     return () => {
-      document.removeEventListener("click", setSearchExpand)
+      document.removeEventListener("click", setSearchExpand())
     }
   }, [location])
 

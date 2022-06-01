@@ -1,6 +1,6 @@
 import { storageService } from "./async.storage.service"
 import { stay_db } from "../data/db"
-import { httpService } from "./http.service"; 
+import { httpService } from "./http.service";
 
 const END_POINT = "stay"
 const STORAGE_KEY = 'STAY_STORAGE_KEY'
@@ -92,10 +92,11 @@ export const stayService = {
   getById,
   getAmenities,
   getLabels,
+  getStaysForHost,
 }
 
 async function query(filterBy) {
-  if(!filterBy){
+  if (!filterBy) {
     return await httpService.get(END_POINT)
   }
   // let stays = await storageService.query(STORAGE_KEY)
@@ -112,6 +113,16 @@ async function query(filterBy) {
   // }
 
   // return stays
+}
+async function getStaysForHost(hostId) {
+  let stays = await storageService.query(STORAGE_KEY)
+  const hostArr = []
+  stays.map((stay) => {
+    if (stay.host['_id'] === hostId) {
+      hostArr.push(stay)
+    }
+  })
+  return hostArr
 }
 
 function getAmenities() {

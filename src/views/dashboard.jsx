@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { stayService } from "../services/stay.service";
 export const DashBoard = () => {
 
 
@@ -8,13 +9,15 @@ export const DashBoard = () => {
     const handleClick = (divNum) => () => {
         setSelected(divNum);
     }
-
+    const [hostListings, setHostListings] = useState('')
     // $('subject').on('click', function () {
     //     $(this).addClass('active').siblings('div').removeClass('active');
     // });
+    useEffect(() => {
+        stayService.getStaysForHost('1').then(res => setHostListings(res))
 
-
-
+    }, [])
+    console.log(hostListings)
     return (
         <main className="main-hostpage">
             <section className="dashboard">
@@ -33,19 +36,14 @@ export const DashBoard = () => {
 
                 <div className="data">
                     <div className="listings">
-                        <div className="listing">Hello</div>
-                        <div className="listing">Hello</div>
-                        <div className="listing">Hello</div>
-                        <div className="listing">Hello</div>
-                        <div className="listing">Hello</div>
-                        <div className="listing">Hello</div>
-                        <div className="listing">Hello</div>
-                        <div className="listing">Hello</div>
-
-                        <div className="listing">Hello</div>
-
-
-
+                        {hostListings && hostListings.map((listing) => {
+                            return <div className="listing">
+                                <div className="name">{listing.name}</div>
+                                <div className="reviews">{listing.reviews.length}</div>
+                                <div className="name">{listing.price}</div>
+                                <div className="name">{listing.roomType}</div>
+                            </div>
+                        })}
                     </div>
 
                 </div>
