@@ -7,9 +7,12 @@ import { setFilterBy } from "../store/action/stay.action";
 import logoImg from "../assets/img/logo/new-logo.svg";
 import logoImg2 from "../assets/img/logo/whitelogo.png";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-
+import { userService } from '../services/user.service'
 
 export function AppHeader() {
+
+    const user = userService.getLoggedinUser()
+    console.log(user)
     const [headerClass, setHeaderClass] = useState('')
     const [img, setImg] = useState(logoImg2)
 
@@ -65,7 +68,7 @@ export function AppHeader() {
                 Become a Host
             </Link>
             <Link className="user" to="/login">
-                <AccountCircleIcon />
+                {user ? `Welcome  ${user.username}` : <AccountCircleIcon />}
             </Link>
             <div className="logo">
                 <img className="img-logo" src={`${img}`}></img>

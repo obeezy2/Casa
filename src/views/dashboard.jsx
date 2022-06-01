@@ -21,17 +21,21 @@ export const DashBoard = () => {
                 <div className="subjects">
 
                     <div onClick={handleClick(1)} className={selected == 1 ? 'subject active' : 'subject'}>
-                        <span>Charts</span>
+                        <span>Listings</span>
                     </div>
                     <div onClick={handleClick(2)} className={selected == 2 ? 'subject active' : 'subject'}>
-                        <span> Applications</span>
+                        <span> Charts</span>
                     </div>
                     <div onClick={handleClick(3)} className={selected == 3 ? 'subject active' : 'subject'}>
                         <span>Add a new listing</span>
                     </div>
                 </div>
 
-                <div className="data"></div>
+                <div className="data">
+                    <div className="listings"></div>
+
+
+                </div>
 
             </section >
         </main >
