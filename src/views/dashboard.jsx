@@ -32,8 +32,21 @@ export const DashBoard = () => {
                 </div>
 
                 <div className="data">
-                    <div className="listings"></div>
+                    <div className="listings">
+                        <div className="listing">Hello</div>
+                        <div className="listing">Hello</div>
+                        <div className="listing">Hello</div>
+                        <div className="listing">Hello</div>
+                        <div className="listing">Hello</div>
+                        <div className="listing">Hello</div>
+                        <div className="listing">Hello</div>
+                        <div className="listing">Hello</div>
 
+                        <div className="listing">Hello</div>
+
+
+
+                    </div>
 
                 </div>
 
