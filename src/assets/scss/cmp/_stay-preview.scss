@@ -1,6 +1,8 @@
 .stay-preview-container {
   overflow: hidden;
   white-space: nowrap;
+  font-size: 16px;
+  letter-spacing: 0.7px;
   .stay-img-container {
     img {
       aspect-ratio: 1;
@@ -30,6 +32,8 @@
     padding-top: 5px;
   }
   .top-summary{
+    padding-top: 10px;
+     font-weight: 600 !important;
     display: grid;
      grid-template-columns: 1fr 1fr 0.5fr;
      justify-content: center;
@@ -41,5 +45,9 @@
 .star-rating{
   grid-column: 3/4;
  justify-self: end;
+ font-weight: 300 !important;
+  img{
+  }
+
 }
 }
