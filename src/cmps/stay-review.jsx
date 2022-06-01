@@ -11,8 +11,8 @@ export const StayReview = ({ reviewScores, reviews }) => {
       <div className="rating-breakdown">
         <h4 className="cleanliness">Cleanliness </h4>
         <div className="c-review">
-          <meter max='5' value={4.8}></meter>
-          <span >{4.8}</span>
+          <meter max='5' value={reviewScores.value / 2}></meter>
+          <span >{reviewScores.cleanliness / 2}</span>
         </div>
         <h4 className="communication">Communication </h4>
         <div className="communi-review">
