@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
+
 import { orderService } from "../services/order.service";
+import { showUserMsg } from "../services/event-bus.service";
 import { SearchByDate as DatePicker } from "./stay-filter-search-dates";
 
 export class _Reserve extends React.Component {
@@ -25,10 +27,11 @@ export class _Reserve extends React.Component {
     const { user, stayId } = this.props;
     const { dates } = this.state;
     if (!user) {
-      // navigate to login
+      showUserMsg('Please login','not-logged-in')
       return;
     }
     if (!dates.endDateStamp || !dates.startDateStamp) {
+      
       return;
       // focus on the date picker
     }

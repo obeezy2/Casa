@@ -6,7 +6,7 @@ export const StayReview = ({ reviewScores, reviews }) => {
     <div className="reviews-container">
       <h1>
         <img width="14px" src={starIcon}></img>{" "}
-        {(reviewScores.rating / 100) * 5} · {reviews.length} reviews
+        {(reviewScores.rating / 100).toFixed(1) * 5} · {reviews.length} reviews
       </h1>
       <div className="rating-breakdown">
         <h4 className="cleanliness">Cleanliness </h4>
