@@ -63,7 +63,7 @@ export function TopRated({ onSetFilter }) {
           {stay3 && <img src={require(`../assets/img/houses/${stay3.imgUrls[0]}`)} />}
 
           <div className="city-details">
-            <h3 className="color-city">{stay3.name}</h3>
+            <h3 className="color-city">Appartement lumineux </h3>
             <h4>
               <span>Montreal</span>
             </h4>
