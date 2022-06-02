@@ -20,70 +20,65 @@ export function TopRated({ onSetFilter }) {
     stayService.getById('622f337a75c7d36e498aab4e').then(res => setStay2(res))
     stayService.getById('622f337a75c7d36e498aab36').then(res => setStay3(res))
     stayService.getById('622f337a75c7d36e498aaaf5').then(res => setStay4(res))
+  }
 
+    , [])
 
-    // }, [])
-    //  const  loadStay = async() =>{
+  return (
+    <section className="top-rated">
+      <h1 className="header-top-rated">Top Rated</h1>
 
-    // }
-    // const stay2 = stayService.getById('622f337a75c7d36e498aab19')
-    // const stay3 = stayService.getById('622f337b75c7d36e498aab82')
+      <section className="pop-cities">
+        <Link to={`/stay/details/${stay1._id}`}>
 
-    return (
-      <section className="top-rated">
-        <h1 className="header-top-rated">Top Rated</h1>
-
-        <section className="pop-cities">
-          <Link to={`/stay/details/${stay1._id}`}>
-
-            <div className="card" onClick={() => onSetFilter('Hong Kong')}>
-              {stay1 && <img src={require(`../assets/img/houses/${stay1.imgUrls[0]}`)} />}
-
-              <div className="city-details">
-                <h3 className="color-city">Ipanema: moderno apê      <span>Rio de Janeiro</span></h3>
-                <h4>
-
-                </h4>
-              </div>
-            </div>
-          </Link>
-          <Link to={`/stay/details/${stay2._id}`}>
-            <div className="card" onClick={() => onSetFilter('Rio de Janeiro')}>
-              {stay2 && <img src={require(`../assets/img/houses/${stay2.imgUrls[0]}`)} />}
-
-              <div className="city-details">
-                <h3 className="color-city">Mike's House           <span>United States</span></h3>
-                <h4>
-
-                </h4>
-              </div>
-            </div>
-          </Link>
-          <Link to={`/stay/details/${stay3._id}`}> <div className="card">
-            {stay3 && <img src={require(`../assets/img/houses/${stay3.imgUrls[0]}`)} />}
+          <div className="card" onClick={() => onSetFilter('Hong Kong')}>
+            {stay1 && <img src={require(`../assets/img/houses/${stay1.imgUrls[0]}`)} />}
 
             <div className="city-details">
-              <h3 className="color-city">Appartement lumineux     <span>Montreal</span></h3>
+              <h3 className="color-city">Ipanema: moderno apê      <span>Rio de Janeiro</span></h3>
               <h4>
 
               </h4>
             </div>
           </div>
-          </Link>
-          <Link to={`/stay/details/${stay4._id}`}>
+        </Link>
+        <Link to={`/stay/details/${stay2._id}`}>
+          <div className="card" onClick={() => onSetFilter('Rio de Janeiro')}>
+            {stay2 && <img src={require(`../assets/img/houses/${stay2.imgUrls[0]}`)} />}
 
-            <div className="card">
-              {stay4 && <img src={require(`../assets/img/houses/${stay4.imgUrls[0]}`)} />}
+            <div className="city-details">
+              <h3 className="color-city">Mike's House           <span>United States</span></h3>
+              <h4>
 
-              <div className="city-details">
-                <h3 className="color-city">{stay4.name}        <span>Iceland</span></h3>
-                <h4>
-
-                </h4>
-              </div>
+              </h4>
             </div>
-          </Link>
-        </section>
-      </section >
-    )
-  }
+          </div>
+        </Link>
+        <Link to={`/stay/details/${stay3._id}`}> <div className="card">
+          {stay3 && <img src={require(`../assets/img/houses/${stay3.imgUrls[0]}`)} />}
+
+          <div className="city-details">
+            <h3 className="color-city">Appartement lumineux     <span>Montreal</span></h3>
+            <h4>
+
+            </h4>
+          </div>
+        </div>
+        </Link>
+        <Link to={`/stay/details/${stay4._id}`}>
+
+          <div className="card">
+            {stay4 && <img src={require(`../assets/img/houses/${stay4.imgUrls[0]}`)} />}
+
+            <div className="city-details">
+              <h3 className="color-city">{stay4.name}        <span>Iceland</span></h3>
+              <h4>
+
+              </h4>
+            </div>
+          </div>
+        </Link>
+      </section>
+    </section >
+  )
+}
