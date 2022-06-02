@@ -104,10 +104,12 @@
         box-shadow: 0 2px 4px rgba(0,0,0,0.18);
     }
 }
+.filter-btn{
 
+}
 .destination-search-container{
     z-index: 30;
-
+     margin-top: 30px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -125,8 +127,8 @@
         justify-content: center;
         cursor: pointer;
         .region-image-container{
-            width: 30%;
-            height: 50%;
+            width: 33%;
+            height: 48%;
             .region-image{
                 width: 75%;
                 height: 75%;

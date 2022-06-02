@@ -7,13 +7,14 @@ import { StayEdit } from '../views/stay-edit'
 export const DashBoard = () => {
 
     const { user } = useSelector(storeState => storeState.userModule)
-    console.log('ssssssssssssssssssssssssssssssssssssssssssssss', user)
     const host = {
         hostId: user._id
     };
     const [selected, setSelected] = useState(1);
     const [hostListings, setHostListings] = useState("");
     const [hostOrders, setNewOrders] = useState("");
+    console.log('orders', hostOrders)
+    console.log('listings', hostListings)
 
     const handleClick = (divNum) => () => {
         setSelected(divNum);
@@ -107,14 +108,19 @@ export const DashBoard = () => {
                     </div>
                     <div className={selected == 1 ? "listings active" : "listings"}>
                         {hostListings &&
-                            hostListings.map((listing) => {
+                            hostListings.map((listing, idx) => {
+                                console.log(idx)
+                                let count = 0;
+                                if (hostOrders[idx].stay.name === listing.name) count++
+                                console.log('host-order name, listing name', hostOrders[idx].stay.name, listing.name)
                                 return (
+
                                     <div className="listing">
                                         <div className="name">{listing.name}</div>
                                         <div className="reviews">{listing.reviews.length}</div>
                                         <div className="price">{listing.price}</div>
                                         <div className="roomType">{listing.roomType}</div>
-                                        <div className="name">{listing.roomType}</div>
+                                        <div className="orders">{count}</div>
                                     </div>
                                 );
                             })}
