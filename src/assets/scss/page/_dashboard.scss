@@ -39,7 +39,7 @@
     grid-area: subjects;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content:  space-evenly;
     height: 77vh;
     border: 1px solid $main-grey;
 
@@ -63,33 +63,185 @@
   }
 
   .data {
+    box-shadow: 0 3px 5px rgba(234, 234, 234, 0.18);
+
     grid-area: main;
     border: 1px solid grey;
+    .settings{
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      justify-content: space-between;
+      align-content: space-between;
+      justify-items: stretch;
+      align-items: stretch;    
+      display: none;
+      padding-bottom: 5px;
+      &.active{
+        display: grid;
+      }
+           div{
+             display: flex;
+             align-content: center;
+             justify-content: center;
+             font-weight: 900;
+             width: 100%;
+             color: $main-red-pink;
+             font-size: 18px;
+            //  border-right: 1px solid $secondary-grey;
+            }
+    }
+    .ordersettings{
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      justify-content: space-between;
+      align-content: space-between;
+      justify-items: stretch;
+      align-items: stretch;    
+      display: none;
+      padding-bottom: 5px;
+      &.active{
+        display: grid;
+      }
+      div{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        font-weight: 900;
+        width: 100%;
+        color: $main-red-pink;
+        font-size: 18px;
+       //  border-right: 1px solid $secondary-grey;
+       }
+    } 
+  }
+.orders{
+  display: none;
+  grid-auto-columns: 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto-fit, minmax(50px,1fr));
+  gap: 8px 0px;
+  justify-content: space-between;
+  align-content: space-between;
+  justify-items: stretch;
+  align-items: stretch;
+  width: 100%;
+  height: 70%;
+  &.active{
+         display: grid;
+  }
+  .order{
+    width: 100%;
+    height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  border: 1px solid $secondary-grey;
+  div{
+    display: flex;
+    justify-content: center;
+    color: $main-black;
+    font-weight: 900;
+    text-align: center;
+    padding: 10px;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    height: 100%;
+    border-right: 1px solid $secondary-grey;
+    button{
+      align-self: center;
+      justify-self: center;
+      margin: 0 auto;
+      margin-top: 20px;
+      align-self: center;
+      width: 70px;
+      cursor: pointer;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $main-red-pink;
+      border-color: transparent;
+      height: 48px;
+      border-radius: 8px;
+        margin-left: 5px;
+   
+    >*{
+      margin-top: 10px;
+    }
+    &:hover{
+      box-shadow: 0 3px 5px rgba(162, 162, 162, 0.18);
+      transition: ease-in-out;
+      transition-duration: 0.4s;
+
+    }
   }
 
+    
+    div{
+      justify-self: center;
+      align-self: center;
+    }
+  }
+
+  }
+}
+
   .listings {
-    display: grid;
+
+    display: none;
     grid-auto-columns: 1fr;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(auto-fit, minmax(70px,1fr));
+    grid-template-rows: repeat(auto-fit, minmax(50px,1fr));
     gap: 8px 0px;
     justify-content: space-between;
     align-content: space-between;
     justify-items: stretch;
     align-items: stretch;
     width: 100%;
-    height: 100%;
- 
+    height: 70%;
+    &.active{
+           display: grid;
+    }
   }
   .listing{
     width: 100%;
     height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  border: 1px solid $secondary-grey;
+  div{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
+    color: $main-black;
+    font-weight: 900;
+    text-align: center;
+    padding: 10px;
     align-items: center;
+    justify-items: center;
+    width: 100%;
+    height: 100%;
+    border-right: 1px solid $secondary-grey;
+
+    div{
+      justify-self: center;
+      align-self: center;
+    }
+  }
+
   }
 }
 
 .dashboard {
   grid-area: dashboard;
+  padding-top: 20px;
 }

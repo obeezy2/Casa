@@ -27,7 +27,7 @@ export function Login() {
         }
         console.log(credentials);
         dispatch(onLogin(credentials))
-        navigate('/');
+        navigate('/dashboard');
 
     };
 

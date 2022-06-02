@@ -27,11 +27,11 @@ export class _Reserve extends React.Component {
     const { user, stayId } = this.props;
     const { dates } = this.state;
     if (!user) {
-      showUserMsg('Please login','not-logged-in')
+      showUserMsg('Please login', 'not-logged-in')
       return;
     }
     if (!dates.endDateStamp || !dates.startDateStamp) {
-      
+
       return;
       // focus on the date picker
     }
@@ -44,7 +44,8 @@ export class _Reserve extends React.Component {
       });
       //navigate to user trips
     } catch (err) {
-      console.error(err);
+      if (err === 'not availble')
+        showUserMsg('No available dates')
     }
   };
 
@@ -64,7 +65,7 @@ export class _Reserve extends React.Component {
                 this.setState({ ...this.state, isModalOpen: !isModalOpen })
               }
             >
-              <h2>Choose dates</h2>
+              <h2>Choose Dates:</h2>
               <div
                 className="modal-container"
                 onClick={(ev) => ev.stopPropagation()}

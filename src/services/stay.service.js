@@ -96,23 +96,23 @@ export const stayService = {
 }
 
 async function query(filterBy) {
-  if (!filterBy) {
-    return await httpService.get(END_POINT)
-  }
-  // let stays = await storageService.query(STORAGE_KEY)
-
-  // if (filterBy) {
-  //   const label = filterBy.label || null
-  //   const stayLocation = filterBy.stayLocation || null
-  //   if (label) {
-  //     stays = _filterStaysByLabel(stays, label)
-  //   }
-  //   if (stayLocation) {
-  //     stays = _filterStaysByLocation(stays, stayLocation)
-  //   }
+  // if (!filterBy) {
+  //   return await httpService.get(END_POINT)
   // }
+  let stays = await storageService.query(STORAGE_KEY)
 
-  // return stays
+  if (filterBy) {
+    const label = filterBy.label || null
+    const stayLocation = filterBy.stayLocation || null
+    if (label) {
+      stays = _filterStaysByLabel(stays, label)
+    }
+    if (stayLocation) {
+      stays = _filterStaysByLocation(stays, stayLocation)
+    }
+  }
+
+  return stays
 }
 async function getStaysForHost(hostId) {
   let stays = await storageService.query(STORAGE_KEY)

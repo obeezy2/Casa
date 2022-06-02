@@ -12,7 +12,7 @@
     .img-container{
         margin-bottom: 50px;
         width: 95%;
-        height: 90%;
+        height: 80%;
         background-color: white;
         .hero-img{
             margin-bottom: 50px;
@@ -30,16 +30,16 @@
 }
      
     .hero-action {
-        font-size: 22px;
+        font-size: 20px;
         font-weight: 400;
-         letter-spacing: 0.02em;
+         letter-spacing: 0.1em;
          line-height: 32px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         position: absolute;
-        top: 66.5%;
+        top: 70.5%;
         color: $light-grey;
         ;
         h1 {

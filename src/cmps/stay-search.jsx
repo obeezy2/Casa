@@ -69,7 +69,7 @@ export const StaySearch = () => {
                     onChange={(event) => {
                       onSetSearchLocation(event)
                     }}
-                    placeholder="search destination"
+                    placeholder="Search Destinations"
                   />
                 </form>
               </div>

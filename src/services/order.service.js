@@ -9,6 +9,7 @@ export const orderService = {
   query,
   getBookedDates,
   addOrder,
+  updateOrder,
 };
 
 async function query(filterBy) {
@@ -34,17 +35,18 @@ async function addOrder(order) {
       order.endDate,
       bookedDates
     );
-    const stay=await stayService.getById(order.stayId)
+    const stay = await stayService.getById(order.stayId)
     delete order.stayId
-    order.stay=stay
-    await storageService.post(STORAGE_KEY,order) 
+    order.stay = stay
+    order.status = 'Pending'
+    await storageService.post(STORAGE_KEY, order)
   } catch (err) {
     console.error(err);
   }
 }
 
 async function _checkAvailability(startDate, endDate, bookedDates) {
-  
+
   const problemDates = bookedDates.filter((date) => {
     if (endDate >= date.startDate && endDate <= date.endDate) {
       return true;
@@ -57,7 +59,7 @@ async function _checkAvailability(startDate, endDate, bookedDates) {
     }
     return false;
   });
-  return (problemDates.length>0)?Promise.reject('not availble'):Promise.resolve(true)
+  return (problemDates.length > 0) ? Promise.reject('not availble') : Promise.resolve(true)
 }
 
 async function getBookedDates(stayId) {
@@ -72,5 +74,14 @@ async function getBookedDates(stayId) {
 function _setupForLocalStorage() {
   if (!localStorage.getItem(STORAGE_KEY)) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(order_db));
+  }
+}
+
+
+async function updateOrder(order) {
+  try {
+    await storageService.put(STORAGE_KEY, order)
+  } catch (err) {
+    console.error(err);
   }
 }
