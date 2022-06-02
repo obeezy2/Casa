@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
-import { useDispatch } from "react-redux"
+import { useDispatch,useSelector } from "react-redux"
 
 import { SearchByDate } from "./stay-filter-search-dates"
 import { AddGuestsFilter } from "./stay-search-addGuest-filter"
@@ -15,7 +15,8 @@ export const StaySearch = () => {
   const dispatch = useDispatch()
   let navigate = useNavigate()
   let location = useLocation()
-
+  const { filterBy } = useSelector((storeState) => storeState.stayModule)
+  console.log('filter by from state ',filterBy)
   const onSetSearchLocation = (ev) => {
     ev.preventDefault()
     setSearchBy({ ...searchBy, stayLocation: ev.target.value })
@@ -81,7 +82,8 @@ export const StaySearch = () => {
                   Where <p>{searchBy.stayLocation || searchBy.region}</p>{" "}
                 </div>
               )) ||
-              "Anywhere"
+              filterBy?.stayLocation || "Anywhere"
+        
             )}
           </div>
         </div>
