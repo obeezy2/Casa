@@ -2,9 +2,14 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { stayService } from "../services/stay.service";
 import { orderService } from "../services/order.service";
+import { useSelector } from "react-redux";
+import { StayEdit } from '../views/stay-edit'
 export const DashBoard = () => {
+
+    const { user } = useSelector(storeState => storeState.userModule)
+    console.log('ssssssssssssssssssssssssssssssssssssssssssssss', user)
     const host = {
-        hostId: "1",
+        hostId: user._id
     };
     const [selected, setSelected] = useState(1);
     const [hostListings, setHostListings] = useState("");
@@ -15,7 +20,7 @@ export const DashBoard = () => {
     };
     const getStays = async () => {
         try {
-            const stays = await stayService.getStaysForHost("1");
+            const stays = await stayService.getStaysForHost(user._id)
             setHostListings(stays);
         } catch {
             throw new Error("Cannot get stays");
@@ -38,20 +43,24 @@ export const DashBoard = () => {
         return time;
     }
 
-    const declineRequest = (order) => {
+    const declineRequest = async (order) => {
         order.status = 'Declined'
+        await orderService.updateOrder(order)
+        getOrders();
+
     }
 
-    const approveRequest = (order) => {
+    const approveRequest = async (order) => {
         order.status = 'Approved'
+        await orderService.updateOrder(order)
+        getOrders();
+
     }
 
 
     useEffect(() => {
         getStays();
         getOrders();
-        console.log(hostListings)
-        console.log(hostOrders)
 
     }, []);
 
@@ -131,6 +140,9 @@ export const DashBoard = () => {
                                     </div>
                                 );
                             })}
+                    </div>
+                    <div className={selected == 3 ? "edit active" : "edit"}>
+                        <StayEdit />
                     </div>
                 </div>
             </section>

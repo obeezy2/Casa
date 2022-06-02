@@ -1,14 +1,14 @@
 .reserve-container {
-  flex-basis: 80%;
   margin-top: 30px;
   margin-bottom: 30px;
+  width: 420px;
   .reserve-modal {
     font-size: 15px;
     color: $main-black;
     z-index: 10;
     position: sticky;
     top: 80px;
-    height: 470px;
+    height: 300px;
     width: 100%;
     max-width: 1120px;
     border: 1px solid $secondary-grey;

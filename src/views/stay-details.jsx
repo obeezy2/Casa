@@ -88,14 +88,16 @@ export const StayDetails = () => {
           stayId={stay._id}
           stayPrice={stay.price}
           numOfGuest={stay.capacity}
+          hostId={stay.host['_id']}
+
         />
       </div>
       <StayReview reviewScores={stay.reviewScores} reviews={stay.reviews} />
       <div className="date-selection"></div>
-      <div className="host-info">
-        <img src={stay.host.pictureUrl} alt="" />
-        <h2>hosted by {stay.host.fullname}</h2>
-      </div>
+      {/* <div className="host-info"> */}
+      {/* <img src={stay.host.pictureUrl} alt="" />
+        <h2>hosted by {stay.host.fullname}</h2> */}
+      {/* </div> */}
     </section>
   );
 };

@@ -24,7 +24,7 @@ export class _Reserve extends React.Component {
   };
 
   onReserve = async () => {
-    const { user, stayId } = this.props;
+    const { user, stayId, hostId } = this.props;
     const { dates } = this.state;
     if (!user) {
       showUserMsg('Please login', 'not-logged-in')
@@ -38,6 +38,7 @@ export class _Reserve extends React.Component {
     try {
       await orderService.addOrder({
         user,
+        hostId,
         stayId,
         startDate: dates.startDateStamp,
         endDate: dates.endDateStamp,

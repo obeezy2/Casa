@@ -47,14 +47,14 @@ export const StayInfo = ({ stay }) => {
             );
           })}
         </div>
-        <div
+        {/* <div
           className="amenities-btn"
           onClick={() => {
             setIsAmenitiesExpanded(!isAmenitiesExpanded);
           }}
         >
           <h3>{isAmenitiesExpanded ? "Show less" : "Show more"}</h3>
-        </div>
+        </div> */}
       </div>
     </section>
   );

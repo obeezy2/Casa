@@ -34,7 +34,14 @@
   align-items: stretch;
   width: 100%;
   height: 70%;
-
+    .edit{
+      display: none;
+      width: 500px;
+      height: 300px;
+      &.active{
+        display: flex;
+      }
+    }
   .subjects {
     grid-area: subjects;
     display: flex;
@@ -140,24 +147,13 @@
   justify-items: center;
   align-items: center;
   border: 1px solid $secondary-grey;
-  div{
+  .actions{
     display: flex;
     justify-content: center;
-    color: $main-black;
-    font-weight: 900;
-    text-align: center;
-    padding: 10px;
-    align-items: center;
-    justify-items: center;
-    width: 100%;
-    height: 100%;
-    border-right: 1px solid $secondary-grey;
+    align-content: center;
+       
     button{
-      align-self: center;
-      justify-self: center;
       margin: 0 auto;
-      margin-top: 20px;
-      align-self: center;
       width: 70px;
       cursor: pointer;
       color: #fff;
@@ -166,7 +162,7 @@
       align-items: center;
       background-color: $main-red-pink;
       border-color: transparent;
-      height: 48px;
+      height: 38px;
       border-radius: 8px;
         margin-left: 5px;
    
@@ -180,6 +176,20 @@
 
     }
   }
+  }
+  div{
+    display: flex;
+    justify-content: center;
+    color: $main-black;
+    font-weight: 900;
+    text-align: center;
+    padding: 10px;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    height: 100%;
+    border-right: 1px solid $secondary-grey;
+
 
     
     div{
