@@ -1,5 +1,6 @@
 import { userService } from "../../services/user.service";
-
+import {httpService} from "../../services/http.service.js"
+ 
 export function onLogin(credentials) {
   return async (dispatch) => {
     try {
@@ -31,8 +32,9 @@ export function onLogout() {
 export function onSignup(newUser) {
   try {
     return async (dispatch) => {
-      const user = await userService.signup(newUser);
-
+     const user = await userService.signup(newUser);
+    // sign up user on server
+    // const user = await httpService.post('auth/signup', newUser)
       dispatch({
         type: "SET_USER",
         user: user,
