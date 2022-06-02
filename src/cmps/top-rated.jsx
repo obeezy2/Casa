@@ -16,7 +16,7 @@ export function TopRated({ onSetFilter }) {
   const [stay4, setStay4] = useState('')
 
   useEffect(() => {
-    stayService.getById('622f337a75c7d36e498aab19').then(res => setStay1(res))
+    stayService.getById('622f337a75c7d36e498aaaff9').then(res => setStay1(res))
     stayService.getById('622f337a75c7d36e498aab4e').then(res => setStay2(res))
     stayService.getById('622f337a75c7d36e498aab36').then(res => setStay3(res))
     stayService.getById('622f337b75c7d36e498aab80').then(res => setStay4(res))
@@ -63,7 +63,7 @@ export function TopRated({ onSetFilter }) {
           {stay3 && <img src={require(`../assets/img/houses/${stay3.imgUrls[0]}`)} />}
 
           <div className="city-details">
-            <h3 className="color-city">{stay3.name}</h3>
+            <h3 className="color-city">Appartement lumineux </h3>
             <h4>
               <span>Montreal</span>
             </h4>

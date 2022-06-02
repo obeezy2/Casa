@@ -3,7 +3,7 @@ import React from 'react'
 import hongkong from '../assets/img/logo/hongkong.jpg'
 import rio from '../assets/img/logo/rio.jpg'
 import barcelona from '../assets/img/logo/barcelona.jpg'
-import newyork from '../assets/img/logo/newyork.webp'
+import newyork from '../assets/img/logo/newyork.jpg'
 
 export function PopDestination({ onSetFilter }) {
     return (
@@ -16,7 +16,7 @@ export function PopDestination({ onSetFilter }) {
                     <img src={hongkong} />
 
                     <div className="city-details">
-                        <h3 className='color-city'>Hong Kong  <span>Hong Kong</span></h3>
+                        <h3 className='color-city'>Hong Kong  <span>China</span></h3>
 
                     </div>
                 </div>
