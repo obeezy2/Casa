@@ -1,6 +1,6 @@
 // import { storageService } from "./async.storage.service"
 // import { stay_db } from "../data/db"
-import { httpService } from "./http.service";
+import { httpService } from "./http.service"
 
 const END_POINT = "stay"
 // const STORAGE_KEY = 'STAY_STORAGE_KEY'
@@ -92,11 +92,13 @@ export const stayService = {
   getById,
   getAmenities,
   getLabels,
+  saveStay,
+  deleteStay
   // getStaysForHost,
 }
 // QUERY you can pass as a filter {hostId,stayLocation,label}
 async function query(filterBy) {
-    return await httpService.get(END_POINT,filterBy)
+  return await httpService.get(END_POINT, filterBy)
 
   // let stays = await storageService.query(STORAGE_KEY)
 
@@ -137,42 +139,24 @@ async function getById(stayId) {
   // return storageService.get(STORAGE_KEY, stayId)
 }
 
-// function _setupForLocalStorage() {
-//   if (!localStorage.getItem(STORAGE_KEY)) {
-//     localStorage.setItem(STORAGE_KEY, JSON.stringify(stay_db))
-//   }
-// }
+async function deleteStay(stayId) {
+  return await httpService.delete(`${END_POINT}/${stayId}`)
+}
 
-// function _filterStaysByLocation(stays, location) {
-//   const regex = new RegExp(location, "i")
-//   stays = stays.filter((stay) => {
-//     if (
-//       regex.test(stay.address.street) ||
-//       regex.test(stay.address.country) ||
-//       regex.test(stay.address.city)
-//     ) {
-//       return true
-//     }
-//     return false
-//   })
-//   return stays
-// }
-
-// function _filterStaysByLabel(stays, label) {
-//   const regex = new RegExp(label, "i")
-//   stays = stays.filter((stay) => {
-//     if (
-//       regex.test(stay.name) ||
-//       regex.test(stay.summary) ||
-//       regex.test(stay.amenities)
-//     ) {
-//       return true
-//     }
-//     const isLabelsInReviews = stay.reviews.find((review) =>
-//       regex.test(review.txt)
-//     )
-//     if (isLabelsInReviews) return true
-//     return false
-//   })
-//   return stays
-// }
+// name
+// summary
+// houseRules
+// propertyType
+// roomType
+// capacity
+// bedrooms
+// beds
+// amenities
+// address
+// bathrooms
+// price
+// imgUrls
+async function saveStay(stay) {
+  if(!stay._id) return await httpService.post(END_POINT,stay)
+  else return await httpService.put(END_POINT,stay)
+}
