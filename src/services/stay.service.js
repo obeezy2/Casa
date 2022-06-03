@@ -158,5 +158,5 @@ async function deleteStay(stayId) {
 // imgUrls
 async function saveStay(stay) {
   if(!stay._id) return await httpService.post(END_POINT,stay)
-  else return await httpService.put(END_POINT,stay)
+  else return await httpService.put(`${END_POINT}/${stay._id}`,stay)
 }

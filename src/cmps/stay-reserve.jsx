@@ -31,7 +31,7 @@ export class _Reserve extends React.Component {
       return;
     }
     if (!dates.endDateStamp || !dates.startDateStamp) {
-
+      showUserMsg('Please select dates')
       return;
       // focus on the date picker
     }
@@ -43,6 +43,8 @@ export class _Reserve extends React.Component {
         startDate: dates.startDateStamp,
         endDate: dates.endDateStamp,
       });
+
+      showUserMsg('Order sent !')
       //navigate to user trips
     } catch (err) {
       if (err === 'not availble')
