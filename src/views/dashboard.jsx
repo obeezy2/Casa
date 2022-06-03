@@ -21,7 +21,7 @@ export const DashBoard = () => {
     };
     const getStays = async () => {
         try {
-            const stays = await stayService.getStaysForHost(user._id)
+            const stays = await stayService.query(host)
             setHostListings(stays);
         } catch {
             throw new Error("Cannot get stays");
