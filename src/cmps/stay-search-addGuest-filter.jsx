@@ -80,7 +80,10 @@ export function AddGuestsFilter(props){
         <button onClick={() =>updatePets(-1)} className='add-btn'>-</button>
       </div>
     </div> 
-    <p>total guests:{calcTotalGuests()}</p>
+    <div className="total-guests-contanier">
+        <p className="total">total guests:</p> 
+        <p className="total-calc"> {calcTotalGuests()}</p>
+    </div>
   </div>   
 }
 
