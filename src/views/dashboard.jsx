@@ -95,7 +95,7 @@ export const DashBoard = () => {
                         <div>Number of reviews</div>
                         <div>Property Price per night</div>
                         <div>Property Room type</div>
-                        <div>Orders</div>
+                        <div>Pending Orders</div>
                     </div>
                     <div className={selected == 2 ? "ordersettings active" : "ordersettings"}>
                         <div>Property Name</div>
@@ -109,10 +109,11 @@ export const DashBoard = () => {
                     <div className={selected == 1 ? "listings active" : "listings"}>
                         {hostListings &&
                             hostListings.map((listing, idx) => {
-                                console.log(idx)
-                                let count = 0;
-                                if (hostOrders[idx].stay.name === listing.name) count++
-                                console.log('host-order name, listing name', hostOrders[idx].stay.name, listing.name)
+
+                                var count = 0;
+                                if (hostOrders[idx].status === 'Pending') count++
+                                // console.log(hostOrders[idx])
+                                console.log('host-order name, listing name', hostOrders[idx].stay.name, listing.name, count)
                                 return (
 
                                     <div className="listing">
@@ -128,7 +129,6 @@ export const DashBoard = () => {
                     <div className={selected == 2 ? "orders active" : "orders"}>
                         {hostOrders &&
                             hostOrders.map((order) => {
-                                console.log(order)
 
                                 return (
                                     < div className="order" >
@@ -139,8 +139,8 @@ export const DashBoard = () => {
                                         <div className="pending">
                                             {order.status}</div>
                                         <div className="actions">
-                                            <button onClick={() => approveRequest(order)} className="host-btn">Approve</button>
-                                            <button onClick={() => declineRequest(order)} className="host-btn">Decline</button>
+                                            <button onClick={() => approveRequest(order)} className="host-btn approve">Approve</button>
+                                            <button onClick={() => declineRequest(order)} className="host-btn decline">Decline</button>
 
                                         </div>
                                     </div>

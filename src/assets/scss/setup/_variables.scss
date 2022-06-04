@@ -117,3 +117,6 @@ color: black !important;
 .carousel .control-prev.control-arrow:before {
   border-right: 8px solid rgba(0, 0, 0, 0.437) !important;
 }
+html {
+    overflow-y: scroll;
+}

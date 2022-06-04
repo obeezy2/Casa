@@ -43,11 +43,14 @@ export class _Reserve extends React.Component {
         startDate: dates.startDateStamp,
         endDate: dates.endDateStamp,
       });
+      showUserMsg('Inquiry Sent')
+
       //navigate to user trips
     } catch (err) {
       if (err === 'not availble')
         showUserMsg('No available dates')
     }
+
   };
 
   render() {
