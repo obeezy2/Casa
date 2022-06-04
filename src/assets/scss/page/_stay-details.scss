@@ -1,6 +1,5 @@
 .stay-details-container {
   margin-top: 80px;
-
   .stay-title-info-container {
     height: 86px;
     .stay-name {
@@ -101,4 +100,11 @@
 font-size: 18px;
    }
   }
+
+  .map-container{
+    border: 1px solid black;
+    margin-bottom: 5rem;
+    height: 400px;
+  }
+
 }

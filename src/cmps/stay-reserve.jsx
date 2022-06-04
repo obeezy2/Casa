@@ -31,7 +31,7 @@ export class _Reserve extends React.Component {
       return;
     }
     if (!dates.endDateStamp || !dates.startDateStamp) {
-
+      showUserMsg('Please select dates')
       return;
       // focus on the date picker
     }

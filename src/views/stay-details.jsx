@@ -5,6 +5,7 @@ import { stayService } from "../services/stay.service";
 import { StayInfo } from "../cmps/stay-info";
 import { Reserve } from "../cmps/stay-reserve";
 import { StayReview } from "../cmps/stay-review";
+import { Map } from "../cmps/map";
 import starIcon from '../assets/img/svgs/star.svg'
 
 export const StayDetails = () => {
@@ -98,6 +99,9 @@ export const StayDetails = () => {
       {/* <img src={stay.host.pictureUrl} alt="" />
         <h2>hosted by {stay.host.fullname}</h2> */}
       {/* </div> */}
+      <div className="map-container">
+       < Map />
+      </div>
     </section>
   );
 };
