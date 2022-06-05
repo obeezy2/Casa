@@ -22,6 +22,21 @@ export function FilterIcons({ onChangeFilter }) {
     setModalClass('filter-modal-container hidden')
   }
 
+  const options = {
+    root: document.querySelector('.icon-filters'),
+    rootMargin: '80px',
+    threshold: 1.0
+  }
+
+  const callback = (entries, observer) => {
+    entries.forEach((entry) => console.log(entry))
+  }
+
+  const observer = new IntersectionObserver(callback, options)
+
+  const targetEl = document.querySelector('.stay-list-container')
+
+  observer.observe(targetEl)
 
 
   return (

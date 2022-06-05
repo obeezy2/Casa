@@ -25,6 +25,9 @@
       cursor: pointer;
       box-shadow: inset 0px -2px 0 -0.5px rgb(221 221 221);
     }
+    &.active{
+      color: red;
+    }
     .center-div {
       text-align: center;
       img {

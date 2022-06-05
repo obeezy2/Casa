@@ -7,9 +7,12 @@ import { Reserve } from "../cmps/stay-reserve";
 import { StayReview } from "../cmps/stay-review";
 import { Map } from "../cmps/map";
 import starIcon from '../assets/img/svgs/star.svg'
+import { AddReview } from '../cmps/add-review'
+import { useSelector } from "react-redux";
 
 export const StayDetails = () => {
   const params = useParams();
+  const { user } = useSelector((storeState) => storeState.userModule)
   const [stay, setStay] = useState(null);
 
   useEffect(() => {
@@ -25,7 +28,10 @@ export const StayDetails = () => {
       console.error(err);
     }
   };
-
+  const addGuestReview = (review) => {
+    review.createdAt = Date.now() / 1000
+    stay.reviews.push(review)
+  }
   if (!stay) {
     return <section className="stay-details-container">Loading</section>;
   }
@@ -95,12 +101,12 @@ export const StayDetails = () => {
       </div>
       <StayReview reviewScores={stay.reviewScores} reviews={stay.reviews} />
       <div className="date-selection"></div>
-      {/* <div className="host-info"> */}
-      {/* <img src={stay.host.pictureUrl} alt="" />
-        <h2>hosted by {stay.host.fullname}</h2> */}
-      {/* </div> */}
+      <div>
+        <AddReview addGuestReview={addGuestReview} loggedinUser={user} />
+
+      </div>
       <div className="map-container">
-       < Map />
+        < Map />
       </div>
     </section>
   );

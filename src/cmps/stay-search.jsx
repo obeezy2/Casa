@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
-import { useDispatch,useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 import { SearchByDate } from "./stay-filter-search-dates"
 import { AddGuestsFilter } from "./stay-search-addGuest-filter"
@@ -16,7 +16,7 @@ export const StaySearch = () => {
   let navigate = useNavigate()
   let location = useLocation()
   const { filterBy } = useSelector((storeState) => storeState.stayModule)
-  console.log('filter by from state ',filterBy)
+  console.log('filter by from state ', filterBy)
   const onSetSearchLocation = (ev) => {
     ev.preventDefault()
     setSearchBy({ ...searchBy, stayLocation: ev.target.value })
@@ -83,7 +83,7 @@ export const StaySearch = () => {
                 </div>
               )) ||
               filterBy?.stayLocation || "Anywhere"
-        
+
             )}
           </div>
         </div>
@@ -212,7 +212,7 @@ function Destination(props) {
       onClick={() => props.setRegion(props.region)}
     >
       <img
-        src={require("../assets/img/filter/world.jpg")}
+        src={require(`../assets/img/filter/${props.region}.png`)}
         alt=""
         className="region-image"
       />

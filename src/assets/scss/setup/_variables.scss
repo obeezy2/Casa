@@ -115,8 +115,43 @@ color: black !important;
 color: black !important;
 }
 .carousel .control-prev.control-arrow:before {
-  border-right: 8px solid rgba(0, 0, 0, 0.437) !important;
+  border-right: 8px solid rgb(0, 0, 0) !important;
 }
 html {
     overflow-y: scroll;
+}
+
+
+
+.mouse-cursor-gradient-tracking {
+  position: relative;
+  background: radial-gradient(circle at center, #FF385C 0%, #E61E4D 27.5%, #E31C5F 40%, #D70466 57.5%, #BD1E59 75%, #BD1E59 100%);
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  border: none;
+  color: radial-gradient(circle at center, #FF385C 0%, #E61E4D 27.5%, #E31C5F 40%, #D70466 57.5%, #BD1E59 75%, #BD1E59 100%);
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+}
+
+.mouse-cursor-gradient-tracking span {
+  position: relative;
+}
+
+.mouse-cursor-gradient-tracking:before {
+  --size: 0;
+  content: '';
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  height: var(--size);
+  background: radial-gradient(circle closest-side, #FF385C, transparent);
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease;
+}
+
+.mouse-cursor-gradient-tracking:hover:before {
+  --size: 200px;
 }

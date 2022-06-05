@@ -5,12 +5,36 @@ import { orderService } from "../services/order.service";
 import { showUserMsg } from "../services/event-bus.service";
 import { SearchByDate as DatePicker } from "./stay-filter-search-dates";
 
+
 export class _Reserve extends React.Component {
   state = {
     dates: null,
     isModalOpen: false,
   };
 
+  componentDidMount() {
+    let btn = document.querySelector('.mouse-cursor-gradient-tracking');
+    btn.addEventListener('mousemove', e => {
+      let rect = e.target.getBoundingClientRect();
+      let x = e.clientX - rect.left;
+      let y = e.clientY - rect.top;
+      btn.style.setProperty('--x', x + 'px');
+      btn.style.setProperty('--y', y + 'px');
+    });
+  }
+  componentWillUnmount() {
+
+    let btn = document.querySelector('.mouse-cursor-gradient-tracking');
+    btn.removeEventListener('mousemove', e => {
+      let rect = e.target.getBoundingClientRect();
+      let x = e.clientX - rect.left;
+      let y = e.clientY - rect.top;
+      btn.style.setProperty('--x', x + 'px');
+      btn.style.setProperty('--y', y + 'px');
+    });
+
+
+  }
   onSetDates = (startDateStr, endDateStr) => {
     const startDate = new Date(startDateStr);
     const endDate = new Date(endDateStr);
@@ -54,6 +78,20 @@ export class _Reserve extends React.Component {
   };
 
   render() {
+
+    // void function () {
+
+    //   let btn = document.querySelector('.reserve-btn');
+    //   btn.addEventListener('mousemove', e => {
+    //     let rect = e.target.getBoundingClientRect();
+    //     let x = e.clientX - rect.left;
+    //     let y = e.clientY - rect.top;
+    //     btn.style.setProperty('--x', x + 'px');
+    //     btn.style.setProperty('--y', y + 'px');
+    //     console.log(x, y)
+    //   });
+    // }();
+
     const { stayPrice } = this.props;
     const { dates, isModalOpen } = this.state;
     return (
@@ -78,7 +116,7 @@ export class _Reserve extends React.Component {
               </div>
             </div>
           </div>
-          <h3 className="reserve-btn" onClick={this.onReserve}>
+          <h3 className="reserve-btn mouse-cursor-gradient-tracking" onClick={this.onReserve}>
             Reserve
           </h3>
           <h4>You won't be charged yet.</h4>

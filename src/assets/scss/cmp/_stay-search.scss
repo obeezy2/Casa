@@ -10,10 +10,11 @@
     color: black;
     border-radius: 35px;
     position: relative;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.18);
 
     &:hover{
 
-        box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.18);
         transition: ease-in-out;
         transition-duration: 0.2s;
     }
@@ -118,12 +119,11 @@
 }
 .destination-search-container{
     z-index: 30;
-     margin-top: 30px;
+     margin-top: 47px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     height: 100%;
-    padding: 20px;
     // .destination-search-container-header{
     //     width: 100%;
     //     text-align: start;
@@ -132,17 +132,20 @@
     // }
     .regions-container{
         display: flex;
+        column-gap: 5px;
+        row-gap: 5px;
+
         flex-wrap: wrap;
         justify-content: center;
         cursor: pointer;
         .region-image-container{
-            width: 33%;
-            height: 48%;
+            width: 154px;
+            height: 134px;
             .region-image{
                 width: 75%;
                 height: 75%;
                 border: 1px solid rgb(221, 221, 221);
-                border-radius: 20px;
+                border-radius: 12px;
                 &:hover{
                     border: 1px solid $main-black;
                 }
