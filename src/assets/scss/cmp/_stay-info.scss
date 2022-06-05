@@ -43,8 +43,9 @@
 gap: 20px;
       justify-content: center;
       align-items: center;
-      h4{
-
+      p{
+         display: flex;
+         column-gap: 10px;
         color: #222222 !important;
         font-weight: 100 !important;
         font-size: 18px !important;
