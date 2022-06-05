@@ -29,7 +29,7 @@ export function StayPreview({ stay }) {
             <div className="staypreview">
                 <span className='top-summary'>
                     <span className="stay-address">{stay.address.street} </span>
-                    <span className="star-rating">{((stay.reviewScores.rating / 100).toFixed(1)) * 5} <img width='14px' src={starIcon}></img></span>
+                    <span className="star-rating">{((stay.reviewScores.rating / 100).toFixed(2)) * 5} <img width='14px' src={starIcon}></img></span>
                 </span>
                 <span className="stay-summary">{stay.propertyType}</span>
                 <span className="stay-summary">{stay.roomType}</span>

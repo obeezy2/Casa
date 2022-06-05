@@ -8,6 +8,7 @@ import { Login } from './views/login'
 import { Signup } from './views/signup'
 import { Privacy } from './views/privacy';
 import { DashBoard } from './views/dashboard.jsx';
+import { UserDashboard } from './views/user-dashboard';
 
 // Routes accesible from the main navigation (in AppHeader)
 const routes = [
@@ -46,6 +47,10 @@ const routes = [
     {
         path: '/dashboard',
         component: <DashBoard />,
+    },
+    {
+        path: '/userdashboard',
+        component: <UserDashboard />,
     },
 
 ]

@@ -15,7 +15,6 @@ export function AppHeader() {
     console.log(user)
     const [headerClass, setHeaderClass] = useState('')
     const [img, setImg] = useState(logoImg2)
-
     let location = useLocation()
     const dispatch = useDispatch()
 
@@ -64,14 +63,17 @@ export function AppHeader() {
             <Link className="explore" to="/stays" onClick={() => { dispatch(setFilterBy(null)) }}>
                 Explore
             </Link>
-            <Link className="host" to="/host">
-                Become a Host
-            </Link>
-            <Link className="user" to="/login">
-                {user ? `Welcome  ${user.username}` : <AccountCircleIcon />}
-            </Link>
+            {user ? <Link className="host" to="/dashboard">
+                Host Dashboard
+            </Link> : <Link className="host" to="/host">
+                Become a host
+            </Link>}
+
+            {!user ? <Link className="user" to="/login"><AccountCircleIcon />  </Link> : <Link className="user" to="/userdashboard">  <img className='user-pic' src={user.imgUrl}></img>  </Link>}
+
+
             <div className="logo">
-                <img className="img-logo" src={`${img}`}></img>
+                <img className="img-logo" src={img}></img>
                 <Link to="/">
                     {" "}
                     <h1 className="text">

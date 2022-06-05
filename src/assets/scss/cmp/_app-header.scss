@@ -6,7 +6,7 @@
   height: 80px;
   width: 100%;
   display: grid;
-  grid-template-columns: 2.6fr 1fr 1.9fr 1fr 0.5fr 1.1fr 0.8fr;
+  grid-template-columns: 2.6fr 1fr 1.9fr 1.6fr 0.5fr 1.2fr 0.4fr;
   grid-template-rows: 80px;
   gap: 8px 5px;
   align-items: center;
@@ -17,7 +17,18 @@
     border-radius: 40px;
   }
   font-weight: 570;
-
+.user-pic
+{
+  align-self: flex-start;
+  justify-self:flex-start;
+  border-radius: inherit;
+  object-fit: cover;
+  vertical-align: bottom;
+  position: static;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+}
   .logo {
     justify-self: start;
     grid-area: logo;
