@@ -48,7 +48,7 @@ export class _Reserve extends React.Component {
     const endDateStamp = endDate.getTime()
     this.setState({
       dates: { endDateStamp, startDateStamp },
-      isDateModalOpen: !this.state.isDateModalOpen,
+      isDateModalOpen: false,
     })
   }
 
@@ -65,9 +65,8 @@ export class _Reserve extends React.Component {
       // focus on the date picker
     }
     try {
-      await orderService.addOrder({
+      await orderService.saveOrder({
         price: ((dates.endDateStamp - dates.startDateStamp) / 86400000) * price,
-        user,
         hostId,
         stayId,
         startDate: dates.startDateStamp,
@@ -170,8 +169,7 @@ export class _Reserve extends React.Component {
               $
               {dates !== null
                 ? ((dates.endDateStamp - dates.startDateStamp) / 86400000) *
-                    price +
-                  ""
+                    price
                 : "0"}
             </h3>
           </div>
