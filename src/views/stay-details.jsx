@@ -109,7 +109,7 @@ export const StayDetails = () => {
 
       </div>
       <div className="map-container">
-        < Map />
+        < Map lat={stay.address.location.lat} lan={stay.address.location.lan}/>
       </div>
     </section>
   );
