@@ -11,10 +11,7 @@ export class AddReview extends Component {
         }
     }
 
-    // componentDidMount(){
-    //     const {loggedinUser} = this.props
-    //     this.setState({ loggedInUser});
-    // }
+
 
     handleChange = ({ target }) => {
         const { value } = target;

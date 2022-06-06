@@ -22,22 +22,24 @@ export function FilterIcons({ onChangeFilter }) {
     setModalClass('filter-modal-container hidden')
   }
 
-  const options = {
-    root: document.querySelector('.icon-filters'),
-    rootMargin: '80px',
-    threshold: 1.0
-  }
+  // useEffect(() => {
+  //   const header = document.querySelector('.main-header');
+  //   const nav = document.querySelector('.main-header-nav');
 
-  const callback = (entries, observer) => {
-    entries.forEach((entry) => console.log(entry))
-  }
+  //   const headerObserver = new IntersectionObserver(onHeaderObserved, {
+  //     rootMargin: "-91px 0px 0px",
+  //   });
 
-  const observer = new IntersectionObserver(callback, options)
+  //   headerObserver.observe(header);
 
-  const targetEl = document.querySelector('.stay-list-container')
+  //   function onHeaderObserved(entries) {
+  //     entries.forEach((entry) => {
 
-  observer.observe(targetEl)
-
+  //       console.log('helllooo')
+  //       nav.style.position = entry.isIntersecting ? 'static' : 'fixed';
+  //     });
+  //   }
+  // }, []); // <-- empty array means 'run once'
 
   return (
     <div className={`icon-filters`}>

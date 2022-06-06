@@ -132,15 +132,16 @@
     // }
     .regions-container{
         display: flex;
-        column-gap: 5px;
-        row-gap: 5px;
+        margin-top: 10px;
+        column-gap: 15px;
+        row-gap: 15px;
 
         flex-wrap: wrap;
         justify-content: center;
         cursor: pointer;
         .region-image-container{
             width: 154px;
-            height: 134px;
+            height: 114px;
             .region-image{
                 width: 75%;
                 height: 75%;

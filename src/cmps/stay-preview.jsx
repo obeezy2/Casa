@@ -8,9 +8,11 @@ function numberWithCommas(n) {
     var parts = n.toString().split(".");
     return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
 }
+
 // import pictures from '../assets/img/houses'
 export function StayPreview({ stay }) {
     // console.log(pictures)
+    const calculatedStay = ((stay.reviewScores.rating / 100).toFixed(2) * 5)
 
     return (
 
@@ -32,7 +34,7 @@ export function StayPreview({ stay }) {
             <div className="staypreview">
                 <span className='top-summary'>
                     <span className="stay-address">{stay.address.street} </span>
-                    <span className="star-rating">{((stay.reviewScores.rating / 100).toFixed(1)) * 5} <img width='14px' src={starIcon}></img></span>
+                    <span className="star-rating">{calculatedStay} <img width='14px' src={starIcon}></img></span>
                 </span>
                 <span className="stay-summary">{stay.propertyType}</span>
                 <span className="stay-summary">{stay.roomType}</span>
