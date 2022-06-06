@@ -5,10 +5,11 @@ import { stayService } from "../services/stay.service";
 import { StayInfo } from "../cmps/stay-info";
 import { Reserve } from "../cmps/stay-reserve";
 import { StayReview } from "../cmps/stay-review";
-import { Map } from "../cmps/map";
+import Map from "../cmps/map";
 import starIcon from '../assets/img/svgs/star.svg'
 import { AddReview } from '../cmps/add-review'
 import { useSelector } from "react-redux";
+
 function numberWithCommas(n) {
   var parts = n.toString().split(".");
   return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
@@ -96,7 +97,7 @@ export const StayDetails = () => {
         <StayInfo stay={stay} />
         <Reserve
           stayId={stay._id}
-          stayPrice={numberWithCommas(stay.price)}
+          stayPrice={stay.price}
           numOfGuest={stay.capacity}
           hostId={stay.host['_id']}
 
@@ -109,7 +110,7 @@ export const StayDetails = () => {
 
       </div>
       <div className="map-container">
-        < Map />
+        < Map stay={stay} />
       </div>
     </section>
   );

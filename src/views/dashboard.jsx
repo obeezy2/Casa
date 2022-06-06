@@ -4,6 +4,8 @@ import { stayService } from "../services/stay.service"
 import { orderService } from "../services/order.service"
 import { useSelector } from "react-redux"
 import { StayEdit } from "../views/stay-edit"
+import { DashboardData } from './dashboarddata'
+
 export const DashBoard = () => {
   const { user } = useSelector((storeState) => storeState.userModule)
   const host = {
@@ -76,24 +78,25 @@ export const DashBoard = () => {
   return (
     <main className="main-hostpage">
       <section className="dashboard">
-        <div className="subjects">
-          <div
-            onClick={handleClick(1)}
-            className={selected === 1 ? "subject active" : "subject"}
-          >
-            <span>Listings</span>
-          </div>
-          <div
-            onClick={handleClick(2)}
-            className={selected === 2 ? "subject active" : "subject"}
-          >
-            <span> Orders</span>
-          </div>
-          <div
-            onClick={handleClick(3)}
-            className={selected === 3 ? "subject active" : "subject"}
-          >
-            <span>Add a new listing</span>
+        <div className='userdash'>
+          <div className='side-bar'>
+            <ul className='sidebar-list'>
+              {DashboardData.map((val, key) => {
+
+                return (
+                  <li onClick={handleClick(key + 1)}
+                    className={selected === key + 1 ? "subject active" : "subject"}
+                  >
+                    <div id="icon">{val.icon}</div>
+                    <div id="title">{val.title}</div>
+                  </li>
+
+                )
+
+              })}
+
+            </ul>
+
           </div>
         </div>
 
@@ -122,16 +125,16 @@ export const DashBoard = () => {
               hostListings.map((listing, idx) => {
                 console.log(idx)
                 let count = 0
-                if (hostOrders.length > 0) {
-                  if (hostOrders[idx].stay.name === listing.name) {
-                    count++
-                    console.log(
-                      "host-order name, listing name",
-                      hostOrders[idx].stay.name,
-                      listing.name
-                    )
-                  }
-                }
+                // if (hostOrders.length > 0) {
+                //   if (hostOrders[idx].stay.name === listing.name) {
+                //     count++
+                //     console.log(
+                //       "host-order name, listing name",
+                //       hostOrders[idx].stay.name,
+                //       listing.name
+                //     )
+                //   }
+                // }
                 return (
                   <div className="listing">
                     <div className="name"><Link to={`/stay/details/${listing._id}`}>{listing.name}</Link></div>

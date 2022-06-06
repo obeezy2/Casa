@@ -1,13 +1,13 @@
 import React from "react"
 import HomeIcon from '@mui/icons-material/Home';
-export const DashboardData = [
+export const UserDashboardData = [
     {
-        title: 'Listings',
+        title: 'Home',
         icon: <HomeIcon />,
         link: "/home",
     },
     {
-        title: 'Orders',
+        title: 'Mailbox',
         icon: <HomeIcon />,
         link: "/mailbox",
     },
