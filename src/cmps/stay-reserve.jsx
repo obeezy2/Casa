@@ -51,7 +51,7 @@ export class _Reserve extends React.Component {
     const endDateStamp = endDate.getTime()
     this.setState({
       dates: { endDateStamp, startDateStamp },
-      isDateModalOpen: !this.state.isDateModalOpen,
+      isDateModalOpen: false,
     })
   }
 
@@ -70,7 +70,6 @@ export class _Reserve extends React.Component {
     try {
       await orderService.saveOrder({
         price: ((dates.endDateStamp - dates.startDateStamp) / 86400000) * price,
-        user,
         hostId,
         stayId,
         startDate: dates.startDateStamp,
@@ -152,7 +151,7 @@ export class _Reserve extends React.Component {
             className="reserve-btn mouse-cursor-gradient-tracking"
             onClick={this.onReserve}
           >
-            Reserve
+            ReserveS
           </h3>
           <h4>You won't be charged yet.</h4>
           <div className="total-container">

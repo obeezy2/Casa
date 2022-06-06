@@ -18,11 +18,11 @@ export const orderService = {
   remove //backend funtion only
 };
 
-// testBack()
+testBack()
 
 async function testBack(){
-  // await remove('6299dfd1dd2c762014964050')
-  // console.log(order);
+  const order=await query({hostId:1})
+  console.log(order);
 }
 
 
