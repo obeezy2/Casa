@@ -23,6 +23,7 @@ export const userService = {
   getById,
   remove,
   update,
+  setNotification
 }
 
 // function _setupForLocalStorage() {
@@ -111,4 +112,11 @@ async function logout() {
 
 function getLoggedinUser() {
   return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN_USER)) || null
+}
+
+function setNotification(hasNotification){
+  const user=getLoggedinUser()
+  user.notification=hasNotification
+  sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+  return user
 }

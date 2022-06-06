@@ -13,22 +13,21 @@
   grid-template-areas: "logo . search . explore host user";
 
   a:hover:not(:last-child) {
-    background-color: #F7F7F7;
+    background-color: #f7f7f7;
     border-radius: 40px;
   }
   font-weight: 570;
-.user-pic
-{
-  align-self: flex-start;
-  justify-self:flex-start;
-  border-radius: inherit;
-  object-fit: cover;
-  vertical-align: bottom;
-  position: static;
-  height: 32px;
-  width: 32px;
-  border-radius: 50%;
-}
+  .user-pic {
+    align-self: flex-start;
+    justify-self: flex-start;
+    border-radius: inherit;
+    object-fit: cover;
+    vertical-align: bottom;
+    position: static;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+  }
   .logo {
     justify-self: start;
     grid-area: logo;
@@ -65,9 +64,18 @@
     justify-self: center;
   }
   .user {
+    position: relative;
     justify-self: end;
     grid-area: user;
     padding: 5px;
+    .notification {
+      height: 0.8rem;
+      width: 0.8rem;
+      top: 0px;
+      border-radius: 0.4rem;
+      background-color: #ff385c;
+      position: absolute;
+    }
     .css-i4bv87-MuiSvgIcon-root {
       -webkit-user-select: none;
       -moz-user-select: none;
