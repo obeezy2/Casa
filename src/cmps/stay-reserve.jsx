@@ -151,7 +151,7 @@ export class _Reserve extends React.Component {
             className="reserve-btn mouse-cursor-gradient-tracking"
             onClick={this.onReserve}
           >
-            ReserveS
+            Reserve
           </h3>
           <h4>You won't be charged yet.</h4>
           <div className="total-container">

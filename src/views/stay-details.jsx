@@ -5,7 +5,7 @@ import { stayService } from "../services/stay.service";
 import { StayInfo } from "../cmps/stay-info";
 import { Reserve } from "../cmps/stay-reserve";
 import { StayReview } from "../cmps/stay-review";
-import Map from "../cmps/map";
+import { Map } from "../cmps/map";
 import starIcon from '../assets/img/svgs/star.svg'
 import { AddReview } from '../cmps/add-review'
 import { useSelector } from "react-redux";
