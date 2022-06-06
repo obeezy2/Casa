@@ -4,6 +4,9 @@ import { stayService } from "../services/stay.service"
 import { orderService } from "../services/order.service"
 import { useSelector } from "react-redux"
 import { StayEdit } from "../views/stay-edit"
+import { socketService,SOCKET_EVENT_NEW_ORDER } from "../services/socket.service";
+import { userService } from "../services/user.service";
+
 export const DashBoard = () => {
   const { user } = useSelector((storeState) => storeState.userModule)
   const host = {
@@ -69,8 +72,12 @@ export const DashBoard = () => {
   }
 
   useEffect(() => {
+    socketService.on(SOCKET_EVENT_NEW_ORDER,getOrders)
     getStays()
     getOrders()
+    return ()=>{
+      socketService.off(SOCKET_EVENT_NEW_ORDER,getOrders)
+    }
   }, [])
 
   return (
@@ -121,24 +128,25 @@ export const DashBoard = () => {
             {hostListings &&
               hostListings.map((listing, idx) => {
                 console.log(idx)
-                let count = 0
-                if (hostOrders.length > 0) {
-                  if (hostOrders[idx].stay.name === listing.name) {
-                    count++
-                    console.log(
-                      "host-order name, listing name",
-                      hostOrders[idx].stay.name,
-                      listing.name
-                    )
-                  }
-                }
+                // let count = 0
+                // if (hostOrders.length > 0) {
+                //   console.log(hostOrders);
+                //   if (hostOrders[idx].stay.name === listing.name) {
+                //     count++
+                //     console.log(
+                //       "host-order name, listing name",
+                //       hostOrders[idx].stay.name,
+                //       listing.name
+                //     )
+                //   }
+                // }
                 return (
                   <div className="listing">
                     <div className="name"><Link to={`/stay/details/${listing._id}`}>{listing.name}</Link></div>
                     <div className="reviews">{listing.reviews.length}</div>
                     <div className="price">{listing.price}</div>
                     <div className="roomType">{listing.roomType}</div>
-                    <div className="orders">{count}</div>
+                    {/* <div className="orders">{count}</div> */}
                   </div>
                 )
               })}

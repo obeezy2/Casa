@@ -5,7 +5,7 @@ export function onLogin(credentials) {
   return async (dispatch) => {
     try {
       const user = await userService.login(credentials);
-      // const user = await httpService.post('auth/login', credentials)
+      
       dispatch({
         type: "SET_USER",
         user,
