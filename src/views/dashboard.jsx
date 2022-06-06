@@ -6,6 +6,7 @@ import { useSelector } from "react-redux"
 import { StayEdit } from "../views/stay-edit"
 import { socketService,SOCKET_EVENT_NEW_ORDER } from "../services/socket.service";
 import { userService } from "../services/user.service";
+import { DashboardData } from './dashboarddata'
 
 export const DashBoard = () => {
   const { user } = useSelector((storeState) => storeState.userModule)
@@ -83,24 +84,25 @@ export const DashBoard = () => {
   return (
     <main className="main-hostpage">
       <section className="dashboard">
-        <div className="subjects">
-          <div
-            onClick={handleClick(1)}
-            className={selected === 1 ? "subject active" : "subject"}
-          >
-            <span>Listings</span>
-          </div>
-          <div
-            onClick={handleClick(2)}
-            className={selected === 2 ? "subject active" : "subject"}
-          >
-            <span> Orders</span>
-          </div>
-          <div
-            onClick={handleClick(3)}
-            className={selected === 3 ? "subject active" : "subject"}
-          >
-            <span>Add a new listing</span>
+        <div className='userdash'>
+          <div className='side-bar'>
+            <ul className='sidebar-list'>
+              {DashboardData.map((val, key) => {
+
+                return (
+                  <li onClick={handleClick(key + 1)}
+                    className={selected === key + 1 ? "subject active" : "subject"}
+                  >
+                    <div id="icon">{val.icon}</div>
+                    <div id="title">{val.title}</div>
+                  </li>
+
+                )
+
+              })}
+
+            </ul>
+
           </div>
         </div>
 

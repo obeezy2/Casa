@@ -5,7 +5,10 @@ import { orderService } from "../services/order.service"
 import { showUserMsg } from "../services/event-bus.service"
 import { SearchByDate as DatePicker } from "./stay-filter-search-dates"
 import { AddGuestsFilter } from "./stay-search-addGuest-filter"
-
+function numberWithCommas(n) {
+  var parts = n.toString().split(".");
+  return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
+}
 export class _Reserve extends React.Component {
   state = {
     dates: null,
@@ -81,18 +84,7 @@ export class _Reserve extends React.Component {
   }
 
   render() {
-    // void function () {
 
-    //   let btn = document.querySelector('.reserve-btn');
-    //   btn.addEventListener('mousemove', e => {
-    //     let rect = e.target.getBoundingClientRect();
-    //     let x = e.clientX - rect.left;
-    //     let y = e.clientY - rect.top;
-    //     btn.style.setProperty('--x', x + 'px');
-    //     btn.style.setProperty('--y', y + 'px');
-    //     console.log(x, y)
-    //   });
-    // }();
     const { dates, isDateModalOpen, isGuestModalOpen, price } = this.state
     return (
       <section className="reserve-container">
@@ -101,9 +93,8 @@ export class _Reserve extends React.Component {
             ${price} <span className="night-container">night</span>
           </h1>
           <div
-            className={`order-datepicker-guest ${
-              isDateModalOpen || isGuestModalOpen ? "active" : ""
-            }`}
+            className={`order-datepicker-guest ${isDateModalOpen || isGuestModalOpen ? "active" : ""
+              }`}
           >
             <div
               className="date-picker-modal"
@@ -132,11 +123,11 @@ export class _Reserve extends React.Component {
               </div>
             </div>
             <h3 className="guests-title" onClick={() => {
-                    this.setState({
-                      ...this.state,
-                      isGuestModalOpen: !isGuestModalOpen,
-                    })
-                  }}>Guests</h3>
+              this.setState({
+                ...this.state,
+                isGuestModalOpen: !isGuestModalOpen,
+              })
+            }}>Guests</h3>
             {isGuestModalOpen && (
               <div className="guest-modal-container">
                 <AddGuestsFilter
@@ -168,8 +159,8 @@ export class _Reserve extends React.Component {
             <h3>
               $
               {dates !== null
-                ? ((dates.endDateStamp - dates.startDateStamp) / 86400000) *
-                    price
+                ? numberWithCommas(((dates.endDateStamp - dates.startDateStamp) / 86400000) *
+                  price)
                 : "0"}
             </h3>
           </div>

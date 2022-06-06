@@ -1,5 +1,5 @@
 import React from 'react'
-import { DashboardData } from './dashboarddata'
+import { UserDashboardData } from './userdashboarddata'
 
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
@@ -81,7 +81,7 @@ export const UserDashboard = () => {
         <div className='userdash'>
             <div className='side-bar'>
                 <ul className='sidebar-list'>
-                    {DashboardData.map((val, key) => {
+                    {UserDashboardData.map((val, key) => {
 
                         return (
                             <li onClick={handleClick(key + 1)}
