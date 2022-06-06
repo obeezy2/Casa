@@ -18,19 +18,62 @@
     justify-self: center;
     align-self: center;
     margin-left: 10%;
-    .total-container{
+    .order-datepicker-guest {
+      border: 1px solid #b0b0b0;
+      font-size: 12px;
+      border-radius: 0.5rem;
+      > * {
+        cursor: pointer;
+      }
+      h3 {
+        padding: 1rem 0.5rem;
+      }
+      &.active {
+        border: none;
+      }
+      .date-picker-modal {
         display: flex;
+        font-weight: 400;
         justify-content: space-between;
-        border-top: 1px solid $secondary-grey;
-        padding-top: 40px;
+        align-items: flex-start;
+        h3 {
+          padding: 1rem 0.5rem;
+        }
+        // h2{
+        //   text-align: left;
+        //   cursor: pointer;
+        // }
+        .end-date {
+          padding-left: 1rem;
+          border-left: 1px solid #b0b0b0;
+        }
+        .modal-container {
+          transform: translateX(-50%);
+        }
+      }
+      .add-guest-container {
+        background-color: #fff;
+        border: 0.5px solid #b0b0b0;
+        border-radius: 0.4rem;
+      }
+      .guests-title {
+        border-top: 1px solid #b0b0b0;
+      }
     }
-    h4{
-            text-align: center;
-            font-weight: 500;
-            margin-top: 8px;
-            white-space: normal;
+
+    .total-container {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid $secondary-grey;
+      padding-top: 40px;
     }
-    .reserve-btn{
+    h4 {
+      text-align: center;
+      font-weight: 500;
+      margin-top: 8px;
+      white-space: normal;
+    }
+    .reserve-btn {
       cursor: pointer;
       color: #fff;
       display: flex;
@@ -40,22 +83,13 @@
       height: 48px;
       border-radius: 8px;
     }
-    >*{
+    > * {
       margin-top: 10px;
     }
   }
 }
 
-
-.night-container{
+.night-container {
   font-size: 14px;
   font-weight: 100;
-}
-
-
-.date-picker-modal{
-h2{
-  text-align: left;
-  cursor: pointer;
-}
 }

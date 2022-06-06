@@ -176,6 +176,7 @@ export const StaySearch = () => {
                 setGuests={(guests) =>
                   setSearchBy({ ...searchBy, guestsCount: guests })
                 }
+                maxGuests={Infinity}
               />
             </div>
           )}
