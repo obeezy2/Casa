@@ -4,7 +4,7 @@ import { stayService } from "../services/stay.service"
 import { orderService } from "../services/order.service"
 import { useSelector } from "react-redux"
 import { StayEdit } from "../views/stay-edit"
-import { socketService,SOCKET_EVENT_NEW_ORDER } from "../services/socket.service";
+import { socketService, SOCKET_EVENT_NEW_ORDER } from "../services/socket.service";
 import { userService } from "../services/user.service";
 import { DashboardData } from './dashboarddata'
 
@@ -73,18 +73,18 @@ export const DashBoard = () => {
   }
 
   useEffect(() => {
-    socketService.on(SOCKET_EVENT_NEW_ORDER,getOrders)
+    socketService.on(SOCKET_EVENT_NEW_ORDER, getOrders)
     getStays()
     getOrders()
-    return ()=>{
-      socketService.off(SOCKET_EVENT_NEW_ORDER,getOrders)
+    return () => {
+      socketService.off(SOCKET_EVENT_NEW_ORDER, getOrders)
     }
   }, [])
 
   return (
     <main className="main-hostpage">
       <section className="dashboard">
-        <div className='userdash'>
+        <div className='hostdash'>
           <div className='side-bar'>
             <ul className='sidebar-list'>
               {DashboardData.map((val, key) => {

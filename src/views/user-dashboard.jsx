@@ -78,25 +78,27 @@ export const UserDashboard = () => {
 
 
     return (
-        <div className='userdash'>
-            <div className='side-bar'>
-                <ul className='sidebar-list'>
-                    {UserDashboardData.map((val, key) => {
+        <div className='user-dashboard'>
+            <div className='userdash'>
+                <div className='side-bar'>
+                    <ul className='sidebar-list'>
+                        {UserDashboardData.map((val, key) => {
 
-                        return (
-                            <li onClick={handleClick(key + 1)}
-                                className={selected === key + 1 ? "subject active" : "subject"}
-                            >
-                                <div id="icon">{val.icon}</div>
-                                <div id="title">{val.title}</div>
-                            </li>
+                            return (
+                                <li onClick={handleClick(key + 1)}
+                                    className={selected === key + 1 ? "subject active" : "subject"}
+                                >
+                                    <div id="icon">{val.icon}</div>
+                                    <div id="title">{val.title}</div>
+                                </li>
 
-                        )
+                            )
 
-                    })}
+                        })}
 
-                </ul>
+                    </ul>
 
+                </div>
             </div>
         </div>
     )
