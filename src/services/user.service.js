@@ -115,7 +115,7 @@ function getLoggedinUser() {
 }
 
 function setNotification(hasNotification){
-  const user=getLoggedinUser()
+  const user={...getLoggedinUser()}
   user.notification=hasNotification
   sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
   return user

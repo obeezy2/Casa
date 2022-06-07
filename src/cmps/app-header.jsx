@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { NavLink as Link, useLocation } from "react-router-dom"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 import { StaySearch } from "./stay-search.jsx"
 import { setFilterBy } from "../store/action/stay.action"
@@ -15,7 +15,7 @@ import {
 import { showUserMsg } from "../services/event-bus.service"
 
 export function AppHeader() {
-  const user = userService.getLoggedinUser()
+  const [user,setUser] = useState(userService.getLoggedinUser())
   console.log(user)
   const [headerClass, setHeaderClass] = useState("")
   const [img, setImg] = useState(logoImg2)
@@ -35,7 +35,7 @@ export function AppHeader() {
 
   const emitNewOrder = () => {
     showUserMsg("New order in your dashboard!")
-    const newUser = userService.setNotification(true)
+    setUser(userService.setNotification(true))
   }
 
   useEffect(() => {
@@ -53,7 +53,10 @@ export function AppHeader() {
     if (location.pathname.includes("/stay/details")) {
       setHeaderClass("details-page-layout")
       setImg(logoImg)
-    } else {
+    } else if(location.pathname === "/dashboard"&&user.notification){
+      debugger
+      setUser(userService.setNotification(false))
+    }else {
       setHeaderClass("general-layout")
       setImg(logoImg)
     }
@@ -62,7 +65,7 @@ export function AppHeader() {
       setHeaderClass("")
       setImg(logoImg)
     }
-  }, [location.pathname])
+  }, [location.pathname,user])
 
   return (
     <header className={`app-header ${headerClass}`}>
