@@ -130,25 +130,13 @@ export const DashBoard = () => {
             {hostListings &&
               hostListings.map((listing, idx) => {
                 console.log(idx)
-                // let count = 0
-                // if (hostOrders.length > 0) {
-                //   console.log(hostOrders);
-                //   if (hostOrders[idx].stay.name === listing.name) {
-                //     count++
-                //     console.log(
-                //       "host-order name, listing name",
-                //       hostOrders[idx].stay.name,
-                //       listing.name
-                //     )
-                //   }
-                // }
+
                 return (
                   <div className="listing">
                     <div className="name"><Link to={`/stay/details/${listing._id}`}>{listing.name}</Link></div>
                     <div className="reviews">{listing.reviews.length}</div>
                     <div className="price">{listing.price}</div>
                     <div className="roomType">{listing.roomType}</div>
-                    {/* <div className="orders">{count}</div> */}
                   </div>
                 )
               })}
