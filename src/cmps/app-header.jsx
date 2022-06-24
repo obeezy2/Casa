@@ -14,8 +14,10 @@ import {
 } from "../services/socket.service"
 import { showUserMsg } from "../services/event-bus.service"
 
+
+
 export function AppHeader() {
-  const [user,setUser] = useState(userService.getLoggedinUser())
+  const [user, setUser] = useState(userService.getLoggedinUser())
   const [headerClass, setHeaderClass] = useState("")
   const [img, setImg] = useState(logoImg2)
   let location = useLocation()
@@ -48,23 +50,23 @@ export function AppHeader() {
       window.addEventListener("scroll", changeColors)
       setHeaderClass("home-page home-page-layout")
       setImg(logoImg2)
-    } else 
-    if (location.pathname.includes("/stay/details")) {
-      setHeaderClass("details-page-layout")
-      setImg(logoImg)
-    } else if(location.pathname === "/dashboard"&&user.notification){
-      debugger
-      setUser(userService.setNotification(false))
-    }else {
-      setHeaderClass("general-layout")
-      setImg(logoImg)
-    }
+    } else
+      if (location.pathname.includes("/stay/details")) {
+        setHeaderClass("details-page-layout")
+        setImg(logoImg)
+      } else if (location.pathname === "/dashboard" && user.notification) {
+        debugger
+        setUser(userService.setNotification(false))
+      } else {
+        setHeaderClass("general-layout")
+        setImg(logoImg)
+      }
     return () => {
       window.removeEventListener("scroll", changeColors)
       setHeaderClass("")
       setImg(logoImg)
     }
-  }, [location.pathname,user])
+  }, [location.pathname, user])
 
   return (
     <header className={`app-header ${headerClass}`}>
