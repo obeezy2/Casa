@@ -10,6 +10,7 @@ import starIcon from '../assets/img/svgs/star.svg'
 import { AddReview } from '../cmps/add-review'
 import { useSelector } from "react-redux";
 
+
 function numberWithCommas(n) {
   var parts = n.toString().split(".");
   return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
@@ -34,7 +35,7 @@ export const StayDetails = () => {
   };
   const addGuestReview = (review) => {
     review.createdAt = Date.now() / 1000
-    stay.reviews.push(review)
+    stay.reviews.unshift(review)
   }
   if (!stay) {
     return <section className="stay-details-container">Loading</section>;
@@ -45,7 +46,7 @@ export const StayDetails = () => {
         <h1 className="stay-name">{stay.name}</h1>
         <div className="short-desc">
           <div className="stats">
-            <span><img width='14px' src={starIcon}></img>     {(stay.reviewScores.rating / 100).toFixed(1) * 5} ·</span>
+            <span className="stats-star"><img width='14px' src={starIcon}></img>     {((stay.reviewScores.rating / 100) * 5).toFixed(2)} ·</span>
             <span className="reviews"> {stay.reviews.length} reviews</span>
             <span className="seperate-dott">·</span>
             {stay.host.isSuperhost && (

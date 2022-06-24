@@ -31,3 +31,36 @@
 //     grid-area: filter;
 // }
 
+@media (max-width: 768px){
+
+  .stay-app-container {
+    display: grid;
+    grid-auto-flow: row;
+  
+    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows:  80px 1fr;
+    gap: 8px 5px;
+    grid-template-areas:
+      "header"
+      "filter"
+      "stay";
+    justify-content: space-between;
+    align-content: space-between;
+    justify-items: stretch;
+    align-items: stretch;
+    width: 100%;
+    height: 70%;
+    overflow-y: hidden;
+  }
+  
+  .app-header {
+    grid-area: header;
+  }
+  
+  .stay-list-container {
+    grid-area: stay;
+  }
+  
+
+}

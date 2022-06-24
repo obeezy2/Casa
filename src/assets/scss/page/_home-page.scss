@@ -36,3 +36,50 @@
     
     grid-area: stays2;
 }
+
+
+@media (max-width: 768px){
+      .search-bar{
+        display: none
+      }
+    .main-container {  
+        display: grid;
+        grid-template-columns:  1fr ; 
+        grid-template-rows: 70px 1.5fr 1.5fr 3fr 1.5fr;
+        gap: 8px 27px;
+        justify-content: space-between;
+        align-content: space-between;
+        justify-items: stretch;
+        align-items: stretch;
+        grid-template-areas:
+          "header header header"
+          "hero hero hero"
+          "stays1"
+          "."
+          "stays2";
+        width: 100%;
+        height: 100%;
+      }
+      
+    
+      .app-header
+    {
+        grid-area: header;
+    
+    }
+    
+    .main-hero{
+        grid-area: hero;
+    }
+    
+    .pop-cities-gallery{
+        grid-area: stays1;
+    }
+    
+    .top-rated{
+        
+        grid-area: stays2;
+    }
+
+
+}

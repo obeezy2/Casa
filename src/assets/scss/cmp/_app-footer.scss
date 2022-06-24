@@ -11,8 +11,6 @@
         grid-template-areas: 
           "footer footer footer"; 
         align-content: space-between; 
-        // justify-items: stretch; 
-        // align-items: stretch; 
         width: 100%; 
         background-color: #FFFF;
         box-shadow: 0 5px 7px 0 rgb(0 0 0 / 5%);
@@ -47,4 +45,25 @@
             margin: 7px;
         }
     }
+}
+
+
+@media (max-width:768px) {
+
+    .footer-nav-container{
+        display: none;
+    }
+    .main-footer
+     {
+        position: fixed;
+        bottom: 0;
+        z-index: 25;
+        display: grid; 
+        grid-template-rows: 32px; 
+        gap: 8px 5px; 
+        grid-template-areas: 
+          "footer footer footer"; 
+        align-content: space-between; 
+      }
+
 }

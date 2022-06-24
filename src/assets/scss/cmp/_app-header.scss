@@ -6,7 +6,7 @@
   height: 80px;
   width: 100%;
   display: grid;
-  grid-template-columns: 2.6fr 1fr 1.9fr 1.6fr 0.5fr 1.2fr 0.4fr;
+  grid-template-columns: 2.6fr 1fr 1.9fr 1.6fr 0.5fr 1.4fr 0.4fr;
   grid-template-rows: 80px;
   gap: 8px 5px;
   align-items: center;
@@ -124,4 +124,28 @@
       color: white;
     }
   }
+}
+@media (max-width:768px) {
+
+  .app-header {
+    z-index: 21;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 80px;
+    width: 100%;
+    display: grid;
+    font-weight: 600;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 80px;
+    align-items: center;
+    grid-template-areas: "logo . . explore host user";
+  
+}
+.host{
+  width: 130px;
+}
+.logo{
+  margin-right: 15px;
+}
 }

@@ -16,7 +16,6 @@ import { showUserMsg } from "../services/event-bus.service"
 
 export function AppHeader() {
   const [user,setUser] = useState(userService.getLoggedinUser())
-  console.log(user)
   const [headerClass, setHeaderClass] = useState("")
   const [img, setImg] = useState(logoImg2)
   let location = useLocation()

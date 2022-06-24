@@ -5,3 +5,16 @@
   row-gap: 38px;
   padding-top: 26px;
   padding-bottom: 90px;}
+
+
+  @media (max-width:768px) {
+      .stay-list-container {
+    display: grid;
+    grid-template-columns: minmax(230px,380px);
+    column-gap: 38px;
+    row-gap: 38px;
+    padding-top: 26px;
+    padding-bottom: 90px;}
+  
+  
+  }

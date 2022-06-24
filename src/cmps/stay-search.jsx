@@ -16,7 +16,8 @@ export const StaySearch = () => {
   let navigate = useNavigate()
   let location = useLocation()
   const { filterBy } = useSelector((storeState) => storeState.stayModule)
-  console.log('filter by from state ', filterBy)
+
+
   const onSetSearchLocation = (ev) => {
     ev.preventDefault()
     setSearchBy({ ...searchBy, stayLocation: ev.target.value })
@@ -38,16 +39,13 @@ export const StaySearch = () => {
     setSearchExpand(false)
     if (location.pathname === "/") {
       setSearchBy({})
-      document
-        .querySelector(".main-container")
-        .addEventListener("click", setSearchExpand(false))
+      document.querySelector(".main-container").addEventListener("click", setSearchExpand(false))
     }
     return () => {
       document.removeEventListener("click", setSearchExpand())
     }
   }, [location])
 
-  console.log(searchBy)
   return (
     <section className="app-filter-container">
       <div className="app-filter">
@@ -70,7 +68,7 @@ export const StaySearch = () => {
                     onChange={(event) => {
                       onSetSearchLocation(event)
                     }}
-                    placeholder="Search Destinations"
+                    placeholder="Search Your Destinations"
                   />
                 </form>
               </div>
