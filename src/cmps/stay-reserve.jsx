@@ -5,6 +5,8 @@ import { orderService } from "../services/order.service"
 import { showUserMsg } from "../services/event-bus.service"
 import { SearchByDate as DatePicker } from "./stay-filter-search-dates"
 import { AddGuestsFilter } from "./stay-search-addGuest-filter"
+
+
 function numberWithCommas(n) {
   var parts = n.toString().split(".");
   return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");

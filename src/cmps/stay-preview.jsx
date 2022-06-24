@@ -4,18 +4,16 @@ import 'react-slideshow-image/dist/styles.css'
 import "react-responsive-carousel/lib/styles/carousel.css";
 import { Carousel } from 'react-responsive-carousel';
 import starIcon from '../assets/img/svgs/star.svg'
-function numberWithCommas(n) {
-    var parts = n.toString().split(".");
-    return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
-}
-function truncate(str, n) {
-    return (str.length > n) ? str.substr(0, n - 1) + '....' : str;
-};
-// import pictures from '../assets/img/houses'
-export function StayPreview({ stay }) {
-    // console.log(pictures)
-    const calculatedStay = (((stay.reviewScores.rating / 100)) * 5).toFixed(1)
 
+export function StayPreview({ stay }) {
+    const calculatedStay = (((stay.reviewScores.rating / 100)) * 5).toFixed(1)
+    function numberWithCommas(n) {
+        var parts = n.toString().split(".");
+        return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
+    }
+    function truncate(str, n) {
+        return (str.length > n) ? str.substr(0, n - 1) + '....' : str;
+    };
     return (
 
         <Link to={`/stay/details/${stay._id}`} className="stay-preview-container">

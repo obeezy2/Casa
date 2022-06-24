@@ -1,20 +1,25 @@
 .stay-list-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  
   column-gap: 38px;
   row-gap: 38px;
   padding-top: 26px;
   padding-bottom: 90px;}
 
 
-  @media (max-width:768px) {
-      .stay-list-container {
-    display: grid;
-    grid-template-columns: minmax(230px,380px);
-    column-gap: 38px;
-    row-gap: 38px;
-    padding-top: 26px;
-    padding-bottom: 90px;}
+
+  @media screen and (max-width: 768px) {
+    .stay-img-container{
+      max-width: 100%;
+
+          img{
+            max-width: 100%;
+          }
+    }
   
-  
+    
   }
+    
+  
+

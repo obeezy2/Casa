@@ -108,10 +108,13 @@ font-size: 18px;
 }
 
 @media (max-width:768px) {
+
+
+
   .stay-details-container {
     margin-top: 80px;
     .stay-title-info-container {
-      height: 86px;
+      height: 100px;
       .stay-name {
         line-height: 30px;
         color: $main-black;
@@ -132,6 +135,7 @@ font-size: 18px;
           line-height: 18px;
           text-align: center;
           text-decoration: underline;
+          display: none;
           img {
             margin-right: 8px;
             object-fit: cover;
@@ -182,18 +186,20 @@ font-size: 18px;
       }
     }
     .img-layout {
-      height: 454px;
+      height: 262px;
       padding-top: 5px;
       margin-bottom: 20px;
       .secondary-img-container {
         display: none;
       }
       .stay-imgs-container {
-        display: grid;
-        grid-template-columns: 1fr ;
-        grid-template-rows: 205px 214px;
-        grid-gap: 8px;
-        border-radius: 12px;
+         
+          display: grid;
+          grid-template-columns: max-content;
+          grid-template-rows: 172px 99px;
+          grid-gap: 8px;
+          border-radius: 12px;
+      
         
         img {
           aspect-ratio: 1;
@@ -213,6 +219,7 @@ font-size: 18px;
     .info-reserve {
       display: flex;
       justify-content: stretch;
+      flex-direction: column;
     }
   
     .host-info {
@@ -233,5 +240,55 @@ font-size: 18px;
     }
   
 
+}
+.reserve-container .reserve-modal {
+  font-size: 15px;
+  color: #222222;
+  z-index: 10;
+  position: sticky;
+  top: 80px;
+  height: 360px;
+  width: 100%;
+  max-width: 1120px;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+  justify-self: center;
+  align-self: center;
+   margin-left: 0%; 
+}
+.reserve-container {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 250px;
+}
+.stay-main-info-container .short-info-container .host-img-container {
+  display: none;
+}
+.details-page-layout {
+  padding-inline: 10%;
+}
+.reviews-container .rating-breakdown {
+  padding-top: 30px;
+  padding-bottom: 40px;
+  display: grid;
+  font-size: 18px;
+  font-weight: 400 !important;
+  grid-auto-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1.3fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 8px 0px;
+  grid-template-areas:
+      "prop1 . . value1 prop2 . . value2"
+      "prop3 . . value3 prop4 . . value4"
+      "prop5 . . value5 prop6 . . value6";
+  justify-content: space-between;
+  align-content: space-between;
+  justify-items: stretch;
+  align-items: stretch;
+  width: 100%;
+  height: 70%;
+  display: none;
 }
 }

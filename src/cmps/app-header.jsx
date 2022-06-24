@@ -99,7 +99,7 @@ export function AppHeader() {
           <AccountCircleIcon />{" "}
         </Link>
       ) : (
-        <Link className="user" to="/userdashboard">
+        <Link className="user" to="/userdashboard" title="User Dashboard">
           {user?.notification && <div className="notification"></div>}
           <img className="user-pic" src={user.imgUrl}></img>{" "}
         </Link>
