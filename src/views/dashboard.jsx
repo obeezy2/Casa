@@ -16,8 +16,6 @@ export const DashBoard = () => {
   const [selected, setSelected] = useState(1)
   const [hostListings, setHostListings] = useState("")
   const [hostOrders, setNewOrders] = useState("")
-  console.log("orders", hostOrders)
-  console.log("listings", hostListings)
 
   const handleClick = (divNum) => () => {
     setSelected(divNum)
@@ -64,15 +62,18 @@ export const DashBoard = () => {
     order.status = "Declined"
     await orderService.updateOrder(order)
     getOrders()
+
   }
 
   const approveRequest = async (order) => {
     order.status = "Approved"
     await orderService.updateOrder(order)
     getOrders()
+
   }
 
   useEffect(() => {
+
     socketService.on(SOCKET_EVENT_NEW_ORDER, getOrders)
     getStays()
     getOrders()
@@ -172,7 +173,6 @@ export const DashBoard = () => {
               })}
           </div>
           <div className={selected === 3 ? "edit active" : "edit"}>
-            <StayEdit />
           </div>
         </div>
       </section>

@@ -39,5 +39,5 @@ async function saveOrder(order) {
 
 async function updateOrder(order) {
   if (!order) return
-  await httpService.put(`${END_POINT}/${order}`);
+  await httpService.put(END_POINT, order);
 }

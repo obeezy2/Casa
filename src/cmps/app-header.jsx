@@ -85,15 +85,19 @@ export function AppHeader() {
         Explore
       </Link>
       {user ? (
+
         <Link className="host" to="/dashboard">
           Host Dashboard
         </Link>
+
       ) : (
         <Link className="host" to="/host">
           Become a host
         </Link>
       )}
-
+      <Link className="host-mobile" to="/host">
+        Host
+      </Link>
       {!user ? (
         <Link className="user" to="/login">
           <AccountCircleIcon />{" "}

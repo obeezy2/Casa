@@ -9,8 +9,8 @@ import { setFilterBy } from "../store/action/stay.action.js"
 import SearchIcon from "@mui/icons-material/Search"
 
 export const StaySearch = () => {
-  const [isSearchExpand, setSearchExpand] = useState(false)
-  const [currExpand, setExpand] = useState(null)
+  const [isSearchExpanded, setSearchExpand] = useState(false)
+  const [currExpand, setExpand] = useState('')
   const [searchBy, setSearchBy] = useState({})
   const dispatch = useDispatch()
   let navigate = useNavigate()
@@ -26,6 +26,7 @@ export const StaySearch = () => {
   const onQuickSearchByLocation = (stayLocation) => {
     dispatch(setFilterBy({ ...searchBy, stayLocation }))
     navigate("/stays")
+
   }
 
   const onSearch = (ev = null) => {
@@ -35,7 +36,7 @@ export const StaySearch = () => {
   }
 
   useEffect(() => {
-    //close filter expand when moveing to another page
+    //close filter expand when moving to another page
     setSearchExpand(false)
     if (location.pathname === "/") {
       setSearchBy({})
@@ -52,12 +53,12 @@ export const StaySearch = () => {
         <div
           className="filter-btn-container filter-btn-location"
           onClick={() => {
-            setSearchExpand(!isSearchExpand)
+            setSearchExpand(!isSearchExpanded)
             setExpand("Anywhere")
           }}
         >
           <div className="filter-btn">
-            {currExpand === "Anywhere" && isSearchExpand ? (
+            {currExpand === "Anywhere" && isSearchExpanded ? (
               <div>
                 Where
                 <form onSubmit={onSearch}>
@@ -80,7 +81,7 @@ export const StaySearch = () => {
                   Where <p>{searchBy.stayLocation || searchBy.region}</p>{" "}
                 </div>
               )) ||
-              filterBy?.stayLocation || "Anywhere"
+              (location.pathname !== '/') && filterBy?.stayLocation || "Anywhere"
 
             )}
           </div>
@@ -89,18 +90,19 @@ export const StaySearch = () => {
         <div
           className="filter-btn-container filter-btn-dates"
           onClick={() => {
-            setSearchExpand(!isSearchExpand)
+            setSearchExpand(!isSearchExpanded)
             setExpand("Any week")
+            console.log(currExpand)
           }}
         >
           <div className="filter-btn">
-            {currExpand === "Any week" && isSearchExpand ? (
+            {currExpand === "Any week" && isSearchExpanded ? (
               <div>
                 <p>When</p>
                 <p>Any week</p>
               </div>
             ) : (
-              (searchBy.startDate && searchBy.endDate && (
+              (searchBy.startDate && searchBy.endDate) && (
                 <div className="check-in-container">
                   <div className=" check">
                     {" "}
@@ -112,8 +114,8 @@ export const StaySearch = () => {
                     {new Date(searchBy.endDate).toLocaleDateString()}{" "}
                   </div>{" "}
                 </div>
-              )) ||
-              "Any week"
+              )
+              || `Any week`
             )}
           </div>
         </div>
@@ -122,11 +124,11 @@ export const StaySearch = () => {
           <div
             className="filter-btn"
             onClick={() => {
-              setSearchExpand(!isSearchExpand)
+              setSearchExpand(!isSearchExpanded)
               setExpand("Add guests")
             }}
           >
-            {currExpand === "Add guests" && isSearchExpand ? (
+            {currExpand === "Add guests" && isSearchExpanded ? (
               <div>
                 <p>Who</p>
                 <p>Add guests</p>
@@ -144,7 +146,7 @@ export const StaySearch = () => {
           </div>
         </div>
       </div>
-      {isSearchExpand && (
+      {isSearchExpanded && (
         <div className="filter-expand">
           {currExpand === "Anywhere" && (
             <div>
@@ -184,6 +186,10 @@ export const StaySearch = () => {
   )
 }
 
+
+
+
+
 function SearchByDestination(props) {
   const [region, setRegion] = useState("")
   useEffect(() => {
@@ -192,7 +198,6 @@ function SearchByDestination(props) {
   }, [region])
   return (
     <div className="destination-search-container">
-      {/* <h4 className="destination-search-container-header">search by region</h4> */}
       <div className="regions-container">
         <Destination region={"Spain"} setRegion={setRegion} />
         <Destination region={"United States"} setRegion={setRegion} />
