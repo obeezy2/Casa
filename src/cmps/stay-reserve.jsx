@@ -59,7 +59,7 @@ export class _Reserve extends React.Component {
 
   onReserve = async () => {
     const { user, stayId, hostId } = this.props
-    const { dates, price } = this.state
+    const { dates, price, guestCount } = this.state
     if (!user) {
       showUserMsg("Please login", "not-logged-in")
       return
@@ -72,6 +72,7 @@ export class _Reserve extends React.Component {
     try {
       await orderService.saveOrder({
         price: ((dates.endDateStamp - dates.startDateStamp) / 86400000) * price,
+        guestCount,
         hostId,
         stayId,
         startDate: dates.startDateStamp,
@@ -87,7 +88,7 @@ export class _Reserve extends React.Component {
 
   render() {
 
-    const { dates, isDateModalOpen, isGuestModalOpen, price } = this.state
+    const { dates, isDateModalOpen, isGuestModalOpen, price, guestCount } = this.state
     return (
       <section className="reserve-container">
         <div className="reserve-modal">
@@ -129,7 +130,9 @@ export class _Reserve extends React.Component {
                 ...this.state,
                 isGuestModalOpen: !isGuestModalOpen,
               })
-            }}>Guests</h3>
+            }}> {guestCount
+              ? `${guestCount} guests`
+              : "Guests"}</h3>
             {isGuestModalOpen && (
               <div className="guest-modal-container">
                 <AddGuestsFilter

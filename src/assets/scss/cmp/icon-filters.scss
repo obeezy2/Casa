@@ -111,8 +111,17 @@
     width: 100%;
 max-width: 780px !important;
 border-radius: 12px;
-
+          
 
     }
+
   }
   
+@media (max-width: 768px){
+  
+  .icon-filters{
+
+    display: none;
+   
+ }
+}

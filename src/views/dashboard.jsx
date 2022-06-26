@@ -7,6 +7,9 @@ import { StayEdit } from "../views/stay-edit"
 import { socketService, SOCKET_EVENT_NEW_ORDER } from "../services/socket.service";
 import { userService } from "../services/user.service";
 import { DashboardData } from './dashboarddata'
+import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
+
+
 
 export const DashBoard = () => {
   const { user } = useSelector((storeState) => storeState.userModule)
@@ -32,6 +35,7 @@ export const DashBoard = () => {
     try {
       const orders = await orderService.query(host)
       setNewOrders(orders)
+      console.log(orders)
     } catch {
       throw new Error("Cannot get orders")
     }
@@ -122,8 +126,8 @@ export const DashBoard = () => {
           >
             <div>Property Name</div>
             <div>Ordered by</div>
-            <div>From Date</div>
-            <div>To Date</div>
+            <div>Dates</div>
+            <div>Guests</div>
             <div>Status</div>
             <div>Actions</div>
           </div>
@@ -150,10 +154,11 @@ export const DashBoard = () => {
                 return (
                   <div className="order">
                     <div className="listingsname">{order.stay.name}</div>
-                    <div className="orderby">{order.user.username}</div>
-                    <div className="dates">{getDate(order.startDate)}</div>
-                    <div className="dates">{getDate(order.endDate)}</div>
+                    <div className="orderby">{order.user.fullname}</div>
+                    <div className="dates"><span>{getDate(order.startDate)}</span>   <DoubleArrowIcon /> <span> {getDate(order.endDate)}</span> </div>
+                    <div className="Guests">{order.guestCount}</div>
                     <div className="pending">{order.status}</div>
+
                     <div className="actions">
                       <button
                         onClick={() => approveRequest(order)}

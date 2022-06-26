@@ -1,31 +1,24 @@
 import React from "react"
 import HomeIcon from '@mui/icons-material/Home';
+import MoveToInboxIcon from '@mui/icons-material/MoveToInbox';
+import AnalyticsIcon from '@mui/icons-material/Analytics';
 export const DashboardData = [
     {
-        title: 'Listings',
+        title: 'Your Listings',
         icon: <HomeIcon />,
         link: "/home",
     },
     {
-        title: 'Orders',
-        icon: <HomeIcon />,
+        title: 'Incoming Orders',
+        icon: <MoveToInboxIcon />,
         link: "/mailbox",
     },
     {
         title: 'Analytics',
-        icon: <HomeIcon />,
+        icon: <AnalyticsIcon />,
         link: "/analytics",
     },
-    {
-        title: 'Orders',
-        icon: <HomeIcon />,
-        link: "/orders",
-    },
-    {
-        title: 'Something',
-        icon: <HomeIcon />,
-        link: "/something",
-    }
+
 
 
 ]
