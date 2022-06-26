@@ -12,31 +12,31 @@ export function AddGuestsFilter(props) {
   }, [adults, children, infants, pets])
 
   function updateAdults(diff) {
-    const sum=calcTotalGuests()
-    if (adults + diff < 0||sum+diff>props.maxGuests) return
+    const sum = calcTotalGuests()
+    if (adults + diff < 0 || sum + diff > props.maxGuests) return
     setAdults(adults + diff)
   }
 
   function updateChildren(diff) {
-    const sum=calcTotalGuests()
-    if (children + diff < 0||sum+diff>props.maxGuests) return
+    const sum = calcTotalGuests()
+    if (children + diff < 0 || sum + diff > props.maxGuests) return
     setChildren(children + diff)
   }
 
   function updateInfants(diff) {
-    const sum=calcTotalGuests()
-    if (infants + diff < 0||sum+diff>props.maxGuests) return
+    const sum = calcTotalGuests()
+    if (infants + diff < 0 || sum + diff > props.maxGuests) return
     setInfants(infants + diff)
   }
 
   function updatePets(diff) {
-    const sum=calcTotalGuests()
-    if (pets + diff < 0||sum+diff>props.maxGuests) return
+    const sum = calcTotalGuests()
+    if (pets + diff < 0 || sum + diff > props.maxGuests) return
     setPets(pets + diff)
   }
 
   function calcTotalGuests() {
-    return adults + children + infants + pets
+    return adults + children + infants
   }
 
   return <div className="add-guest-container">
