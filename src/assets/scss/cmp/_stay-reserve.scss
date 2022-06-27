@@ -1,7 +1,7 @@
 .reserve-container {
   margin-top: 30px;
   margin-bottom: 30px;
-  width: 420px;
+  width: 410px;
   .reserve-modal {
     font-size: 15px;
     color: $main-black;
@@ -18,7 +18,7 @@
     justify-self: center;
     align-self: center;
     margin-left: 10%;
-    h1{
+    h1 {
       font-size: 22px;
     }
     .order-datepicker-guest {
@@ -42,10 +42,7 @@
         h3 {
           padding: 1rem 0.5rem;
         }
-        // h2{
-        //   text-align: left;
-        //   cursor: pointer;
-        // }
+
         .end-date {
           padding-left: 1rem;
           border-left: 1px solid #b0b0b0;

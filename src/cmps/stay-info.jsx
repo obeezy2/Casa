@@ -1,14 +1,15 @@
 import { stayService } from "../services/stay.service";
 import { useState } from "react";
-import { AiOutlineHome, AiOutlineWifi, AiOutlineCheckSquare } from 'react-icons/ai';
+import { AiOutlineWifi, AiOutlineCheckSquare } from 'react-icons/ai';
 import { BiCameraHome, BiBath } from 'react-icons/bi';
-import { TiKeyOutline } from 'react-icons/ti';
-import { HiOutlineLocationMarker, HiOutlineSparkles } from 'react-icons/hi';
 import { FiMonitor, FiSpeaker } from 'react-icons/fi';
 import { FaTemperatureLow, FaSwimmingPool } from 'react-icons/fa';
 import { MdOutlineTakeoutDining, MdOutlineBeachAccess, MdOutlinePets, MdOutlineLocalLaundryService, MdOutlineElevator, MdOutlineLuggage, MdOutlineMicrowave, MdOutlineIron, MdOutlineCoffeeMaker } from 'react-icons/md';
 import { CgSmartHomeWashMachine, CgSmartHomeRefrigerator } from 'react-icons/cg';
 import { GiCigarette } from 'react-icons/gi';
+
+
+
 export const StayInfo = ({ stay }) => {
   const [isAmenitiesExpanded, setIsAmenitiesExpanded] = useState(false);
 

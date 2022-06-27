@@ -36,7 +36,6 @@ export const StaySearch = () => {
   }
 
   useEffect(() => {
-    //close filter expand when moving to another page
     setSearchExpand(false)
     if (location.pathname === "/") {
       setSearchBy({})

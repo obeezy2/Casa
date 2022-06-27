@@ -1,4 +1,3 @@
-
 // COLOR PALETTE
 
 $black: #000000;
@@ -6,29 +5,52 @@ $main-black: #222222;
 $main-grey: #717171;
 $secondary-grey: rgb(221, 221, 221);
 $light-grey: rgb(235, 235, 235);
-$main-red-pink: #FF385C;
+$main-red-pink: #ff385c;
 
-$iw-ihca: #B0B0B0;
+$iw-ihca: #b0b0b0;
 
-
-
-$white: #FFFFFF;
-$k-va-tnc: #C13515;
-$cnr-vp-o: #B32505;
-$f-p-k-v-lb: #FFF8F6;
-$fhi-qn-u: #E07912;
-$k-ff-my-a: #008A05;
-$ldbkp-d: #428BFF;
-$kd-lqtg: #92174D;
+$white: #ffffff;
+$k-va-tnc: #c13515;
+$cnr-vp-o: #b32505;
+$f-p-k-v-lb: #fff8f6;
+$fhi-qn-u: #e07912;
+$k-ff-my-a: #008a05;
+$ldbkp-d: #428bff;
+$kd-lqtg: #92174d;
 $d-u-w-o-m-k: #460479;
 
 // Reserve Button
-$dc-gy-f-v: linear-gradient(to right,#E61E4D 0%,#E31C5F 50%,#D70466 100%);
-$d-e-vybb: radial-gradient(circle at center,#FF385C 0%,#E61E4D 27.5%,#E31C5F 40%,#D70466 57.5%,#BD1E59 75%,#BD1E59 100%);
-$gj-z-dpd: linear-gradient(to right,#BD1E59 0%,#92174D 50%,#861453 100%);
-$i-n-t-h-mj: radial-gradient(circle at center,#D70466 0%,#BD1E59 30%,#92174D 55%,#861453 72.5%,#6C0D63 90%,#6C0D63 100%);
-$iqds-nv: linear-gradient(to right,#59086E 0%,#460479 50%,#440589 100%);
-$j-m-v-dtd: radial-gradient(circle at center,#6C0D63 0%,#59086E 30%,#460479 55%,#440589 72.5%,#3B07BB 90%,#3B07BB 100%);
+
+$dc-gy-f-v: linear-gradient(to right, #e61e4d 0%, #e31c5f 50%, #d70466 100%);
+$d-e-vybb: radial-gradient(
+  circle at center,
+  #ff385c 0%,
+  #e61e4d 27.5%,
+  #e31c5f 40%,
+  #d70466 57.5%,
+  #bd1e59 75%,
+  #bd1e59 100%
+);
+$gj-z-dpd: linear-gradient(to right, #bd1e59 0%, #92174d 50%, #861453 100%);
+$i-n-t-h-mj: radial-gradient(
+  circle at center,
+  #d70466 0%,
+  #bd1e59 30%,
+  #92174d 55%,
+  #861453 72.5%,
+  #6c0d63 90%,
+  #6c0d63 100%
+);
+$iqds-nv: linear-gradient(to right, #59086e 0%, #460479 50%, #440589 100%);
+$j-m-v-dtd: radial-gradient(
+  circle at center,
+  #6c0d63 0%,
+  #59086e 30%,
+  #460479 55%,
+  #440589 72.5%,
+  #3b07bb 90%,
+  #3b07bb 100%
+);
 
 // LAYOUT
 
@@ -42,5 +64,3 @@ $break-wide: 1920px;
 $padded-break-narrow: $break-narrow + $layoutPadding * 2;
 $padded-break-normal: $break-normal + $layoutPadding * 2;
 $padded-break-wide: $break-wide + $layoutPadding * 2;
-
-

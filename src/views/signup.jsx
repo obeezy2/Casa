@@ -1,40 +1,36 @@
-import * as React from 'react';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import TextField from '@mui/material/TextField';
+import * as React from "react";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 import { Link } from "react-router-dom";
-import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useDispatch } from 'react-redux';
-
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { useDispatch } from "react-redux";
 import { connect } from "react-redux";
-import { useNavigate } from 'react-router-dom';
-import { onSignup } from '../store/action/user.action.js';
-import { CleaningServices } from '@mui/icons-material';
+import { useNavigate } from "react-router-dom";
+import { onSignup } from "../store/action/user.action.js";
+
 const theme = createTheme();
 
 export function _Signup() {
-    let navigate = useNavigate()
-    const dispatch = useDispatch()
+    let navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        const fName = data.get('firstName')
-        const lName = data.get('lastName')
+        const fName = data.get("firstName");
+        const lName = data.get("lastName");
         const user = {
-            username: data.get('username'),
-            fullname: (fName + ' ' + lName),
-            password: data.get('password'),
-        }
-        console.log(user)
-        dispatch(onSignup(user))
-        navigate('/');
+            username: data.get("username"),
+            fullname: fName + " " + lName,
+            password: data.get("password"),
+        };
+        console.log(user);
+        dispatch(onSignup(user));
+        navigate("/");
     };
 
     return (
@@ -43,15 +39,20 @@ export function _Signup() {
                 <Box
                     sx={{
                         marginTop: 20,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
                     }}
                 >
                     <Typography component="h1" variant="h5">
                         Sign up
                     </Typography>
-                    <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+                    <Box
+                        component="form"
+                        noValidate
+                        onSubmit={handleSubmit}
+                        sx={{ mt: 3 }}
+                    >
                         <Grid container spacing={2}>
                             <Grid item xs={12} sm={6}>
                                 <TextField
@@ -95,7 +96,6 @@ export function _Signup() {
                                     autoComplete="new-password"
                                 />
                             </Grid>
-
                         </Grid>
                         <Button
                             type="submit"
@@ -107,27 +107,23 @@ export function _Signup() {
                         </Button>
                         <Grid container justifyContent="flex-end">
                             <Grid item>
-                                <Link to="/login" >
-                                    Already have an account? Sign in
-                                </Link>
+                                <Link to="/login">Already have an account? Sign in</Link>
                             </Grid>
                         </Grid>
                     </Box>
                 </Box>
-
             </Container>
         </ThemeProvider>
-    )
+    );
 }
-
 
 function mapStateToProps(storeState) {
     return {
         user: storeState.userModule.user,
-    }
+    };
 }
 const mapDispatchToProps = {
     onSignup,
-}
+};
 
-export const Signup = connect(mapStateToProps, mapDispatchToProps)(_Signup)
+export const Signup = connect(mapStateToProps, mapDispatchToProps)(_Signup);

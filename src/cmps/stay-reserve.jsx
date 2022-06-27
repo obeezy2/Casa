@@ -67,7 +67,6 @@ export class _Reserve extends React.Component {
     if (!dates.endDateStamp || !dates.startDateStamp) {
       showUserMsg("Please select dates")
       return
-      // focus on the date picker
     }
     try {
       await orderService.saveOrder({
@@ -80,7 +79,6 @@ export class _Reserve extends React.Component {
       })
       showUserMsg("Inquiry Sent")
 
-      //navigate to user trips
     } catch (err) {
       if (err === "not availble") showUserMsg("No available dates")
     }

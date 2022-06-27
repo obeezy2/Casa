@@ -1,17 +1,12 @@
-import { Component } from 'react'
-import Avatar from '@mui/material/Avatar';
-
-
+import { Component } from "react";
+import Avatar from "@mui/material/Avatar";
 
 export class AddReview extends Component {
-
     state = {
         review: {
-            txt: '',
-        }
-    }
-
-
+            txt: "",
+        },
+    };
 
     handleChange = ({ target }) => {
         const { value } = target;
@@ -23,28 +18,25 @@ export class AddReview extends Component {
         review.by = {
             _id: loggedinUser._id,
             fullname: loggedinUser.fullname,
-            imgUrl: loggedinUser.imgUrl
-        }
-        this.props.addGuestReview(review)
-
+            imgUrl: loggedinUser.imgUrl,
+        };
+        this.props.addGuestReview(review);
     };
 
     render() {
-        const { review } = this.state
-        const { loggedinUser } = this.props
-        const imgUrl = (loggedinUser) ? loggedinUser.imgUrl : ''
-        const fullname = (loggedinUser) ? loggedinUser.fullname : 'Guest'
+        const { review } = this.state;
+        const { loggedinUser } = this.props;
+        const imgUrl = loggedinUser ? loggedinUser.imgUrl : "";
+        const fullname = loggedinUser ? loggedinUser.fullname : "Guest";
 
         return (
             <section className="add-review">
                 <h2>Add Review</h2>
                 <div className="loggedin-user">
-
                     <Avatar src={imgUrl} />
 
                     <h3>{fullname}</h3>
                 </div>
-
 
                 <textarea
                     type="text"
@@ -53,12 +45,10 @@ export class AddReview extends Component {
                     onChange={this.handleChange}
                     value={review.txt}
                     placeholder="Add your review..."
-
                 />
 
                 <button onClick={this.sendReview}> Send </button>
             </section>
-        )
+        );
     }
-
 }

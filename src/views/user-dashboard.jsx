@@ -3,13 +3,12 @@ import { useEffect, useState } from "react";
 import { stayService } from "../services/stay.service";
 import { orderService } from "../services/order.service";
 import { useSelector } from "react-redux";
-import { StayEdit } from "../views/stay-edit";
 import {
     socketService,
     SOCKET_EVENT_NEW_ORDER,
 } from "../services/socket.service";
 import { userService } from "../services/user.service";
-import { userData } from "./user-details";
+import { userData } from "./userdashboard-data";
 
 export const UserDashboard = () => {
     const { user } = useSelector((storeState) => storeState.userModule);
@@ -108,7 +107,6 @@ export const UserDashboard = () => {
                                         <div className="dates">{getDate(order.startDate)}</div>
                                         <div className="dates">{getDate(order.endDate)}</div>
                                         <div className="status">{order.status}</div>
-
                                     </div>
                                 );
                             })}

@@ -26,20 +26,16 @@
   grid-area: stay;
 }
 
-// .app-filter-container{
-//   padding-top: 1px;
-//     grid-area: filter;
-// }
 
-@media (max-width: 768px){
 
+@media (max-width: 768px) {
   .stay-app-container {
     display: grid;
     grid-auto-flow: row;
-  
+
     grid-auto-columns: 1fr;
     grid-template-columns: 1fr;
-    grid-template-rows:  80px 1fr;
+    grid-template-rows: 80px 1fr;
     gap: 8px 5px;
     grid-template-areas:
       "header"
@@ -53,14 +49,12 @@
     height: 70%;
     overflow-y: hidden;
   }
-  
+
   .app-header {
     grid-area: header;
   }
-  
+
   .stay-list-container {
     grid-area: stay;
   }
-  
-
 }

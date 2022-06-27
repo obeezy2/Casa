@@ -55,7 +55,6 @@ export function AppHeader() {
         setHeaderClass("details-page-layout")
         setImg(logoImg)
       } else if (location.pathname === "/dashboard" && user.notification) {
-        debugger
         setUser(userService.setNotification(false))
       } else {
         setHeaderClass("general-layout")

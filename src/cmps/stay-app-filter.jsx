@@ -14,10 +14,10 @@ export function StayAppFilter({ onChangeFilter }) {
     <div className={`icon-filters`}>
       {filterNames.map((filter) => {
         return (
-          <div className="filter-whole" onClick={() => handleSetFilter(filter)}>
+          <div key={filter}
+            className="filter-whole" onClick={() => handleSetFilter(filter)}>
             <div className="center-div">
               <img
-                key={filter}
                 src={require(`../assets/img/filters/${filter}.jpg`)}
                 alt=""
               ></img>

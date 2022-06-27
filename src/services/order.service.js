@@ -31,7 +31,6 @@ async function remove(orderId) {
   return await httpService.delete(`${END_POINT}/${orderId}`);
 }
 
-// to add an order you have to give {stayId,hostId,startDate,endDate}
 async function saveOrder(order) {
   if (!order._id) return await httpService.post(END_POINT, order);
   else return await httpService.put(END_POINT, order);
@@ -39,5 +38,13 @@ async function saveOrder(order) {
 
 async function updateOrder(order) {
   if (!order) return
-  await httpService.put(END_POINT, order);
+  console.log(order)
+  try {
+    await httpService.put(`${END_POINT}/${order._Id}`, order);
+
+  }
+  catch (error) {
+    console.log(error);
+  }
+
 }

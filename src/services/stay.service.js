@@ -1,5 +1,3 @@
-// import { storageService } from "./async.storage.service"
-// import { stay_db } from "../data/db"
 import { httpService } from "./http.service"
 
 const END_POINT = "stay"
@@ -88,7 +86,6 @@ export const stayService = {
   saveStay,
   deleteStay
 }
-// QUERY you can pass as a filter {hostId,stayLocation,label}
 async function query(filterBy) {
   return await httpService.get(END_POINT, filterBy)
 
