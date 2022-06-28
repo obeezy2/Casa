@@ -7,10 +7,9 @@ import {
   socketService,
   SOCKET_EVENT_NEW_ORDER,
 } from "../services/socket.service";
-import { userService } from "../services/user.service";
 import { DashboardData } from "./dashboard-data";
 import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
-
+import { showUserMsg } from "../services/event-bus.service";
 export const DashBoard = () => {
   const { user } = useSelector((storeState) => storeState.userModule);
   const host = {
@@ -66,12 +65,16 @@ export const DashBoard = () => {
     order.status = "Declined";
     await orderService.updateOrder(order);
     getOrders();
+    showUserMsg("Order Declined")
+
   };
 
   const approveRequest = async (order) => {
     order.status = "Approved";
     await orderService.updateOrder(order);
     getOrders();
+    showUserMsg("Order Approved")
+
   };
 
   useEffect(() => {

@@ -272,7 +272,51 @@
     display: none;
     padding-bottom: 5px;
   }
-  .dashboard .data .settings.active :not(:first-child) {
+  .dashboard .data .settings.active {
+    display: none;
+  }
+  .dashboard .hostdash .side-bar {
+    width: 117px;
+  }
+  .dashboard .listing div {
+    display: flex;
+    justify-content: center;
+    color: #222222;
+    font-weight: 900;
+    text-align: center;
+    padding: 10px;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    height: 100%;
+    border-right: 0px;
+  }
+  .dashboard .data .ordersettings.active {
+    display: none;
+  }
+  .dashboard .orders .order {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+  }
+  .dashboard .orders .order :not(:first-child) :not(:last-child) {
+    display: flex;
+    justify-content: center;
+    color: #222222;
+    font-weight: 900;
+    text-align: center;
+    padding: 10px;
+    align-items: center;
+    justify-items: center;
+    width: 100%;
+    height: 100%;
+    border-right: 3px solid #2f4050;
     display: none;
   }
 }
